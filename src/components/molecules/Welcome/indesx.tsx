@@ -4,7 +4,7 @@ import { TypeWelcome } from './types'
 
 const timeMs = 100
 const textInitial = 'Olá,'
-const textRender = [' Eu sou o Henrique', ' Seja bem vindo']
+const textRender = [' eu sou o Henrique', ' seja bem vindo']
 const timeExtends = 2000
 
 function renderText(
