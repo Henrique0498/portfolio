@@ -48,13 +48,9 @@ export const Welcome = (props: TypeWelcome) => {
       return (before += current.length * 2 * timeMs + timeExtends)
     }, 400)
 
-    console.log(timeInterval)
-
     const idSetInterval = setInterval(() => {
       renderText(refTextWelcome, idsTimeout)
     }, timeInterval)
-
-    console.log(idsTimeout)
 
     return () => {
       clearInterval(idSetInterval)
