@@ -6,7 +6,7 @@ export function Header() {
   return (
     <S._Container>
       <MenuBurger />
-      <Button >curriculo</Button>
+      <Button aria-label="Baixar currículo">Currículo</Button>
     </S._Container>
   )
 }
