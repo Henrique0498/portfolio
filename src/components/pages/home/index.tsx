@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Icon } from '../../atoms/Icons'
-import { Welcome } from '../../molecules/Welcome/indesx'
+import { Welcome } from '../../molecules/Welcome'
 import * as S from './styles'
 
 export function PageHome() {
