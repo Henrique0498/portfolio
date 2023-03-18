@@ -8,6 +8,9 @@ export const _Container = styled.div`
 
   > span {
     position: relative;
+    font-weight: 500;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
 
     &::before {
       content: '';
