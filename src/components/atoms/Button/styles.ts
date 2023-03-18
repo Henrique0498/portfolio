@@ -29,9 +29,12 @@ export const _Container = styled.button`
   :hover,
   :focus {
     background-position-x: 100%;
-    box-shadow: 0 0 0 2px ${({ theme }) => theme.colors.blue[300]};
     color: ${({ theme }) => theme.colors.blue[50]};
+  }
+
+  :focus {
     outline-offset: -1px;
+    box-shadow: 0 0 0 2px ${({ theme }) => theme.colors.blue[300]};
     outline: 1px solid ${({ theme }) => theme.colors.blue[600]};
   }
 `
