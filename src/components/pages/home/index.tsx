@@ -12,10 +12,6 @@ export function PageHome() {
       <Welcome className="col-span-4" />
 
       <S._Description className="col-span-4">
-        <Icon
-          icon="backgroundDiagonal"
-          className="description_background text-gray-900"
-        />
         <div className="description_decorators">
           <span>Quem é</span>
           <span>Henrique Lopes</span>
@@ -46,7 +42,7 @@ export function PageHome() {
         <div className="technologies_main">
           <div className="main_head">
             <span className="head_title">
-              <h6>Projetos</h6>
+              <h6>Tecnologias</h6>
             </span>
             <p>Stacks que mais domino nesse momento.</p>
           </div>

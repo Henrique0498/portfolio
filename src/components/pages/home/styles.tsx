@@ -9,6 +9,12 @@ export const _Description = styled.section`
   position: relative;
   padding: 0 1rem;
   overflow: hidden;
+  background: ${({ theme }) => theme.colors.gray[1000]};
+  transform: skewY(-4deg);
+
+  & > * {
+    transform: skewY(4deg);
+  }
 
   .description_background {
     display: flex;
@@ -45,7 +51,7 @@ export const _Description = styled.section`
       display: block;
       font-size: 3rem;
       line-height: 3.75rem;
-      color: ${({ theme }) => theme.colors.gray[800]};
+      color: ${({ theme }) => theme.colors.gray[900]};
       font-weight: 500;
 
       :first-child {
