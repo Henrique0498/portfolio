@@ -6,5 +6,6 @@ type Theme = typeof theme.colors
 declare module 'styled-components' {
   export interface DefaultTheme {
     colors: typeof theme.colors
+    text: typeof theme.text
   }
 }
