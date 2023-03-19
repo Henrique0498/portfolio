@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const _Container = styled.div``
 
-export const _Description = styled.div`
+export const _Description = styled.section`
   display: flex;
   height: 32rem;
   align-items: center;
@@ -76,8 +76,66 @@ export const _Description = styled.div`
       position: relative;
 
       b {
-        color: ${({ theme }) => theme.colors.purple[500]};
+        color: ${({ theme }) => theme.colors.violet[400]};
       }
+      a {
+        color: ${({ theme }) => theme.colors.blue[400]};
+      }
+    }
+  }
+`
+
+export const _Technologies = styled.div`
+  position: relative;
+  padding: 5rem 1rem;
+  width: 100vw;
+
+  .technologies_decorators {
+    color: ${({ theme }) => theme.colors.gray[300]};
+    display: flex;
+    height: 100%;
+    justify-content: flex-end;
+    left: 0;
+    position: absolute;
+    padding: 1.5rem 0;
+    top: 0;
+    width: 100vw;
+    z-index: 1;
+  }
+
+  .technologies_main {
+    z-index: 2;
+    position: relative;
+
+    .main_head {
+      .head_title {
+        display: block;
+        position: relative;
+        width: fit-content;
+
+        ::before {
+          content: '';
+          background-color: ${({ theme }) => theme.colors.blue[500]};
+          bottom: -0.25rem;
+          border-radius: 0.25rem;
+          display: block;
+          height: 1rem;
+          position: absolute;
+          right: -0.25rem;
+          width: 1rem;
+          z-index: 1;
+        }
+
+        h6 {
+          position: relative;
+          z-index: 2;
+          ${({ theme }) => theme.text.heading[6]}
+        }
+      }
+    }
+
+    .main_carousel {
+      padding-top: 1rem;
     }
   }
 `
