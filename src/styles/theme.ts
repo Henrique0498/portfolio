@@ -62,6 +62,20 @@ export const theme = {
         font-weight: 500;
         line-height: 1.75rem;
         font-family: 'Poppins', sans-serif;
+      `,
+      subtitle: css`
+        font-size: 1.25rem;
+        font-weight: 500;
+        line-height: 1.5rem;
+        font-family: 'Poppins', sans-serif;
+      `
+    },
+    body: {
+      xxs: css`
+        font-size: 0.625rem;
+        line-height: 0.75rem;
+        text-transform: uppercase;
+        font-family: 'Poppins', sans-serif;
       `
     }
   }

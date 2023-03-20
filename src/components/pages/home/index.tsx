@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Icon } from '../../atoms/Icons'
 import { Welcome } from '../../molecules/Welcome'
+import { CardProjectLarge } from '../../organisms/CardProjectLarge'
 import * as S from './styles'
 
 export function PageHome() {
@@ -63,6 +64,48 @@ export function PageHome() {
           </div>
         </div>
       </S._Technologies>
+
+      <S._Projects className="col-span-4">
+        <div className="projects_main">
+          <Icon icon="gitHubLarge" className="main_decorator" />
+          <div className="main_head">
+            <span className="head_title">
+              <h6>Projetos principais</h6>
+            </span>
+            <p>Estes são os meus projetos principais.</p>
+          </div>
+
+          <div className="main_cards">
+            <CardProjectLarge />
+            <CardProjectLarge />
+            <CardProjectLarge />
+            <CardProjectLarge />
+          </div>
+        </div>
+
+        <div className="projects_secondary">
+          <div className="secondary_head">
+            <span className="head_title">
+              <h6>Projetos principais</h6>
+            </span>
+            <p>Estes são os meus projetos principais.</p>
+          </div>
+          <ul className="secondary_list">
+            <li>
+              <div className="header">
+                <span>teste</span>
+              </div>
+              <div className="body">
+                <span>teste</span>
+              </div>
+            </li>
+            <li>dsadsd</li>
+            <li>teste</li>
+            <li>teste</li>
+            <li>teste</li>
+          </ul>
+        </div>
+      </S._Projects>
     </S._Container>
   )
 }
