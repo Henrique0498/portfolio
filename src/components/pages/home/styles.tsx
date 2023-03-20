@@ -158,7 +158,7 @@ export const _Projects = styled.div`
 
     .main_decorator {
       position: absolute;
-      color: ${({ theme }) => theme.colors.gray[800]};
+      color: ${({ theme }) => theme.colors.gray[700]};
       height: 4rem;
       top: 2rem;
       right: 1rem;
@@ -181,19 +181,28 @@ export const _Projects = styled.div`
 
   .projects_secondary {
     position: relative;
-    padding: 0 1rem;
+    padding: 0 1rem 5rem;
 
-    .secondary_list {
-      margin-top: 1rem;
-      display: flex;
-      flex-direction: column;
-      background-color: ${({ theme }) => theme.colors.gray[50]};
-      border-radius: 0.5rem;
+    .secondary_decorator {
+      position: absolute;
+      top: -2rem;
+      right: 1rem;
+      z-index: 1;
 
-      li {
-        border-bottom: 1px solid ${({ theme }) => theme.colors.gray[300]};
-        padding: 1rem;
+      svg {
+        width: 7.75rem;
+        height: 7.75rem;
+        color: ${({ theme }) => theme.colors.gray[700]};
       }
+    }
+
+    & > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .secondary_head {
+      margin-bottom: 1rem;
     }
   }
 `

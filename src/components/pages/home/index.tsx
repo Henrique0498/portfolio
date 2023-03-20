@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Icon } from '../../atoms/Icons'
+import { ListProject } from '../../molecules/ListProject'
 import { Welcome } from '../../molecules/Welcome'
 import { CardProjectLarge } from '../../organisms/CardProjectLarge'
 import * as S from './styles'
@@ -84,26 +85,14 @@ export function PageHome() {
         </div>
 
         <div className="projects_secondary">
+          <Icon icon="gitSmall" className="secondary_decorator" />
           <div className="secondary_head">
             <span className="head_title">
-              <h6>Projetos principais</h6>
+              <h6>Ultimas atualizações</h6>
             </span>
-            <p>Estes são os meus projetos principais.</p>
+            <p>Atualizações do GitHub.</p>
           </div>
-          <ul className="secondary_list">
-            <li>
-              <div className="header">
-                <span>teste</span>
-              </div>
-              <div className="body">
-                <span>teste</span>
-              </div>
-            </li>
-            <li>dsadsd</li>
-            <li>teste</li>
-            <li>teste</li>
-            <li>teste</li>
-          </ul>
+          <ListProject />
         </div>
       </S._Projects>
     </S._Container>
