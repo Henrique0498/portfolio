@@ -202,7 +202,39 @@ export const _Projects = styled.div`
     }
 
     .secondary_head {
-      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+    }
+  }
+`
+
+export const _Contacts = styled.div`
+  background-color: ${({ theme }) => theme.colors.gray[1000]};
+  color: ${({ theme }) => theme.colors.gray[200]};
+  padding: 2rem 1rem;
+
+  .contacts_title {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    ${({ theme }) => theme.text.heading.subtitle}
+  }
+
+  .contacts_links {
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      a {
+        display: flex;
+        align-items: center;
+
+        .link_icon {
+          width: 1.5rem;
+          height: 1.5rem;
+          margin-right: 0.25rem;
+        }
+      }
     }
   }
 `

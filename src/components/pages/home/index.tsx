@@ -4,13 +4,15 @@ import { Icon } from '../../atoms/Icons'
 import { ListProject } from '../../molecules/ListProject'
 import { Welcome } from '../../molecules/Welcome'
 import { CardProjectLarge } from '../../organisms/CardProjectLarge'
+import { RiGithubLine, RiLinkedinFill } from 'react-icons/ri'
 import * as S from './styles'
+import { AtSymbolIcon } from '@heroicons/react/24/outline'
 
 export function PageHome() {
   const timeExperience = new Date().getFullYear() - 2019
 
   return (
-    <S._Container className="grid grid-cols-4 gap-4">
+    <S._Container className="grid grid-cols-4">
       <Welcome className="col-span-4" />
 
       <S._Description className="col-span-4">
@@ -95,6 +97,36 @@ export function PageHome() {
           <ListProject />
         </div>
       </S._Projects>
+
+      <S._Contacts className="col-span-4 grid grid-cols-4 gap-4">
+        <div className="col-span-2 contacts_title">Contatos</div>
+
+        <div className="col-span-2 contacts_links">
+          <ul>
+            <li>
+              <Link href="https://github.com/Henrique0498" target="_blank">
+                <RiGithubLine className="link_icon" />
+                GitHub
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="https://www.linkedin.com/in/henrique-ls/"
+                target="_blank"
+              >
+                <RiLinkedinFill className="link_icon" />
+                Linkedin
+              </Link>
+            </li>
+            <li>
+              <Link href="mailto:h.lopes.silva2015@gmail.com">
+                <AtSymbolIcon className="link_icon" />
+                Email
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </S._Contacts>
     </S._Container>
   )
 }
