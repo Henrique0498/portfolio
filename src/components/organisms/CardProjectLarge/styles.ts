@@ -19,16 +19,65 @@ export const _ContainerImage = styled.div`
     border-radius: 0.25rem;
     height: 6rem;
     overflow: hidden;
+    opacity: 1;
   }
 
   .icon_project {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     background: ${({ theme }) => theme.colors.gray[50]};
-    border-radius: 0.5rem;
-    box-shadow: ${({ theme }) => theme.shadows.md};
     height: 4rem;
-    overflow: hidden;
     position: absolute;
     width: 4rem;
+
+    ::after,
+    ::before {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      border-radius: 0.5rem;
+      width: calc(100% + 1rem);
+      height: calc(100% + 1rem);
+      background: linear-gradient(
+        45deg,
+        ${({ theme }) => theme.colors.violet[500]},
+        ${({ theme }) => theme.colors.blue[500]},
+        ${({ theme }) => theme.colors.pink[500]},
+        ${({ theme }) => theme.colors.violet[500]},
+        ${({ theme }) => theme.colors.blue[500]},
+        ${({ theme }) => theme.colors.pink[500]},
+        ${({ theme }) => theme.colors.violet[500]},
+        ${({ theme }) => theme.colors.blue[500]}
+      );
+      background-size: 300%;
+      box-shadow: ${({ theme }) => theme.shadows.md};
+      background-repeat: no-repeat;
+      background-position: 300%;
+      animation: BorderAnimation 4s alternate infinite;
+
+      border: 2px solid ${({ theme }) => theme.colors.gray[50]};
+    }
+
+    /* ::after {
+      filter: blur(1rem);
+    } */
+
+    img {
+      border-radius: 0.25rem;
+      overflow: hidden;
+      z-index: 2;
+    }
+  }
+
+  @keyframes BorderAnimation {
+    0% {
+      background-position: 0;
+    }
+    100% {
+      background-position: 100%;
+    }
   }
 `
 

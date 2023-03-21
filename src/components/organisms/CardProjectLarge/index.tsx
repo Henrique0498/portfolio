@@ -29,12 +29,12 @@ export const CardProjectLarge = () => {
         </div>
         <div className="body_description">
           <div className="description_item">
-            <Link href="https://www.instagram.com" target="_blank">
-              <LinkIcon className="item_icon" /> Acessar o site
-            </Link>
+            <CalendarIcon className="item_icon" /> 10 dez de 2018
           </div>
           <div className="description_item">
-            <CalendarIcon className="item_icon" /> 10 dez de 2018
+            <Link href="https://www.instagram.com" target="_blank">
+              Acessar o site
+            </Link>
           </div>
         </div>
       </S._Body>
