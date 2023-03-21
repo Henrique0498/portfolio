@@ -72,6 +72,28 @@ export const IconsFiles = {
       />
     </svg>
   ),
+  tape: (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        width="18.3343"
+        height="3.66687"
+        transform="matrix(0.68639 -0.727233 0.68639 0.727233 0 17.3333)"
+        fill="currentColor"
+      />
+      <rect
+        width="18.3343"
+        height="3.66687"
+        transform="matrix(0.68639 -0.727233 0.68639 0.727233 8.89859 17.3333)"
+        fill="currentColor"
+      />
+    </svg>
+  ),
   quotationMarks: (
     <svg
       width="24"

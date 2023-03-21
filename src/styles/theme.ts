@@ -75,8 +75,14 @@ export const theme = {
         font-size: 0.625rem;
         line-height: 0.75rem;
         text-transform: uppercase;
-        font-family: 'Poppins', sans-serif;
+      `,
+      sm: css`
+        font-size: 0.75rem;
+        line-height: 1rem;
       `
     }
+  },
+  shadows: {
+    md: '2px 2px 2px 0px rgba(0, 0, 0, 0.1), 2px 2px 2px 1px rgba(0, 0, 0, 0.1), 2px 2px 0px 0px rgba(0, 0, 0, 0.02)'
   }
 }

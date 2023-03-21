@@ -70,6 +70,7 @@ export function PageHome() {
 
       <S._Projects className="col-span-4">
         <div className="projects_main">
+          <Icon icon="tape" className="main_decorator_tape" />
           <Icon icon="gitHubLarge" className="main_decorator" />
           <div className="main_head">
             <span className="head_title">
@@ -79,9 +80,6 @@ export function PageHome() {
           </div>
 
           <div className="main_cards">
-            <CardProjectLarge />
-            <CardProjectLarge />
-            <CardProjectLarge />
             <CardProjectLarge />
           </div>
         </div>

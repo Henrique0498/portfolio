@@ -7,5 +7,6 @@ declare module 'styled-components' {
   export interface DefaultTheme {
     colors: typeof theme.colors
     text: typeof theme.text
+    shadows: typeof theme.shadows
   }
 }

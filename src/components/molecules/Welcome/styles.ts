@@ -11,6 +11,7 @@ export const _Container = styled.div`
     font-weight: 500;
     font-size: 1.25rem;
     line-height: 1.75rem;
+    color: ${({ theme }) => theme.colors.blue[600]};
 
     &::before {
       content: '';
@@ -19,7 +20,7 @@ export const _Container = styled.div`
       position: absolute;
       display: block;
       right: -4px;
-      background: #000;
+      background: ${({ theme }) => theme.colors.blue[600]};
       animation: visiblePipe 700ms infinite;
     }
 

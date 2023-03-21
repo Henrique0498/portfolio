@@ -3,8 +3,16 @@
 const nextConfig = {
   reactStrictMode: true,
   compiler: {
-    styledComponents: true,
+    styledComponents: true
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**.unsplash.com'
+      }
+    ]
+  }
 }
 
 module.exports = nextConfig

@@ -156,6 +156,15 @@ export const _Projects = styled.div`
     padding: 2rem 1rem;
     position: relative;
 
+    .main_decorator_tape {
+      color: ${({ theme }) => theme.colors.pink[500]};
+      height: 1.5rem;
+      left: 3rem;
+      position: absolute;
+      top: -0.75rem;
+      width: 1.5rem;
+    }
+
     .main_decorator {
       position: absolute;
       color: ${({ theme }) => theme.colors.gray[700]};

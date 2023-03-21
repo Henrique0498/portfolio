@@ -2,55 +2,63 @@ import styled from 'styled-components'
 
 export const _Container = styled.div`
   background: ${({ theme }) => theme.colors.gray[50]};
-  border-radius: 0.25rem;
-  padding: 0.75rem;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: ${({ theme }) => theme.shadows.md};
 `
 
-export const _Header = styled.div`
+export const _Header = styled.div``
+
+export const _ContainerImage = styled.div`
   align-items: center;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  position: relative;
 
-  .header_profile {
-    align-items: center;
-    display: flex;
+  .background_project {
+    border-radius: 0.25rem;
+    height: 6rem;
+    overflow: hidden;
+  }
 
-    h6 {
-      padding-left: 0.75rem;
-      ${({ theme }) => theme.text.heading[6]}
-    }
+  .icon_project {
+    background: ${({ theme }) => theme.colors.gray[50]};
+    border-radius: 0.5rem;
+    box-shadow: ${({ theme }) => theme.shadows.md};
+    height: 4rem;
+    overflow: hidden;
+    position: absolute;
+    width: 4rem;
   }
 `
 
 export const _Body = styled.div`
-  padding: 1rem 0;
+  color: ${({ theme }) => theme.colors.gray[500]};
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 0 0;
 
   .body_title {
     ${({ theme }) => theme.text.heading.subtitle}
   }
 
   .body_description {
-    box-orient: vertical;
-    display: flexbox;
-    height: 3rem;
-    line-clamp: 2;
-    overflow: hidden;
-    padding: 0.25rem 0;
-    text-overflow: ellipsis;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-  }
-`
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    flex-wrap: wrap;
 
-export const _Footer = styled.div`
-  display: flex;
-  flex-direction: column;
+    .description_item {
+      &,
+      span {
+        display: flex;
+        gap: 0.25rem;
+      }
 
-  .footer_title {
-    ${({ theme }) => theme.text.body.xxs}
-  }
-
-  .footer_date {
-    padding-top: 0.25rem;
+      .item_icon {
+        width: 1.5rem;
+      }
+    }
   }
 `
