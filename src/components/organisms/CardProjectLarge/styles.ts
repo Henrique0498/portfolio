@@ -60,9 +60,9 @@ export const _ContainerImage = styled.div`
       border: 2px solid ${({ theme }) => theme.colors.gray[50]};
     }
 
-    /* ::after {
+    ::after {
       filter: blur(1rem);
-    } */
+    }
 
     img {
       border-radius: 0.25rem;
