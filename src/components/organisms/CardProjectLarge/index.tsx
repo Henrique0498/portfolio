@@ -1,5 +1,6 @@
 // import Image from 'next/image'
-import { CalendarIcon, LinkIcon } from '@heroicons/react/24/outline'
+import { CalendarIcon } from '@heroicons/react/24/outline'
+import { Badger } from '../../atoms/Badger'
 import { Image } from '../../atoms/Image'
 import { Link } from '../../atoms/Link'
 
@@ -26,6 +27,8 @@ export const CardProjectLarge = () => {
       <S._Body>
         <div className="body_title">
           <h6>Teste</h6>
+
+          <Badger>Typescript</Badger>
         </div>
         <div className="body_description">
           <div className="description_item">

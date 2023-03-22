@@ -89,7 +89,13 @@ export const _Body = styled.div`
   padding: 1rem 0 0;
 
   .body_title {
-    ${({ theme }) => theme.text.heading.subtitle}
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h6 {
+      ${({ theme }) => theme.text.heading.subtitle}
+    }
   }
 
   .body_description {
