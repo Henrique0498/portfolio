@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const _Container = styled.span`
-  color: ${({ theme }) => theme.colors.blue[500]};
+  color: ${({ theme }) => theme.colors.blue[600]};
   display: flex;
   position: relative;
   justify-content: center;
