@@ -1,3 +1,3 @@
 import { theme } from './../styles/theme';
 
-export type TypeSistemColors = keyof typeof theme.colors
+export type TypeSystemColors = keyof typeof theme.colors

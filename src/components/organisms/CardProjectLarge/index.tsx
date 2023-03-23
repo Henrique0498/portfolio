@@ -1,26 +1,29 @@
-// import Image from 'next/image'
 import { CalendarIcon } from '@heroicons/react/24/outline'
+
 import { Badger } from '../../atoms/Badger'
 import { Image } from '../../atoms/Image'
 import { Link } from '../../atoms/Link'
 
+import { TypeComponentCardProjectLarge } from './type'
+
 import * as S from './styles'
 
-export const CardProjectLarge = () => {
+
+export const CardProjectLarge = (props: TypeComponentCardProjectLarge) => {
   return (
     <S._Container>
       <S._Header>
         <S._ContainerImage>
           <Image
             className="background_project"
-            alt="TESTE TESTE"
-            src="/images/card-background.jpg"
+            alt={`Plano de fundo de cartão do ${props.title}`}
+            src={props.image.background.src}
           />
 
           <Image
             className="icon_project"
-            alt="TESTE TESTE"
-            src=" https://github.com/Henrique0498/Henrique0498/raw/main/img/Next.svg"
+            alt={`Ícone de cartão do ${props.title}`}
+            src={props.image.icon.src}
           />
         </S._ContainerImage>
       </S._Header>

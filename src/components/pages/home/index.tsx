@@ -7,6 +7,24 @@ import { CardProjectLarge } from '../../organisms/CardProjectLarge'
 import { RiGithubLine, RiLinkedinFill } from 'react-icons/ri'
 import * as S from './styles'
 import { AtSymbolIcon } from '@heroicons/react/24/outline'
+import { TypeComponentCardProjectLarge } from '../../organisms/CardProjectLarge/type'
+
+const card: TypeComponentCardProjectLarge = {
+  badgers: [],
+  date: new Date(),
+  image: {
+    background: {
+      src: '/images/card-background.jpg'
+    },
+    icon: {
+      src: 'https://raw.githubusercontent.com/Henrique0498/Henrique0498/89a5040f5b12b8dfe45273491854886507dabf72/img/Logo.svg'
+    }
+  },
+  repository: {
+    src: 'https://github.com/Henrique0498'
+  },
+  title: 'Teste'
+}
 
 export function PageHome() {
   const timeExperience = new Date().getFullYear() - 2019
@@ -80,7 +98,7 @@ export function PageHome() {
           </div>
 
           <div className="main_cards">
-            <CardProjectLarge />
+            <CardProjectLarge {...card}/>
           </div>
         </div>
 
