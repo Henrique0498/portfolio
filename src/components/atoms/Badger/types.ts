@@ -1,6 +1,6 @@
-import { TypeSistemColors } from "../../../types/theme";
+import { TypeSystemColors } from '../../../types/theme'
 
 export interface TypeComponentBadger {
-  children: React.ReactNode,
-  colors?: TypeSistemColors
+  children: React.ReactNode
+  colors?: TypeSystemColors
 }
