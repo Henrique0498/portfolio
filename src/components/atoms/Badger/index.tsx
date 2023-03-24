@@ -1,8 +1,7 @@
-import * as S from './styles'
 import { TypeComponentBadger } from './types'
 
-export function Badger ({children}: TypeComponentBadger) {
-  return (
-    <S._Container>{children}</S._Container>
-  )
+import * as S from './styles'
+
+export function Badger({ children, color = 'blue' }: TypeComponentBadger) {
+  return <S._Container color={color}>{children}</S._Container>
 }

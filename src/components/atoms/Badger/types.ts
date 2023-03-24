@@ -2,5 +2,9 @@ import { TypeSystemColors } from '../../../types/theme'
 
 export interface TypeComponentBadger {
   children: React.ReactNode
-  colors?: TypeSystemColors
+  color?: TypeSystemColors
+}
+
+export interface TypeComponentBadgerStyle {
+  color: TypeSystemColors
 }
