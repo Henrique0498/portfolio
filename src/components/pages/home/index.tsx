@@ -10,7 +10,12 @@ import { AtSymbolIcon } from '@heroicons/react/24/outline'
 import { TypeComponentCardProjectLarge } from '../../organisms/CardProjectLarge/type'
 
 const card: TypeComponentCardProjectLarge = {
-  badgers: [],
+  badgers: [
+    {
+      id: 'teste',
+      children: 'typescript'
+    }
+  ],
   date: new Date(),
   image: {
     background: {
@@ -23,7 +28,7 @@ const card: TypeComponentCardProjectLarge = {
   repository: {
     src: 'https://github.com/Henrique0498'
   },
-  title: 'Teste'
+  title: 'Teste 432 432'
 }
 
 export function PageHome() {
@@ -98,7 +103,7 @@ export function PageHome() {
           </div>
 
           <div className="main_cards">
-            <CardProjectLarge {...card}/>
+            <CardProjectLarge {...card} />
           </div>
         </div>
 

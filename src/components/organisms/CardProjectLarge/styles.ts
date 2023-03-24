@@ -7,8 +7,6 @@ export const _Container = styled.div`
   padding: 1rem;
 `
 
-export const _Header = styled.div``
-
 export const _ContainerImage = styled.div`
   align-items: center;
   display: flex;
@@ -44,19 +42,18 @@ export const _ContainerImage = styled.div`
         ${({ theme }) => theme.colors.pink[500]},
         ${({ theme }) => theme.colors.violet[500]},
         ${({ theme }) => theme.colors.blue[500]}
-        );
-        background-position: 300%;
-        background-size: 300%;
-        background-repeat: no-repeat;
-        border-radius: 0.5rem;
-        border: 2px solid ${({ theme }) => theme.colors.gray[50]};
-        box-shadow: ${({ theme }) => theme.shadows.md};
-        content: '';
-        height: calc(100% + 1rem);
-        position: absolute;
-        width: calc(100% + 1rem);
-        z-index: 1;
-
+      );
+      background-position: 300%;
+      background-size: 300%;
+      background-repeat: no-repeat;
+      border-radius: 0.5rem;
+      border: 2px solid ${({ theme }) => theme.colors.gray[50]};
+      box-shadow: ${({ theme }) => theme.shadows.md};
+      content: '';
+      height: calc(100% + 1rem);
+      position: absolute;
+      width: calc(100% + 1rem);
+      z-index: 1;
     }
 
     ::after {
@@ -64,7 +61,7 @@ export const _ContainerImage = styled.div`
     }
 
     img {
-      background-color: ${({theme}) => theme.colors.gray[50]};
+      background-color: ${({ theme }) => theme.colors.gray[50]};
       border-radius: 0.25rem;
       position: relative;
       overflow: hidden;
@@ -82,39 +79,35 @@ export const _ContainerImage = styled.div`
   }
 `
 
+export const _Header = styled.div`
+  display: grid;
+  grid-template-columns: 1fr minmax(0, auto);
+  padding: 1.5rem 0 2rem;
+
+  .header_title {
+    ${({ theme }) => theme.text.heading.subtitle};
+  }
+
+  .header_badgers {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+  }
+`
+
 export const _Body = styled.div`
   color: ${({ theme }) => theme.colors.gray[500]};
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 1rem;
-  padding: 1rem 0 0;
 
-  .body_title {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    h6 {
-      ${({ theme }) => theme.text.heading.subtitle}
-    }
+  .item_icon {
+    width: 1.5rem;
   }
 
-  .body_description {
+  .body_date {
     display: flex;
-    flex-wrap: wrap;
     gap: 0.5rem;
-    justify-content: space-between;
-
-    .description_item {
-      &,
-      span {
-        display: flex;
-        gap: 0.25rem;
-      }
-
-      .item_icon {
-        width: 1.5rem;
-      }
-    }
   }
 `

@@ -1,4 +1,4 @@
-import { TypeSystemColors } from "../../../types/theme"
+import { TypeComponentBadger } from '../../atoms/Badger/types'
 
 export interface TypeComponentCardProjectLarge {
   title: string
@@ -10,14 +10,14 @@ export interface TypeComponentCardProjectLarge {
     background: {
       src: string
     }
-    icon:{
+    icon: {
       src: string
     }
   }
-  badgers: TypeBadgers[]
+  badgers: TypeComponentCardProjectLargeBadgers[]
 }
 
-type TypeBadgers = {
-  title: string
-  color: TypeSystemColors
+export interface TypeComponentCardProjectLargeBadgers
+  extends TypeComponentBadger {
+  id: string | number
 }
