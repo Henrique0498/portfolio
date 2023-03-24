@@ -98,7 +98,6 @@ export const _Header = styled.div`
 export const _Body = styled.div`
   color: ${({ theme }) => theme.colors.gray[500]};
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
   gap: 1rem;
 
