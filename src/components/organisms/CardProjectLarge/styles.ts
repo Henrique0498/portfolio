@@ -83,6 +83,7 @@ export const _Header = styled.div`
   display: grid;
   grid-template-columns: 1fr minmax(0, auto);
   padding: 1.5rem 0 2rem;
+  gap: 1rem;
 
   .header_title {
     ${({ theme }) => theme.text.heading.subtitle};
@@ -100,6 +101,7 @@ export const _Body = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 1rem;
+  flex-wrap: wrap;
 
   .item_icon {
     width: 1.5rem;
