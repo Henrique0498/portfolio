@@ -13,8 +13,8 @@ export const _Container = styled.button`
     height: 0.25rem;
     background-color: currentColor;
     border-radius: 50%;
-    box-shadow: -6px 0 currentColor, -6px 0 currentColor, 6px 0 currentColor,
-      6px 0 currentColor;
+    box-shadow: 0 -6px currentColor, 0 -6px currentColor, 0 6px currentColor,
+      0 6px currentColor;
   }
 
   .menu-text_visible {
