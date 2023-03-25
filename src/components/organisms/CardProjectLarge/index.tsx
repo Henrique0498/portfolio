@@ -12,6 +12,7 @@ import {
 
 import * as S from './styles'
 import { format } from 'date-fns'
+import { ScrollText } from '../../atoms/ScrollText'
 
 export const CardProjectLarge = ({
   badgers,
@@ -36,7 +37,7 @@ export const CardProjectLarge = ({
         />
       </S._ContainerImage>
       <S._Header>
-        <h6 className="header_title">{title}</h6>
+        <ScrollText className="header_title">{title}</ScrollText>
 
         <div className="header_badgers">{renderBadgers(badgers)}</div>
       </S._Header>
