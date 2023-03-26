@@ -8,6 +8,7 @@ import { RiGithubLine, RiLinkedinFill } from 'react-icons/ri'
 import * as S from './styles'
 import { AtSymbolIcon } from '@heroicons/react/24/outline'
 import { TypeComponentCardProjectLarge } from '../../organisms/CardProjectLarge/type'
+import { TypeComponentListProject } from '../../molecules/ListProject/types'
 
 const card: TypeComponentCardProjectLarge = {
   badgers: [
@@ -28,7 +29,7 @@ const card: TypeComponentCardProjectLarge = {
   repository: {
     src: 'https://github.com/Henrique0498'
   },
-  title: 'Teste 432 432'
+  title: 'Teste 432 43 432 4324324 4322'
 }
 
 export function PageHome() {
@@ -115,7 +116,7 @@ export function PageHome() {
             </span>
             <p>Atualizações do GitHub.</p>
           </div>
-          <ListProject />
+          <ListProject {...list} />
         </div>
       </S._Projects>
 
@@ -150,6 +151,18 @@ export function PageHome() {
       </S._Contacts>
     </S._Container>
   )
+}
+
+const list: TypeComponentListProject = {
+  list: [
+    {
+      badgers: [],
+      date: new Date(),
+      id: 'teste',
+      repository: 'teste',
+      title: 'teste'
+    }
+  ]
 }
 
 const technologies = [

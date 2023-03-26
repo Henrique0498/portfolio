@@ -1,9 +1,9 @@
 import { CalendarIcon } from '@heroicons/react/24/outline'
-import ptBR from 'date-fns/locale/pt-BR'
 
 import { Badger } from '../../atoms/Badger'
 import { Image } from '../../atoms/Image'
 import { Link } from '../../atoms/Link'
+import { ScrollText } from '../../atoms/ScrollText'
 
 import {
   TypeComponentCardProjectLarge,
@@ -11,8 +11,7 @@ import {
 } from './type'
 
 import * as S from './styles'
-import { format } from 'date-fns'
-import { ScrollText } from '../../atoms/ScrollText'
+import { formatDate } from '../../../utils/formatDate'
 
 export const CardProjectLarge = ({
   badgers,
@@ -44,9 +43,7 @@ export const CardProjectLarge = ({
       <S._Body>
         <div className="body_date">
           <CalendarIcon className="item_icon" />
-          {format(date, 'dd MMM yyyy', {
-            locale: ptBR
-          })}
+          {formatDate(date)}
         </div>
         <Link href={repository.src} target="_blank">
           Repositório
