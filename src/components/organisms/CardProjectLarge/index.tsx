@@ -18,10 +18,11 @@ export const CardProjectLarge = ({
   date,
   image,
   repository,
-  title
+  title,
+  ...props
 }: TypeComponentCardProjectLarge) => {
   return (
-    <S._Container>
+    <S._Container {...props}>
       <S._ContainerImage>
         <Image
           className="background_project"

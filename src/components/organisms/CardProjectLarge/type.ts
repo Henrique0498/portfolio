@@ -1,6 +1,7 @@
+import { HtmlHTMLAttributes } from 'react'
 import { TypeComponentBadger } from '../../atoms/Badger/types'
 
-export interface TypeComponentCardProjectLarge {
+export interface TypeComponentCardProjectLarge extends HtmlHTMLAttributes<HTMLDivElement>{
   title: string
   date: Date
   repository: {

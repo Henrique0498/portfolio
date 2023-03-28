@@ -181,9 +181,6 @@ export const _Projects = styled.div`
 
     .main_cards {
       padding-top: 2.25rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
     }
   }
 

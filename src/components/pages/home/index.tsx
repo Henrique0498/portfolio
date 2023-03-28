@@ -1,45 +1,25 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { AtSymbolIcon } from '@heroicons/react/24/outline'
+import { RiGithubLine, RiLinkedinFill } from 'react-icons/ri'
+
 import { Icon } from '../../atoms/Icons'
 import { ListProject } from '../../molecules/ListProject'
 import { Welcome } from '../../molecules/Welcome'
 import { CardProjectLarge } from '../../organisms/CardProjectLarge'
-import { RiGithubLine, RiLinkedinFill } from 'react-icons/ri'
-import * as S from './styles'
-import { AtSymbolIcon } from '@heroicons/react/24/outline'
 import { TypeComponentCardProjectLarge } from '../../organisms/CardProjectLarge/type'
 import { TypeComponentListProject } from '../../molecules/ListProject/types'
 
-const card: TypeComponentCardProjectLarge = {
-  badgers: [
-    {
-      id: 'teste',
-      children: 'typescript'
-    }
-  ],
-  date: new Date(),
-  image: {
-    background: {
-      src: '/images/card-background.jpg'
-    },
-    icon: {
-      src: 'https://raw.githubusercontent.com/Henrique0498/Henrique0498/89a5040f5b12b8dfe45273491854886507dabf72/img/Logo.svg'
-    }
-  },
-  repository: {
-    src: 'https://github.com/Henrique0498'
-  },
-  title: 'Teste 432 43 432 4324324 4322'
-}
+import * as S from './styles'
 
 export function PageHome() {
   const timeExperience = new Date().getFullYear() - 2019
 
   return (
-    <S._Container className="grid grid-cols-4">
-      <Welcome className="col-span-4" />
+    <S._Container className="grid gap-x-4 grid-cols-4 lg:grid-cols-12">
+      <Welcome className="col-span-4  lg:col-span-12" />
 
-      <S._Description className="col-span-4">
+      <S._Description className="col-span-4 lg:col-span-12">
         <div className="description_decorators">
           <span>Quem é</span>
           <span>Henrique Lopes</span>
@@ -62,7 +42,7 @@ export function PageHome() {
         </div>
       </S._Description>
 
-      <S._Technologies className="col-span-4">
+      <S._Technologies className="col-span-4  lg:col-span-12">
         <div className="technologies_decorators">
           <Icon icon="backgroundTech" />
         </div>
@@ -74,7 +54,7 @@ export function PageHome() {
             </span>
             <p>Stacks que mais domino nesse momento.</p>
           </div>
-          <div className="main_carousel grid grid-cols-4 gap-4">
+          <div className="main_carousel grid grid-cols-12 gap-4">
             {technologies.map((item) => (
               <div key={item.id}>
                 <Link href={item.link} target="_blank">
@@ -92,7 +72,7 @@ export function PageHome() {
         </div>
       </S._Technologies>
 
-      <S._Projects className="col-span-4">
+      <S._Projects className="col-span-4 lg:col-span-12">
         <div className="projects_main">
           <Icon icon="tape" className="main_decorator_tape" />
           <Icon icon="gitHubLarge" className="main_decorator" />
@@ -103,8 +83,8 @@ export function PageHome() {
             <p>Estes são os meus projetos principais.</p>
           </div>
 
-          <div className="main_cards">
-            <CardProjectLarge {...card} />
+          <div className="main_cards grid gap-4 grid-cols-1 lg:grid-cols-12">
+            <CardProjectLarge {...card} className="col-span-1 lg:col-span-4" />
           </div>
         </div>
 
@@ -120,7 +100,7 @@ export function PageHome() {
         </div>
       </S._Projects>
 
-      <S._Contacts className="col-span-4 grid grid-cols-4 gap-4">
+      <S._Contacts className="col-span-4 gap-4 grid grid-cols-4 lg:col-span-12 lg:grid-cols-12">
         <div className="col-span-2 contacts_title">Contatos</div>
 
         <div className="col-span-2 contacts_links">
@@ -239,3 +219,25 @@ const technologies = [
     link: 'https://styled-components.com/'
   }
 ]
+
+const card: TypeComponentCardProjectLarge = {
+  badgers: [
+    {
+      id: 'teste',
+      children: 'typescript'
+    }
+  ],
+  date: new Date(),
+  image: {
+    background: {
+      src: '/images/card-background.jpg'
+    },
+    icon: {
+      src: 'https://raw.githubusercontent.com/Henrique0498/Henrique0498/89a5040f5b12b8dfe45273491854886507dabf72/img/Logo.svg'
+    }
+  },
+  repository: {
+    src: 'https://github.com/Henrique0498'
+  },
+  title: 'Teste 432 43 432 4324324 4322'
+}
