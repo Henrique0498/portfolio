@@ -29,10 +29,9 @@ export const _Container = styled.div`
 
 export const _Description = styled.section`
   display: flex;
-  height: 32rem;
   align-items: center;
   position: relative;
-  padding: 0 1rem;
+  padding: 13rem 1rem;
   overflow: hidden;
   background: ${({ theme }) => theme.colors.gray[1000]};
   transform: skewY(-4deg);
