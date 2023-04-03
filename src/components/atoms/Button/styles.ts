@@ -4,8 +4,8 @@ export const _Container = styled.button`
   align-items: center;
   background: linear-gradient(
     90deg,
-    rgba(0, 138, 255, 0) 0%,
-    rgba(0, 138, 255, 0) 50%,
+    transparent 0%,
+    transparent 50%,
     ${({ theme }) => theme.colors.blue[600]} 50%,
     ${({ theme }) => theme.colors.blue[600]} 100%
   );
