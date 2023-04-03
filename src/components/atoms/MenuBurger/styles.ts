@@ -22,4 +22,15 @@ export const _Container = styled.button`
     position: absolute;
     visibility: hidden;
   }
+
+  @media (min-width: 768px) {
+    & {
+      display: none;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    outline-color: transparent;
+  }
 `
