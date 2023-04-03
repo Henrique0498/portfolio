@@ -107,6 +107,11 @@ export const theme = {
       `
     },
     body: {
+      mdBold: css`
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 1.5rem;
+      `,
       xxs: css`
         font-size: 0.625rem;
         line-height: 0.75rem;
