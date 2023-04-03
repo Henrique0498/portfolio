@@ -54,7 +54,7 @@ export function PageHome() {
             </span>
             <p>Stacks que mais domino nesse momento.</p>
           </div>
-          <div className="main_carousel grid grid-cols-12 gap-4">
+          <div className="main_carousel grid grid-cols-4 lg:grid-cols-12 gap-4">
             {technologies.map((item) => (
               <div key={item.id}>
                 <Link href={item.link} target="_blank">
