@@ -33,4 +33,10 @@ export const _Container = styled.button`
   &:focus {
     outline-color: transparent;
   }
+
+  @media (min-width: 768px) {
+    & {
+      display: none;
+    }
+  }
 `
