@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const _Container = styled.div`
+export const _Container = styled.section`
   .head_title {
     display: block;
     position: relative;
@@ -19,7 +19,7 @@ export const _Container = styled.div`
       z-index: 1;
     }
 
-    h6 {
+    h2 {
       position: relative;
       z-index: 2;
       ${({ theme }) => theme.text.heading[6]}
@@ -116,7 +116,7 @@ export const _Description = styled.section`
   }
 `
 
-export const _Technologies = styled.div`
+export const _Technologies = styled.section`
   position: relative;
   padding: 5rem 1rem;
 
@@ -143,7 +143,7 @@ export const _Technologies = styled.div`
   }
 `
 
-export const _Projects = styled.div`
+export const _Projects = styled.section`
   background-color: ${({ theme }) => theme.colors.gray[600]};
 
   .main_head,

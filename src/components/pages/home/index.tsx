@@ -50,7 +50,7 @@ export function PageHome() {
         <div className="technologies_main">
           <div className="main_head">
             <span className="head_title">
-              <h6>Tecnologias</h6>
+              <h2>Tecnologias</h2>
             </span>
             <p>Stacks que mais domino nesse momento.</p>
           </div>
@@ -78,7 +78,7 @@ export function PageHome() {
           <Icon icon="gitHubLarge" className="main_decorator" />
           <div className="main_head">
             <span className="head_title">
-              <h6>Projetos principais</h6>
+              <h2>Projetos principais</h2>
             </span>
             <p>Estes são os meus projetos principais.</p>
           </div>
@@ -92,7 +92,7 @@ export function PageHome() {
           <Icon icon="gitSmall" className="secondary_decorator" />
           <div className="secondary_head">
             <span className="head_title">
-              <h6>Ultimas atualizações</h6>
+              <h2>Ultimas atualizações</h2>
             </span>
             <p>Atualizações do GitHub.</p>
           </div>
