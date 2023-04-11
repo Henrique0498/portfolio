@@ -18,7 +18,7 @@ export function Image({
       width={width}
       {...props}
     >
-      <NextImage src={src} alt={alt} fill />
+      <NextImage src={src} alt={alt} fill sizes='100%, 100%' />
     </S._Container>
   )
 }
