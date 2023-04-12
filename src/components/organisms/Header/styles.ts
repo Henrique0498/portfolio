@@ -15,3 +15,16 @@ export const _Container = styled.div`
   width: 100%;
   z-index: 300;
 `
+
+export const _Nav = styled.nav`
+  display: none;
+
+  .nav_list {
+    display: flex;
+    gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    display: flex;
+  }
+`
