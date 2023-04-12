@@ -19,7 +19,7 @@ export function PageHome() {
     <S._Container className="grid gap-x-4 grid-cols-4 lg:grid-cols-12">
       <Welcome className="col-span-4  lg:col-span-12" />
 
-      <S._Description className="col-span-4 lg:col-span-12">
+      <S._Description className="col-span-4 lg:col-span-12" id="description">
         <div className="description_decorators">
           <span>Quem é</span>
           <span>Henrique Lopes</span>
@@ -42,7 +42,7 @@ export function PageHome() {
         </div>
       </S._Description>
 
-      <S._Technologies className="col-span-4  lg:col-span-12">
+      <S._Technologies className="col-span-4  lg:col-span-12" id="tecnologies">
         <div className="technologies_decorators">
           <Icon icon="backgroundTech" />
         </div>
@@ -72,7 +72,7 @@ export function PageHome() {
         </div>
       </S._Technologies>
 
-      <S._Projects className="col-span-4 lg:col-span-12">
+      <S._Projects className="col-span-4 lg:col-span-12" id="projects">
         <div className="projects_main">
           <Icon icon="tape" className="main_decorator_tape" />
           <Icon icon="gitHubLarge" className="main_decorator" />
@@ -88,7 +88,7 @@ export function PageHome() {
           </div>
         </div>
 
-        <div className="projects_secondary">
+        <div className="projects_secondary" id="updates">
           <Icon icon="gitSmall" className="secondary_decorator" />
           <div className="secondary_head">
             <span className="head_title">
