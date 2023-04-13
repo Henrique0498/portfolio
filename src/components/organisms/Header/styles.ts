@@ -2,7 +2,7 @@ import { transparentize } from 'polished'
 import styled from 'styled-components'
 
 export const _Container = styled.div`
-  background: ${({ theme }) => transparentize(0.8, theme.colors.white)};
+  background: ${({ theme }) => transparentize(0.1, theme.colors.gray[950])};
   backdrop-filter: blur(0.5rem);
   -webkit-backdrop-filter: blur(0.5rem);
   -moz-backdrop-filter: blur(0.5rem);
@@ -22,6 +22,10 @@ export const _Nav = styled.nav`
   .nav_list {
     display: flex;
     gap: 1rem;
+
+    *{
+
+    }
   }
 
   @media (min-width: 768px) {

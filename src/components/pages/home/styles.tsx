@@ -33,7 +33,7 @@ export const _Description = styled.section`
   position: relative;
   padding: 13rem 1rem;
   overflow: hidden;
-  background: ${({ theme }) => theme.colors.gray[1000]};
+  background: ${({ theme }) => theme.colors.gray[925]};
   transform: skewY(-4deg);
 
   & > * {
@@ -213,7 +213,7 @@ export const _Projects = styled.section`
 `
 
 export const _Contacts = styled.div`
-  background-color: ${({ theme }) => theme.colors.gray[1000]};
+  background-color: ${({ theme }) => theme.colors.gray[925]};
   color: ${({ theme }) => theme.colors.gray[200]};
   padding: 2rem 1rem;
 
