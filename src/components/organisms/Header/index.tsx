@@ -14,16 +14,16 @@ export function Header() {
       <S._Nav>
         <ul className="nav_list">
           <li>
-            <Link href="#description">Sobre</Link>
+            <Link href="#description" className='list_link'>Sobre</Link>
           </li>
           <li>
-            <Link href="#tecnologies">Tecnologias</Link>
+            <Link href="#tecnologies" className='list_link'>Tecnologias</Link>
           </li>
           <li>
-            <Link href="#projects">Projetos</Link>
+            <Link href="#projects" className='list_link'>Projetos</Link>
           </li>
           <li>
-            <Link href="#updates">Atualizações</Link>
+            <Link href="#updates" className='list_link'>Atualizações</Link>
           </li>
         </ul>
       </S._Nav>
