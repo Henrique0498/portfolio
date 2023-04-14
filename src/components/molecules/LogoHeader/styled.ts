@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const _Container = styled.div`
-  background: ${({ theme }) => theme.colors.white};
   border-radius: 0.5rem;
   display: flex;
   gap: 0.5rem;
@@ -24,19 +23,20 @@ export const _ContainerImage = styled.div`
   position: relative;
 
   ::before {
-    animation: backgroundAnimation 3s infinite ease-in-out;
+    animation: backgroundAnimation 3s infinite linear;
     background: linear-gradient(
       90deg,
       ${({ theme }) => theme.colors.pink[500]} 0%,
       ${({ theme }) => theme.colors.violet[500]} 100%
     );
     content: '';
-    height: 100%;
+    height: 50%;
     position: absolute;
-    width: 100%;
+    width: 134%;
   }
 
   > div {
+    position: relative;
     background: ${({ theme }) => theme.colors.white};
     border-radius: 0.125rem;
   }
