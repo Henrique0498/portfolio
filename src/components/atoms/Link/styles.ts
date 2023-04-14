@@ -1,7 +1,8 @@
-import styled from 'styled-components'
+import styled, { DefaultTheme } from 'styled-components'
+import { TypeComponentLinkStyled } from './types'
 
-export const _Container = styled.span`
-  color: ${({ theme }) => theme.colors.blue[600]};
+export const _Container = styled.span<TypeComponentLinkStyled>`
+  color: ${({ theme, color }) => getColor(color, theme)};
   display: flex;
   height: fit-content;
   justify-content: center;
@@ -25,3 +26,11 @@ export const _Container = styled.span`
     }
   }
 `
+
+function getColor(value: string, theme: DefaultTheme) {
+  if (value in theme.colors) {
+    return theme.colors[value][600]
+  }
+
+  return value
+}
