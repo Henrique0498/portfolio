@@ -1,22 +1,31 @@
 import { Link } from '../../atoms/Link'
 import * as S from './styles'
 
-export function NavBar(){
+export function NavBar() {
   return (
     <S.Container>
       <ul className="nav_list">
         <li>
-          <Link href="#description" className='list_link'>Sobre</Link>
+          <Link href="#description" color="currentColor">
+            Sobre
+          </Link>
         </li>
         <li>
-          <Link href="#tecnologies" className='list_link'>Tecnologias</Link>
+          <Link href="#tecnologies" color="currentColor">
+            Tecnologias
+          </Link>
         </li>
         <li>
-          <Link href="#projects" className='list_link'>Projetos</Link>
+          <Link href="#projects" color="currentColor">
+            Projetos
+          </Link>
         </li>
         <li>
-          <Link href="#updates" className='list_link'>Atualizações</Link>
+          <Link href="#updates" color="currentColor">
+            Atualizações
+          </Link>
         </li>
       </ul>
-    </S.Container>)
+    </S.Container>
+  )
 }
