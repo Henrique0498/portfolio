@@ -1,7 +1,10 @@
-import { useRef, MutableRefObject, useEffect } from 'react'
+import { useRef, useEffect } from 'react'
+
 import { MenuBurger } from '../../atoms/MenuBurger/Index'
 import { LogoHeader } from '../../molecules/LogoHeader'
 import { NavBar } from '../../molecules/Navbar'
+
+import { handleScroll } from '../../../util/handleScroll'
 
 import * as S from './styles'
 
@@ -25,17 +28,4 @@ export function Header() {
       <NavBar />
     </S._Container>
   )
-}
-
-function handleScroll(element: MutableRefObject<HTMLHeadElement>) {
-  return () => {
-    const scrollHeight = window.scrollY
-    const isSmall = element.current?.getAttribute('scroll') === 'true'
-
-    if (scrollHeight > 0 && !isSmall) {
-      element.current?.setAttribute('scroll', 'true')
-    } else if (isSmall && scrollHeight === 0) {
-      element.current?.setAttribute('scroll', 'false')
-    }
-  }
 }

@@ -8,11 +8,11 @@ export const _Container = styled.header`
   -webkit-backdrop-filter: blur(0.5rem);
   -moz-backdrop-filter: blur(0.5rem);
   display: flex;
-  height: 6rem;
+  height: 6.25rem;
   justify-content: space-between;
   padding: 0 1rem;
   position: fixed;
-  transition: all 200ms ease-in-out;
+  transition: 200ms ease-in-out;
   width: 100%;
   z-index: 300;
 
