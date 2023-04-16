@@ -22,7 +22,7 @@ export const _Container = styled.aside<TypeComponentSidebarStyles>`
   }
 
   @media (max-width: 768px) {
-    left: ${({ isVisible }) => (isVisible ? '-25rem' : '0px')};
+    left: ${({ isVisible }) => (isVisible ? '0rem' : '-25rem')};
   }
 `
 

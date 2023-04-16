@@ -32,13 +32,13 @@ export const _Container = styled.button<TypeComponentMenuBurgerStyles>`
     }
 
     ::after {
-      top: ${({ active }) => (active ? '0' : '0.375rem')};
-      transform: rotate(${({ active }) => (active ? '0' : '45deg')});
+      top: ${({ active }) => (active ? '0.375rem' : '0rem')};
+      transform: rotate(${({ active }) => (active ? '45deg' : '0deg')});
     }
 
     ::before {
-      bottom: ${({ active }) => (active ? '0' : '0.375rem')};
-      transform: rotate(${({ active }) => (active ? '0' : '-45deg')});
+      bottom: ${({ active }) => (active ? '0.375rem' : '0rem')};
+      transform: rotate(${({ active }) => (active ? '-45deg' : '0deg')});
     }
   }
 
