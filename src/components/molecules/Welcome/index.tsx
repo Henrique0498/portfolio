@@ -1,4 +1,5 @@
 import { MutableRefObject, useEffect, useRef } from 'react'
+import { Image } from '../../atoms/Image'
 import * as S from './styles'
 import { TypeWelcome } from './types'
 
@@ -63,6 +64,20 @@ export const Welcome = (props: TypeWelcome) => {
   return (
     <S._Container {...props}>
       <span ref={refTextWelcome}>{textInitial}</span>
+
+      {/* <S.ContainerLarge>
+
+        <div className="container_photo">
+
+        <Image
+          className="container_photoUser"
+          src="https://avatars.githubusercontent.com/u/39716479?v=4"
+          width="20rem"
+          height="25rem"
+          alt="Teste"
+          />
+          </div>
+      </S.ContainerLarge> */}
     </S._Container>
   )
 }

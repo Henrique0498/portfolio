@@ -35,3 +35,23 @@ export const _Container = styled.div`
     }
   }
 `
+export const ContainerLarge = styled.div`
+  .container_photo {
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    ::before {
+      width: 110%;
+      position: absolute;
+      height: 100%;
+      background-color: ${({ theme }) => theme.colors.red[800]};
+    }
+  }
+
+  .container_photoUser {
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 1rem -1rem ${({ theme }) => theme.colors.gray[800]};
+  }
+`
