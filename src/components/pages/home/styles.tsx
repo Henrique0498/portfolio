@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
-export const _Container = styled.section`
+export const _Container = styled.main`
+  max-width: 1536px;
+  margin: 0 auto;
+
   .head_title {
     display: block;
     position: relative;

@@ -29,7 +29,7 @@ export const theme = {
       800: '#1f2937',
       900: '#111827',
       925: '#080F1C',
-      950: '#030712',
+      950: '#030712'
     },
     green: {
       50: '#f0fdf4',
@@ -94,6 +94,12 @@ export const theme = {
   },
   text: {
     heading: {
+      3: css`
+        font-size: 3rem;
+        font-weight: 500;
+        line-height: 3.75rem;
+        font-family: 'Poppins', sans-serif;
+      `,
       6: css`
         font-size: 1.5rem;
         font-weight: 500;

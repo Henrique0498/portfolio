@@ -5,6 +5,8 @@ export const _Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0 1rem;
+  gap: 1rem;
 
   > span {
     position: relative;
@@ -34,24 +36,48 @@ export const _Container = styled.div`
       }
     }
   }
-`
-export const ContainerLarge = styled.div`
-  .container_photo {
-    position: relative;
-    display: flex;
-    justify-content: center;
 
-    ::before {
-      width: 110%;
-      position: absolute;
-      height: 100%;
-      background-color: ${({ theme }) => theme.colors.red[800]};
-    }
+  @media (min-width: 768px) {
+    min-height: 40rem;
+    justify-content: space-between;
+  }
+`
+export const ContainerImage = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 0.75rem;
+
+  ::before {
+    content: '';
+    width: 3.75rem;
+    height: 3.75rem;
+    position: absolute;
+    background-color: ${({ theme }) => theme.colors.violet[500]};
+    left: 0rem;
+    border-radius: 0.5rem;
+    top: 0rem;
   }
 
   .container_photoUser {
     border-radius: 0.5rem;
     overflow: hidden;
-    box-shadow: 1rem -1rem ${({ theme }) => theme.colors.gray[800]};
+    box-shadow: 0.75rem 0.75rem ${({ theme }) => theme.colors.blue[500]};
+  }
+`
+
+export const ContainerText = styled.div`
+  display: flex;
+  flex-direction: column;
+  ${({ theme }) => theme.text.heading[3]};
+
+  span {
+    :first-child {
+      color: ${({ theme }) => theme.colors.violet[500]};
+    }
+
+    :last-child {
+      color: ${({ theme }) => theme.colors.blue[500]};
+    }
   }
 `
