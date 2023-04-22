@@ -65,7 +65,7 @@ export const Welcome = (props: TypeWelcome) => {
 
   return (
     <S._Container {...props}>
-      <span ref={refTextWelcome}>{textInitial}</span>
+      {/* <span ref={refTextWelcome}>{textInitial}</span> */}
       <S.ContainerText>
         <span>Hey!</span>
         <span>Seja em vindo(a)</span>
