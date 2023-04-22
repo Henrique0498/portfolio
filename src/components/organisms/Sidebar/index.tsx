@@ -4,7 +4,7 @@ import { useRef, useEffect, memo } from 'react'
 import { storeSidebarVisible } from '../../../storage/sidebar'
 
 import * as S from './styles'
-import { handleScroll } from '../../../util/handleScroll'
+import { handleScroll } from '../../../utils/handleScroll'
 import Link from 'next/link'
 
 export function Sidebar() {

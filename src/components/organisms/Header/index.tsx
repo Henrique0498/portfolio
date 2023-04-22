@@ -4,7 +4,7 @@ import { MenuBurger } from '../../atoms/MenuBurger/Index'
 import { LogoHeader } from '../../molecules/LogoHeader'
 import { NavBar } from '../../molecules/Navbar'
 
-import { handleScroll } from '../../../util/handleScroll'
+import { handleScroll } from '../../../utils/handleScroll'
 
 import * as S from './styles'
 

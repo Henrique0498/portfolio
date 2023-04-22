@@ -41,43 +41,46 @@ export const Welcome = (props: TypeWelcome) => {
   const refTextWelcome = useRef<HTMLSpanElement | null>(null)
 
   useEffect(() => {
-    const idsTimeout: NodeJS.Timeout[] = []
+    // const idsTimeout: NodeJS.Timeout[] = []
+    // renderText(refTextWelcome, idsTimeout)
+    // const timeInterval = textRender.reduce((before, current) => {
+    //   return (before += current.length * 2 * timeMs + timeExtends)
+    // }, 400)
+    // const idSetInterval = setInterval(() => {
+    //   renderText(refTextWelcome, idsTimeout)
+    // }, timeInterval)
+    // return () => {
+    //   clearInterval(idSetInterval)
+    //   idsTimeout.forEach((id) => {
+    //     clearTimeout(id)
+    //   })
+    // }
 
-    renderText(refTextWelcome, idsTimeout)
-
-    const timeInterval = textRender.reduce((before, current) => {
-      return (before += current.length * 2 * timeMs + timeExtends)
-    }, 400)
-
-    const idSetInterval = setInterval(() => {
-      renderText(refTextWelcome, idsTimeout)
-    }, timeInterval)
+    let idTimeout: NodeJS.Timeout
 
     return () => {
-      clearInterval(idSetInterval)
-      idsTimeout.forEach((id) => {
-        clearTimeout(id)
-      })
+      clearInterval(idTimeout)
     }
   }, [])
 
   return (
     <S._Container {...props}>
       <span ref={refTextWelcome}>{textInitial}</span>
+      <S.ContainerText>
+        <span>Hey!</span>
+        <span>Seja em vindo(a)</span>
+        <span>Ao meu Portfólio.</span>
+      </S.ContainerText>
 
-      {/* <S.ContainerLarge>
-
-        <div className="container_photo">
-
+      <S.ContainerImage>
         <Image
           className="container_photoUser"
           src="https://avatars.githubusercontent.com/u/39716479?v=4"
           width="20rem"
           height="25rem"
           alt="Teste"
-          />
-          </div>
-      </S.ContainerLarge> */}
+        />
+      </S.ContainerImage>
     </S._Container>
   )
 }
