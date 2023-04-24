@@ -44,7 +44,7 @@ export const _Container = styled.div`
 `
 export const ContainerImage = styled.div`
   position: relative;
-  display: flex;
+  display: none;
   justify-content: center;
   padding: 0.75rem;
 
@@ -64,10 +64,14 @@ export const ContainerImage = styled.div`
     overflow: hidden;
     box-shadow: 0.75rem 0.75rem ${({ theme }) => theme.colors.blue[500]};
   }
+
+  @media (min-width: 768px) {
+    display: flex;
+  }
 `
 
 export const ContainerText = styled.div`
-  display: flex;
+  display: none;
   flex-direction: column;
   ${({ theme }) => theme.text.heading[3]};
 
@@ -79,5 +83,17 @@ export const ContainerText = styled.div`
     :last-child {
       color: ${({ theme }) => theme.colors.blue[500]};
     }
+  }
+
+  @media (min-width: 768px) {
+    display: flex;
+  }
+`
+
+export const ContainerTextSpan = styled.span`
+  display: block;
+
+  @media (min-width: 768px) {
+    display: none;
   }
 `

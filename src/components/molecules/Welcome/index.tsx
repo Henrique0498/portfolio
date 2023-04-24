@@ -1,71 +1,97 @@
-import { MutableRefObject, useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { Image } from '../../atoms/Image'
 import * as S from './styles'
-import { TypeWelcome } from './types'
+import { TypeControlRenderText, TypeWelcome } from './types'
 
-const timeMs = 100
-const textInitial = 'Olá,'
-const textRender = [' eu sou o Henrique', ' seja bem vindo']
-const timeExtends = 2000
+const textInitial = 'Olá, '
+const textRender = ['eu sou o Henrique', 'seja bem vindo']
 
-function renderText(
-  ref: MutableRefObject<HTMLSpanElement>,
-  idArray: NodeJS.Timeout[]
-) {
-  let timeCurrent = 0
+function controlRenderText({
+  count = 0,
+  idTimeoutArray,
+  indexByArray = 0,
+  initialValue,
+  ref,
+  texts,
+  timeMs = 100,
+  timeMsFinal = 2000,
+  timeMsResult,
+  typeFunction = true
+}: TypeControlRenderText) {
+  let newTeste = ''
+  let changeFunction
+  let countResult = count
+  let indexByArrayModified = indexByArray
+  let timeResult = timeMsResult
 
-  textRender.map((text, indexTextRender) => {
-    text.split('').map((_, index) => {
-      const idTimeSetKey = setTimeout(() => {
-        ref.current.innerHTML =
-          textInitial + textRender[indexTextRender].slice(0, index)
-        idArray = idArray.filter((id) => id !== idTimeSetKey)
-      }, timeMs * index++ + timeCurrent)
+  idTimeoutArray.push(
+    setTimeout(() => {
+      if (count === texts[indexByArray].length) {
+        timeResult = timeMsFinal + timeMs
+      } else {
+        timeResult = timeMs
+      }
 
-      const idTimeDeleteKey = setTimeout(() => {
-        const value = ref.current.innerHTML
+      if (count <= texts[indexByArray].length && typeFunction) {
+        newTeste = initialValue + texts[indexByArray].slice(0, count)
+        changeFunction = count < texts[indexByArray].length
+        countResult = changeFunction ? count + 1 : count - 1
 
-        idArray = idArray.filter((id) => id !== idTimeDeleteKey)
-        ref.current.innerHTML = value.slice(0, -1)
-      }, timeMs * (textRender[indexTextRender].length + index++) + timeCurrent + timeExtends)
+        ref.current.innerHTML = newTeste
+      } else {
+        newTeste = initialValue + texts[indexByArray].slice(0, count)
+        changeFunction = count === 0
+        countResult = changeFunction ? count + 1 : count - 1
 
-      idArray.push(idTimeSetKey, idTimeDeleteKey)
-    })
+        if (changeFunction && indexByArray === texts.length - 1) {
+          indexByArrayModified = 0
+        } else if (changeFunction) {
+          indexByArrayModified++
+        }
 
-    timeCurrent +=
-      textRender[indexTextRender].length * (timeMs * 2) + timeExtends
-  })
+        ref.current.innerHTML = newTeste
+      }
+
+      controlRenderText({
+        count: countResult,
+        idTimeoutArray: idTimeoutArray,
+        indexByArray: indexByArrayModified,
+        initialValue,
+        ref,
+        texts,
+        timeMs,
+        timeMsFinal,
+        timeMsResult: timeResult,
+        typeFunction: changeFunction
+      })
+    }, timeResult)
+  )
 }
 
 export const Welcome = (props: TypeWelcome) => {
   const refTextWelcome = useRef<HTMLSpanElement | null>(null)
 
   useEffect(() => {
-    // const idsTimeout: NodeJS.Timeout[] = []
-    // renderText(refTextWelcome, idsTimeout)
-    // const timeInterval = textRender.reduce((before, current) => {
-    //   return (before += current.length * 2 * timeMs + timeExtends)
-    // }, 400)
-    // const idSetInterval = setInterval(() => {
-    //   renderText(refTextWelcome, idsTimeout)
-    // }, timeInterval)
-    // return () => {
-    //   clearInterval(idSetInterval)
-    //   idsTimeout.forEach((id) => {
-    //     clearTimeout(id)
-    //   })
-    // }
+    const idTimeout: NodeJS.Timeout[] = []
 
-    let idTimeout: NodeJS.Timeout
+    if (refTextWelcome.current) {
+      controlRenderText({
+        idTimeoutArray: idTimeout,
+        initialValue: textInitial,
+        ref: refTextWelcome,
+        texts: textRender
+      })
+    }
 
     return () => {
-      clearInterval(idTimeout)
+      idTimeout?.forEach((timeout) => clearTimeout(timeout))
     }
   }, [])
 
   return (
     <S._Container {...props}>
-      {/* <span ref={refTextWelcome}>{textInitial}</span> */}
+      <S.ContainerTextSpan ref={refTextWelcome} />
+
       <S.ContainerText>
         <span>Hey!</span>
         <span>Seja em vindo(a)</span>
