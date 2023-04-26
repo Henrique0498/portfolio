@@ -1,12 +1,14 @@
 import styled from 'styled-components'
 
 export const _Container = styled.div`
-  height: 100vh;
-  display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 0 1rem;
+  display: flex;
   gap: 1rem;
+  height: 100vh;
+  justify-content: center;
+  max-width: 1536px;
+  padding: 0 1rem;
+  width: 100%;
 
   > span {
     position: relative;

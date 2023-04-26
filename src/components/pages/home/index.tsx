@@ -27,15 +27,15 @@ export function PageHome() {
         <div className="description_container">
           <Icon icon="quotationMarks" className="container_quotationMarks" />
           <p>
-            &nbsp;&nbsp;Sou desenvolvedor a um pouco mais de
+            Sou desenvolvedor a um pouco mais de
             <b> {timeExperience} anos</b>, graduado em Gestão de TI na faculdade
             Flamingo, e atualmente fazendo graduação de ADS na{' '}
             <Link href="https://www.fiap.com.br/" target="_blank">
               FIAP
             </Link>
             .<br />
-            &nbsp;&nbsp;Hoje invisto a maior parte do meu tempo estudando
-            tecnologias voltadas ao <b>Front-End</b>, além de reforçar minhas
+            Hoje invisto a maior parte do meu tempo estudando tecnologias
+            voltadas ao <b>Front-End</b>, além de reforçar minhas
             <b> soft-skills</b>.<br />
             Acredito que com esforço e foco se obtém tudo!
           </p>
@@ -100,7 +100,9 @@ export function PageHome() {
         </div>
       </S._Projects>
 
-      <S._Contacts className="col-span-4 gap-4 grid grid-cols-4 lg:col-span-12 lg:grid-cols-12">
+      <S._Contacts>
+        <div className="contacts_container col-span-4 gap-4 grid grid-cols-4 lg:col-span-12 lg:grid-cols-12">
+
         <div className="col-span-2 contacts_title">Contatos</div>
 
         <div className="col-span-2 contacts_links">
@@ -115,7 +117,7 @@ export function PageHome() {
               <Link
                 href="https://www.linkedin.com/in/henrique-ls/"
                 target="_blank"
-              >
+                >
                 <RiLinkedinFill className="link_icon" />
                 Linkedin
               </Link>
@@ -127,6 +129,7 @@ export function PageHome() {
               </Link>
             </li>
           </ul>
+                </div>
         </div>
       </S._Contacts>
     </S._Container>

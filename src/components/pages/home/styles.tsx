@@ -1,8 +1,10 @@
 import styled from 'styled-components'
 
 export const _Container = styled.main`
-  max-width: 1536px;
+  align-items: center;
+  display: flex;
   margin: 0 auto;
+  flex-direction: column;
 
   .head_title {
     display: block;
@@ -31,13 +33,14 @@ export const _Container = styled.main`
 `
 
 export const _Description = styled.section`
-  display: flex;
-  align-items: center;
-  position: relative;
-  padding: 13rem 1rem;
-  overflow: hidden;
   background: ${({ theme }) => theme.colors.gray[925]};
+  display: flex;
+  padding: 13rem 1rem;
+  position: relative;
+  overflow: hidden;
   transform: skewY(-4deg);
+  width: 100%;
+  justify-content: center;
 
   & > * {
     transform: skewY(4deg);
@@ -64,12 +67,12 @@ export const _Description = styled.section`
 
   .description_decorators {
     height: 100%;
-    left: 0;
     position: absolute;
     top: 0;
     width: 100%;
     padding: 5rem 0.25rem;
     display: flex;
+    max-width: 1536px;
     flex-direction: column;
     justify-content: space-between;
     z-index: 2;
@@ -95,6 +98,8 @@ export const _Description = styled.section`
   .description_container {
     z-index: 3;
     position: relative;
+    width: 100%;
+    max-width: 1536px;
 
     .container_quotationMarks {
       left: -0.25rem;
@@ -122,6 +127,8 @@ export const _Description = styled.section`
 export const _Technologies = styled.section`
   position: relative;
   padding: 5rem 1rem;
+  width: 100%;
+  max-width: 1536px;
 
   .technologies_decorators {
     color: ${({ theme }) => theme.colors.gray[300]};
@@ -148,6 +155,10 @@ export const _Technologies = styled.section`
 
 export const _Projects = styled.section`
   background-color: ${({ theme }) => theme.colors.gray[600]};
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 
   .main_head,
   .secondary_head {
@@ -157,6 +168,8 @@ export const _Projects = styled.section`
   .projects_main {
     padding: 2rem 1rem;
     position: relative;
+    width: 100%;
+    max-width: 1536px;
 
     .main_decorator_tape {
       color: ${({ theme }) => theme.colors.pink[500]};
@@ -190,6 +203,8 @@ export const _Projects = styled.section`
   .projects_secondary {
     position: relative;
     padding: 0 1rem 5rem;
+    width: 100%;
+    max-width: 1536px;
 
     .secondary_decorator {
       position: absolute;
@@ -219,6 +234,14 @@ export const _Contacts = styled.div`
   background-color: ${({ theme }) => theme.colors.gray[925]};
   color: ${({ theme }) => theme.colors.gray[200]};
   padding: 2rem 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  .contacts_container {
+    width: 100%;
+    max-width: 1536px;
+  }
 
   .contacts_title {
     align-items: center;
