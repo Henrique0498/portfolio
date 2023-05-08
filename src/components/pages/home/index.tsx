@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRecoilValue } from 'recoil'
 import { AtSymbolIcon } from '@heroicons/react/24/outline'
 import { RiGithubLine, RiLinkedinFill } from 'react-icons/ri'
 
@@ -9,11 +10,17 @@ import { Welcome } from '../../molecules/Welcome'
 import { CardProjectLarge } from '../../organisms/CardProjectLarge'
 import { TypeComponentCardProjectLarge } from '../../organisms/CardProjectLarge/type'
 import { TypeComponentListProject } from '../../molecules/ListProject/types'
+import { storeGithubUserByUsername } from 'storage/github/user'
 
 import * as S from './styles'
 
 export function PageHome() {
+  const databaseGithub = useRecoilValue(storeGithubUserByUsername)
   const timeExperience = new Date().getFullYear() - 2019
+
+  if (!databaseGithub) {
+    return null
+  }
 
   return (
     <S._Container className="grid gap-x-4 grid-cols-4 lg:grid-cols-12">
@@ -102,34 +109,33 @@ export function PageHome() {
 
       <S._Contacts>
         <div className="contacts_container col-span-4 gap-4 grid grid-cols-4 lg:col-span-12 lg:grid-cols-12">
+          <div className="col-span-2 contacts_title">Contatos</div>
 
-        <div className="col-span-2 contacts_title">Contatos</div>
-
-        <div className="col-span-2 contacts_links">
-          <ul>
-            <li>
-              <Link href="https://github.com/Henrique0498" target="_blank">
-                <RiGithubLine className="link_icon" />
-                GitHub
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="https://www.linkedin.com/in/henrique-ls/"
-                target="_blank"
+          <div className="col-span-2 contacts_links">
+            <ul>
+              <li>
+                <Link href={databaseGithub?.html_url} target="_blank">
+                  <RiGithubLine className="link_icon" />
+                  GitHub
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://www.linkedin.com/in/henrique-ls/"
+                  target="_blank"
                 >
-                <RiLinkedinFill className="link_icon" />
-                Linkedin
-              </Link>
-            </li>
-            <li>
-              <Link href="mailto:h.lopes.silva2015@gmail.com">
-                <AtSymbolIcon className="link_icon" />
-                Email
-              </Link>
-            </li>
-          </ul>
-                </div>
+                  <RiLinkedinFill className="link_icon" />
+                  Linkedin
+                </Link>
+              </li>
+              <li>
+                <Link href={`mailto:${databaseGithub?.email}`}>
+                  <AtSymbolIcon className="link_icon" />
+                  Email
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
       </S._Contacts>
     </S._Container>

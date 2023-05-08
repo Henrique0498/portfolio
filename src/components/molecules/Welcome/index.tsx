@@ -2,6 +2,8 @@ import { useEffect, useRef } from 'react'
 import { Image } from '../../atoms/Image'
 import * as S from './styles'
 import { TypeControlRenderText, TypeWelcome } from './types'
+import { storeGithubUserByUsername } from 'storage/github/user'
+import { useRecoilValue } from 'recoil'
 
 const textInitial = 'Olá, '
 const textRender = ['eu sou o Henrique', 'seja bem vindo']
@@ -70,6 +72,7 @@ function controlRenderText({
 
 export const Welcome = (props: TypeWelcome) => {
   const refTextWelcome = useRef<HTMLSpanElement | null>(null)
+  const databaseGithub = useRecoilValue(storeGithubUserByUsername)
 
   useEffect(() => {
     const idTimeout: NodeJS.Timeout[] = []
@@ -88,6 +91,10 @@ export const Welcome = (props: TypeWelcome) => {
     }
   }, [])
 
+  if (!databaseGithub) {
+    return null
+  }
+
   return (
     <S._Container {...props}>
       <S.ContainerTextSpan ref={refTextWelcome} />
@@ -101,10 +108,10 @@ export const Welcome = (props: TypeWelcome) => {
       <S.ContainerImage>
         <Image
           className="container_photoUser"
-          src="https://avatars.githubusercontent.com/u/39716479?v=4"
+          src={databaseGithub.avatar_url}
           width="20rem"
           height="25rem"
-          alt="Teste"
+          alt={`Foto do usuário ${databaseGithub.login}`}
         />
       </S.ContainerImage>
     </S._Container>

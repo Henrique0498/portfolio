@@ -1,9 +1,24 @@
 import Head from 'next/head'
+import { useSetRecoilState } from 'recoil'
+import { useEffect } from 'react'
+
 import { Header } from '../components/organisms/Header'
 import { PageHome } from '../components/pages/home'
 import { Sidebar } from '../components/organisms/Sidebar'
 
-export default function Home() {
+import { getSystemGithubUserById } from 'services/axios/urls/system/github/user'
+import { storeGithubUserByUsername } from 'storage/github/user'
+import { AxiosError } from 'axios'
+
+import { TypeResponseGitHubErrorUserByUsername } from 'services/axios/urls/github/user/types'
+
+export default function Home({ userData }) {
+  const setCounter = useSetRecoilState(storeGithubUserByUsername)
+
+  useEffect(() => {
+    setCounter(userData)
+  }, [setCounter, userData])
+
   return (
     <>
       <Head>
@@ -16,4 +31,38 @@ export default function Home() {
       <PageHome />
     </>
   )
+}
+
+export async function getStaticProps() {
+  try {
+    const { data: userData } = await getSystemGithubUserById(
+      'Henrique0498'
+    ).catch(({ status }: AxiosError<TypeResponseGitHubErrorUserByUsername>) => {
+      return {
+        status,
+        data: null
+      }
+    })
+
+    if ('message' in userData) {
+      return {
+        notFound: true,
+
+        props: {
+          message: 'Usuário não encontrado'
+        }
+      }
+    }
+
+    return {
+      props: {
+        userData,
+        revalidate: 10
+      }
+    }
+  } catch (e) {
+    return {
+      notFound: true
+    }
+  }
 }
