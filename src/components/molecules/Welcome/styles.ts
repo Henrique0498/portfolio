@@ -1,42 +1,22 @@
 import styled from 'styled-components'
 
 export const _Container = styled.div`
-  align-items: center;
   display: flex;
   gap: 1rem;
+  margin-top: calc(6.25rem - 6rem);
   height: 100vh;
-  justify-content: center;
   max-width: 1536px;
-  padding: 0 1rem;
+  padding: 1rem;
   width: 100%;
 
-  > span {
-    position: relative;
-    font-weight: 500;
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-    color: ${({ theme }) => theme.colors.blue[600]};
+  position: relative;
+  background-image: url('/images/background-circles-arrow.svg');
+  background-size: auto 60%;
+  background-repeat: no-repeat;
 
-    &::before {
-      content: '';
-      width: 2px;
-      height: 100%;
-      position: absolute;
-      display: block;
-      right: -4px;
-      background: ${({ theme }) => theme.colors.blue[600]};
-      animation: visiblePipe 700ms infinite;
-    }
-
-    @keyframes visiblePipe {
-      0% {
-        opacity: 1;
-      }
-
-      50% {
-        opacity: 0;
-      }
-    }
+  .badgers {
+    display: flex;
+    gap: 0.5rem;
   }
 
   @media (min-width: 768px) {
@@ -44,36 +24,13 @@ export const _Container = styled.div`
     justify-content: space-between;
   }
 `
-export const ContainerImage = styled.div`
-  position: relative;
-  display: none;
-  justify-content: center;
-  padding: 0.75rem;
 
-  ::before {
-    content: '';
-    width: 3.75rem;
-    height: 3.75rem;
-    position: absolute;
-    background-color: ${({ theme }) => theme.colors.violet[500]};
-    left: 0rem;
-    border-radius: 0.5rem;
-    top: 0rem;
-  }
-
-  .container_photoUser {
-    border-radius: 0.5rem;
-    overflow: hidden;
-    box-shadow: 0.75rem 0.75rem ${({ theme }) => theme.colors.blue[500]};
-  }
-
-  @media (min-width: 768px) {
-    display: flex;
-  }
+export const _Presentation = styled.div`
+  padding-top: 5rem;
 `
 
 export const ContainerText = styled.div`
-  display: none;
+  display: flex;
   flex-direction: column;
   ${({ theme }) => theme.text.heading[3]};
 
@@ -86,16 +43,15 @@ export const ContainerText = styled.div`
       color: ${({ theme }) => theme.colors.blue[500]};
     }
   }
-
-  @media (min-width: 768px) {
-    display: flex;
-  }
 `
 
-export const ContainerTextSpan = styled.span`
-  display: block;
-
-  @media (min-width: 768px) {
-    display: none;
-  }
+export const _Coding = styled.div`
+  width: 400px;
+  height: 200px;
+  background-color: ${({ theme }) => theme.colors.gray[900]};
+  margin: auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ${({ theme }) => theme.colors.gray[200]};
 `
