@@ -17,7 +17,6 @@ export async function highlight(
   const tokens = highlighter.codeToThemedTokens(code, lang, theme, {
     includeExplanation: false
   })
-  // const html = renderToHtml(tokens, { bg: 'transparent' })
   const html = renderToHtml(tokens, { bg: 'transparent' })
 
   return html
