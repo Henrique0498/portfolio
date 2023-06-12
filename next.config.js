@@ -16,6 +16,9 @@ const nextConfig = {
         hostname: 'avatars.githubusercontent.com'
       }
     ]
+  },
+  experimental: {
+    serverComponentsExternalPackages: ['shiki', 'vscode-oniguruma']
   }
 }
 
