@@ -14,7 +14,11 @@ import { storeGithubUserByUsername } from 'storage/github/user'
 
 import * as S from './styles'
 
-export function PageHome() {
+interface Teste {
+  code: string
+}
+
+export function PageHome({ code }: Teste) {
   const databaseGithub = useRecoilValue(storeGithubUserByUsername)
   const timeExperience = new Date().getFullYear() - 2019
 
@@ -24,7 +28,7 @@ export function PageHome() {
 
   return (
     <S._Container className="grid gap-x-4 grid-cols-4 lg:grid-cols-12">
-      <Welcome className="col-span-4  lg:col-span-12" />
+      <Welcome code={code} className="col-span-4  lg:col-span-12" />
 
       <S._Description className="col-span-4 lg:col-span-12" id="description">
         <div className="description_decorators">

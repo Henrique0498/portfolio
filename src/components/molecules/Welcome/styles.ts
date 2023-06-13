@@ -1,35 +1,27 @@
 import styled from 'styled-components'
 
 export const _Container = styled.div`
+  background-image: url('/images/background-circles-arrow.svg');
+  background-repeat: no-repeat;
+  background-size: auto 60%;
   display: flex;
+  flex-direction: column;
   gap: 1rem;
-  margin-top: calc(6.25rem - 6rem);
-  height: 100vh;
+  height: calc(100vh - 30rem);
   max-width: 1536px;
   padding: 1rem;
-  width: 100%;
-
   position: relative;
-  background-image: url('/images/background-circles-arrow.svg');
-  background-size: auto 60%;
-  background-repeat: no-repeat;
+  width: 100%;
 
   .badgers {
     display: flex;
     gap: 0.5rem;
   }
-
-  @media (min-width: 768px) {
-    min-height: 40rem;
-    justify-content: space-between;
-  }
 `
 
-export const _Presentation = styled.div`
-  padding-top: 5rem;
-`
+export const _Presentation = styled.div``
 
-export const ContainerText = styled.div`
+export const _ContainerText = styled.div`
   display: flex;
   flex-direction: column;
   ${({ theme }) => theme.text.heading[3]};
@@ -46,12 +38,12 @@ export const ContainerText = styled.div`
 `
 
 export const _Coding = styled.div`
-  width: 400px;
-  height: 200px;
-  background-color: ${({ theme }) => theme.colors.gray[900]};
-  margin: auto 0;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  color: ${({ theme }) => theme.colors.gray[200]};
+  justify-content: flex-end;
+  max-width: 100%;
+  padding-top: 4rem;
+
+  & > .code {
+    box-shadow: ${({ theme }) => theme.shadows.xl};
+  }
 `

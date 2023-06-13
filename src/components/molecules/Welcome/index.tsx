@@ -3,8 +3,9 @@ import { TypeWelcome } from './types'
 import { storeGithubUserByUsername } from 'storage/github/user'
 import { useRecoilValue } from 'recoil'
 import { Badger } from 'components/atoms/Badger'
+import { Coding } from '../Coding'
 
-export const Welcome = (props: TypeWelcome) => {
+export const Welcome = ({ code, ...props }: TypeWelcome) => {
   const databaseGithub = useRecoilValue(storeGithubUserByUsername)
 
   if (!databaseGithub) {
@@ -20,14 +21,17 @@ export const Welcome = (props: TypeWelcome) => {
           <Badger>TypeScript</Badger>
           <Badger color="yellow">JavaScript</Badger>
         </div>
-        <S.ContainerText>
+
+        <S._ContainerText>
           <span>Opa!</span>
           <span>Eu sou um</span>
           <span>Developer Front-End.</span>
-        </S.ContainerText>
+        </S._ContainerText>
       </S._Presentation>
 
-      <S._Coding>Coding</S._Coding>
+      <S._Coding>
+        <Coding code={code} className="code" />
+      </S._Coding>
     </S._Container>
   )
 }

@@ -1,3 +1,5 @@
 import { HTMLAttributes } from 'react'
 
-export type TypeWelcome = HTMLAttributes<HTMLDivElement>
+export interface TypeWelcome extends HTMLAttributes<HTMLDivElement> {
+  code: string
+}

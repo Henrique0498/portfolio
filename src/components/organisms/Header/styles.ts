@@ -15,6 +15,7 @@ export const _Container = styled.header`
   transition: 200ms ease-in-out;
   width: 100%;
   z-index: 300;
+  top: 0;
 
   &[scroll='true'] {
     background: ${({ theme }) => transparentize(0.15, theme.colors.gray[950])};
