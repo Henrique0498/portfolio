@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const _Container = styled.div`
   background-image: url('/images/background-circles-arrow.svg');
   background-repeat: no-repeat;
-  background-size: auto 60%;
+  background-size: auto 70%;
   display: flex;
   flex-direction: column;
   gap: 5rem;
@@ -17,6 +17,7 @@ export const _Container = styled.div`
   .badgers {
     display: flex;
     gap: 0.5rem;
+    flex-wrap: wrap;
   }
 `
 
@@ -28,6 +29,8 @@ export const _ContainerText = styled.div`
   ${({ theme }) => theme.text.heading[3]};
 
   span {
+    overflow-wrap: break-word;
+
     :first-child {
       color: ${({ theme }) => theme.colors.violet[500]};
     }
