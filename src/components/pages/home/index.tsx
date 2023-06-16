@@ -20,7 +20,7 @@ interface Teste {
 
 export function PageHome({ code }: Teste) {
   const databaseGithub = useRecoilValue(storeGithubUserByUsername)
-  const timeExperience = new Date().getFullYear() - 2019
+  const timeExperience = new Date().getFullYear() - 2021
 
   if (!databaseGithub) {
     return null
@@ -31,29 +31,34 @@ export function PageHome({ code }: Teste) {
       <Welcome code={code} className="col-span-4  lg:col-span-12" />
 
       <S._Description className="col-span-4 lg:col-span-12" id="description">
-        <div className="description_decorators">
-          <span>Quem é</span>
-          <span>Henrique Lopes</span>
-        </div>
-        <div className="description_container">
-          <Icon icon="quotationMarks" className="container_quotationMarks" />
-          <p>
-            Sou desenvolvedor a um pouco mais de
-            <b> {timeExperience} anos</b>, graduado em Gestão de TI na faculdade
-            Flamingo, e atualmente fazendo graduação de ADS na{' '}
-            <Link href="https://www.fiap.com.br/" target="_blank">
-              FIAP
-            </Link>
-            .<br />
-            Hoje invisto a maior parte do meu tempo estudando tecnologias
-            voltadas ao <b>Front-End</b>, além de reforçar minhas
-            <b> soft-skills</b>.<br />
-            Acredito que com esforço e foco se obtém tudo!
+        <div className="max-w-screen-2xl lg:grid lg:grid-cols-2 py-20">
+          <div className="header">
+            <div className="main_head">
+              <span className="head_title">
+                <h2>Apresentação</h2>
+              </span>
+              <p>Uma breve descrição sobre mim.</p>
+            </div>
+          </div>
+
+          <p className="body">
+            Sou desenvolvedor há um pouco mais de <b>{timeExperience} anos</b>,
+            atualmente trabalhando em São Paulo no <b>Front-End</b> com
+            <b> React</b> utilizando <b> Typescript</b> como linguagem.
+            <br />
+            Eu sou graduado em Gestão da tecnologia da informação, e atualmente
+            faço graduação de ADS na FIAP, e nos meus tempos livre eu investido
+            parte do meu tempo estudando tecnologias voltadas ao
+            <b> Front-End</b>, além de reforçar minhas <b>soft-skills</b>.
+            <br />
+            <br />E o por quê disso? Porquê simplesmente acho incrível o
+            desenvolvimento web, onde cada dia sempre tem uma tecnologia nova,
+            ou então uma nova maneira de fazer algo já existente.
           </p>
         </div>
       </S._Description>
 
-      <S._Technologies className="col-span-4  lg:col-span-12" id="tecnologies">
+      <S._Technologies className="col-span-4 lg:col-span-12" id="tecnologies">
         <div className="technologies_decorators">
           <Icon icon="backgroundTech" />
         </div>

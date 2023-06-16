@@ -6,12 +6,13 @@ export const _Container = styled.div`
   background-size: auto 60%;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  height: calc(100vh - 30rem);
+  gap: 5rem;
+  height: fit-content;
   max-width: 1536px;
   padding: 1rem;
   position: relative;
   width: 100%;
+  z-index: 10;
 
   .badgers {
     display: flex;
@@ -41,7 +42,6 @@ export const _Coding = styled.div`
   display: flex;
   justify-content: flex-end;
   max-width: 100%;
-  padding-top: 4rem;
 
   & > .code {
     box-shadow: ${({ theme }) => theme.shadows.xl};
