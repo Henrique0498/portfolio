@@ -74,6 +74,7 @@ export const _Technologies = styled.section`
   padding: 5rem 1rem;
   width: 100%;
   max-width: 1536px;
+  background-color: ${({ theme }) => theme.colors.gray[600]};
 
   .technologies_decorators {
     color: ${({ theme }) => theme.colors.gray[300]};

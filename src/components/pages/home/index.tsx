@@ -12,13 +12,11 @@ import { TypeComponentCardProjectLarge } from '../../organisms/CardProjectLarge/
 import { TypeComponentListProject } from '../../molecules/ListProject/types'
 import { storeGithubUserByUsername } from 'storage/github/user'
 
+import { TypePageHomepage } from './types'
+
 import * as S from './styles'
 
-interface Teste {
-  code: string
-}
-
-export function PageHome({ code }: Teste) {
+export function PageHome({ code }: TypePageHomepage) {
   const databaseGithub = useRecoilValue(storeGithubUserByUsername)
   const timeExperience = new Date().getFullYear() - 2021
 
