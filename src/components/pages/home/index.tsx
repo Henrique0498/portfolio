@@ -5,11 +5,8 @@ import { AtSymbolIcon } from '@heroicons/react/24/outline'
 import { RiGithubLine, RiLinkedinFill } from 'react-icons/ri'
 
 import { Icon } from '../../atoms/Icons'
-import { ListProject } from '../../molecules/ListProject'
 import { Welcome } from '../../molecules/Welcome'
-import { CardProjectLarge } from '../../organisms/CardProjectLarge'
 import { TypeComponentCardProjectLarge } from '../../organisms/CardProjectLarge/type'
-import { TypeComponentListProject } from '../../molecules/ListProject/types'
 import { storeGithubUserByUsername } from 'storage/github/user'
 
 import { TypePageHomepage } from './types'
@@ -86,34 +83,6 @@ export function PageHome({ code }: TypePageHomepage) {
         </div>
       </S._Technologies>
 
-      <S._Projects className="col-span-4 lg:col-span-12" id="projects">
-        <div className="projects_main">
-          <Icon icon="tape" className="main_decorator_tape" />
-          <Icon icon="gitHubLarge" className="main_decorator" />
-          <div className="main_head">
-            <span className="head_title">
-              <h2>Projetos principais</h2>
-            </span>
-            <p>Estes são os meus projetos principais.</p>
-          </div>
-
-          <div className="main_cards grid gap-4 grid-cols-1 lg:grid-cols-12">
-            <CardProjectLarge {...card} className="col-span-1 lg:col-span-4" />
-          </div>
-        </div>
-
-        <div className="projects_secondary" id="updates">
-          <Icon icon="gitSmall" className="secondary_decorator" />
-          <div className="secondary_head">
-            <span className="head_title">
-              <h2>Ultimas atualizações</h2>
-            </span>
-            <p>Atualizações do GitHub.</p>
-          </div>
-          <ListProject {...list} />
-        </div>
-      </S._Projects>
-
       <S._Contacts>
         <div className="contacts_container col-span-4 gap-4 grid grid-cols-4 lg:col-span-12 lg:grid-cols-12">
           <div className="col-span-2 contacts_title">Contatos</div>
@@ -147,18 +116,6 @@ export function PageHome({ code }: TypePageHomepage) {
       </S._Contacts>
     </S._Container>
   )
-}
-
-const list: TypeComponentListProject = {
-  list: [
-    {
-      badgers: [],
-      date: new Date(),
-      id: 'teste',
-      repository: 'teste',
-      title: 'teste'
-    }
-  ]
 }
 
 const technologies = [
