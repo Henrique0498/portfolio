@@ -15,16 +15,6 @@ export function NavBar() {
             Tecnologias
           </Link>
         </li>
-        <li>
-          <Link href="#projects" color="currentColor">
-            Projetos
-          </Link>
-        </li>
-        <li>
-          <Link href="#updates" color="currentColor">
-            Atualizações
-          </Link>
-        </li>
       </ul>
     </S.Container>
   )
