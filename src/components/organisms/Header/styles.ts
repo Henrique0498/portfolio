@@ -23,7 +23,7 @@ export const _Container = styled.header`
     height: 3.75rem;
 
     a {
-      color: ${({ theme }) => theme.colors.blue[400]};
+      color: ${({ theme }) => theme.colors.blue[900]};
     }
   }
 `

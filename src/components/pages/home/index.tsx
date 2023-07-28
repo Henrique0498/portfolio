@@ -24,7 +24,6 @@ export function PageHome({ code }: TypePageHomepage) {
   return (
     <S._Container className="grid gap-x-4 grid-cols-4 lg:grid-cols-12">
       <Welcome code={code} className="col-span-4  lg:col-span-12" />
-
       <S._Description className="col-span-4 lg:col-span-12" id="description">
         <div className="max-w-screen-2xl lg:grid lg:grid-cols-2 py-20">
           <div className="header">
@@ -36,27 +35,69 @@ export function PageHome({ code }: TypePageHomepage) {
             </div>
           </div>
 
-          <p className="body">
-            Sou desenvolvedor há um pouco mais de <b>{timeExperience} anos</b>,
-            atualmente trabalhando em São Paulo no <b>Front-End</b> com
-            <b> React</b> utilizando <b> Typescript</b> como linguagem.
-            <br />
-            Eu sou graduado em Gestão da tecnologia da informação, e atualmente
-            faço graduação de ADS na FIAP, e nos meus tempos livre eu investido
-            parte do meu tempo estudando tecnologias voltadas ao
-            <b> Front-End</b>, além de reforçar minhas <b>soft-skills</b>.
-            <br />
-            <br />E o por quê disso? Porquê simplesmente acho incrível o
-            desenvolvimento web, onde cada dia sempre tem uma tecnologia nova,
-            ou então uma nova maneira de fazer algo já existente.
-          </p>
+          <div className="body shadow-xl">
+            <p>
+              Sou desenvolvedor há um pouco mais de <b>{timeExperience} anos</b>
+              , atualmente estou trabalhando em São Paulo no <b>Front-End </b>
+              com <b>React</b> utilizando <b> Typescript</b> como linguagem.
+              <br />
+              Eu sou graduado em Gestão da tecnologia da informação, e
+              atualmente faço graduação de ADS na FIAP, e nos meus tempos livre
+              eu investido parte do meu tempo estudando tecnologias voltadas ao
+              <b> Front-End</b>, além de reforçar minhas <b>soft-skills</b>.
+              <br />
+              <br />E o por quê disso? Porquê simplesmente acho incrível o
+              desenvolvimento web, onde cada dia sempre tem uma tecnologia nova,
+              ou então uma nova maneira de fazer algo já existente.
+            </p>
+          </div>
         </div>
       </S._Description>
+      {/*
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      */}
       <S._Technologies className="col-span-4 lg:col-span-12" id="tecnologies">
-        <div className="technologies_decorators">
+        {/* <div className="technologies_decorators">
           <Icon icon="backgroundTech" />
-        </div>
+        </div> */}
 
         <div className="technologies_main">
           <div className="main_head">
@@ -83,7 +124,7 @@ export function PageHome({ code }: TypePageHomepage) {
         </div>
       </S._Technologies>
 
-      <S._Contacts>
+      {/* <S._Contacts>
         <div className="contacts_container col-span-4 gap-4 grid grid-cols-4 lg:col-span-12 lg:grid-cols-12">
           <div className="col-span-2 contacts_title">Contatos</div>
 
@@ -113,7 +154,7 @@ export function PageHome({ code }: TypePageHomepage) {
             </ul>
           </div>
         </div>
-      </S._Contacts>
+      </S._Contacts> */}
     </S._Container>
   )
 }
