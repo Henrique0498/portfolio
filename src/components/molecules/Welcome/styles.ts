@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const _Container = styled.div`
   background-image: url('/images/background-circles-arrow.svg');
+  background-position: 0.25rem 0px;
   background-repeat: no-repeat;
   background-size: auto 70%;
   display: flex;

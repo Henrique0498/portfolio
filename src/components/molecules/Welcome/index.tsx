@@ -25,7 +25,7 @@ export const Welcome = ({ code, ...props }: TypeWelcome) => {
         <S._ContainerText>
           <span>Opa!</span>
           <span>Eu sou um</span>
-          <span>Developer Front-End.</span>
+          <span>Front-End Developer.</span>
         </S._ContainerText>
       </S._Presentation>
 
