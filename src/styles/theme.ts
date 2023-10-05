@@ -142,6 +142,13 @@ export const theme = {
       `
     }
   },
+  screen: {
+    sm: '640px',
+    md: '768px',
+    lg: '1024px',
+    xl: '1280px',
+    '2xl': '1536px'
+  },
   shadows: {
     md: '2px 2px 2px 0px rgba(0, 0, 0, 0.1), 2px 2px 2px 1px rgba(0, 0, 0, 0.1), 2px 2px 0px 0px rgba(0, 0, 0, 0.02)',
     xl: '8px 8px 8px 0px rgba(0, 0, 0, 0.3), 8px 8px 8px 4px rgba(0, 0, 0, 0.3), 8px 8px 0px 0px rgba(0, 0, 0, 0.04)'

@@ -8,7 +8,7 @@ export const _Container = styled.footer`
   padding: 2rem 1rem;
   position: relative;
   width: 100%;
-  z-index: 300;
+  z-index: 50;
 
   ul {
     display: flex;

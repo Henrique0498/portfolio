@@ -11,7 +11,7 @@ export function NavBar() {
           </Link>
         </li>
         <li>
-          <Link href="#tecnologies" color="currentColor">
+          <Link href="#technologies" color="currentColor">
             Tecnologias
           </Link>
         </li>

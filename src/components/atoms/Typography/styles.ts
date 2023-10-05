@@ -97,7 +97,7 @@ export function getStylesTypography(type: TypeTypographyElement) {
     case 'body-bold':
       return css`
         font-size: 1rem;
-        line-height: 1.25rem;
+        line-height: 1.5rem;
         font-family: 'Roboto', sans-serif;
         font-weight: 500;
       `
@@ -125,7 +125,7 @@ export function getStylesTypography(type: TypeTypographyElement) {
     default:
       return css`
         font-size: 1rem;
-        line-height: 1.25rem;
+        line-height: 1.5rem;
         font-family: 'Roboto', sans-serif;
         font-weight: 400;
       `

@@ -21,11 +21,13 @@ export function Header() {
 
   return (
     <S._Container ref={refHeader}>
-      <MenuBurger aria-label="Meno do cabeçalho" className="hidden" />
+      <div className="container_nav max-w-screen-2xl mx-auto">
+        <MenuBurger aria-label="Meno do cabeçalho" className="hidden" />
 
-      <LogoHeader />
+        <LogoHeader />
 
-      <NavBar />
+        <NavBar />
+      </div>
     </S._Container>
   )
 }

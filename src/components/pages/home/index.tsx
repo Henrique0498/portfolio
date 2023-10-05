@@ -1,24 +1,54 @@
-import Image from 'next/image'
-import Link from 'next/link'
 import { useRecoilValue } from 'recoil'
-import { AtSymbolIcon } from '@heroicons/react/24/outline'
-import { RiGithubLine, RiLinkedinFill } from 'react-icons/ri'
 
-import { Icon } from '../../atoms/Icons'
 import { Welcome } from '../../molecules/Welcome'
-import { TypeComponentCardProjectLarge } from '../../organisms/CardProjectLarge/type'
 import { storeGithubUserByUsername } from 'storage/github/user'
+
+// import { Card, CardBody, CardFooter, Image } from '@nextui-org/react'
+
+import { Card } from 'components/organisms/Card'
 
 import { TypePageHomepage } from './types'
 
 import * as S from './styles'
+import useSWR from 'swr'
+import {
+  SYSTEM_GET_TECHNOLOGIES,
+  getSystemTechnologies
+} from 'services/axios/urls/system/technologies'
+import {
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalHeader,
+  Spinner,
+  useDisclosure
+} from '@nextui-org/react'
+import { useState } from 'react'
+import { TypeReturnApiTechnologies } from 'pages/api/v1/technologies'
 
 export function PageHome({ code }: TypePageHomepage) {
   const databaseGithub = useRecoilValue(storeGithubUserByUsername)
   const timeExperience = new Date().getFullYear() - 2021
+  const [technology, setTechnology] =
+    useState<TypeReturnApiTechnologies | null>(null)
+
+  const { isOpen, onOpen, onOpenChange } = useDisclosure()
+
+  const { data, isLoading } = useSWR(
+    SYSTEM_GET_TECHNOLOGIES,
+    getSystemTechnologies
+  )
 
   if (!databaseGithub) {
     return null
+  }
+
+  function handleClickTechnology(value: TypeReturnApiTechnologies) {
+    return () => {
+      setTechnology(value)
+      console.log('teste')
+      onOpen()
+    }
   }
 
   return (
@@ -53,205 +83,51 @@ export function PageHome({ code }: TypePageHomepage) {
           </div>
         </div>
       </S._Description>
-      {/*
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      */}
-      <S._Technologies className="col-span-4 lg:col-span-12" id="tecnologies">
-        {/* <div className="technologies_decorators">
-          <Icon icon="backgroundTech" />
-        </div> */}
-
+      <S._Technologies className="col-span-4 lg:col-span-12" id="technologies">
         <div className="technologies_main">
-          <div className="main_head">
+          <div className="main_head pb-4">
             <span className="head_title">
               <h2>Tecnologias</h2>
             </span>
             <p>Stacks que mais domino nesse momento.</p>
           </div>
-          <div className="main_carousel grid grid-cols-4 lg:grid-cols-12 gap-4">
-            {technologies.map((item) => (
-              <div key={item.id}>
-                <Link href={item.link} target="_blank">
-                  <Image
-                    alt={`Tecnologia ${item.title}`}
-                    className="shadow-md"
-                    src={item.image.source}
-                    height={80}
-                    width={80}
-                  />
-                </Link>
-              </div>
-            ))}
-          </div>
+          {isLoading ? (
+            <div className="h-80 flex justify-center items-center">
+              <Spinner size="lg" label="Carregando..." color="primary" />
+            </div>
+          ) : (
+            <div className="gap-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+              {data?.data.map((item) => (
+                <Card
+                  {...item}
+                  key={item.id}
+                  subtitle="Clique para saber mais"
+                  isPressable
+                  // onPress={handleClickTechnology(item)}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </S._Technologies>
 
-      {/* <S._Contacts>
-        <div className="contacts_container col-span-4 gap-4 grid grid-cols-4 lg:col-span-12 lg:grid-cols-12">
-          <div className="col-span-2 contacts_title">Contatos</div>
-
-          <div className="col-span-2 contacts_links">
-            <ul>
-              <li>
-                <Link href={databaseGithub?.html_url} target="_blank">
-                  <RiGithubLine className="link_icon" />
-                  GitHub
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="https://www.linkedin.com/in/henrique-ls/"
-                  target="_blank"
-                >
-                  <RiLinkedinFill className="link_icon" />
-                  Linkedin
-                </Link>
-              </li>
-              <li>
-                <Link href={`mailto:${databaseGithub?.email}`}>
-                  <AtSymbolIcon className="link_icon" />
-                  Email
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </S._Contacts> */}
+      <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+        <ModalContent>
+          <ModalHeader>{technology?.title}</ModalHeader>
+          <ModalBody>{teste}</ModalBody>
+        </ModalContent>
+      </Modal>
     </S._Container>
   )
 }
 
-const technologies = [
-  {
-    id: '1',
-    title: 'Typescript',
-    image: {
-      source:
-        'https://github.com/Henrique0498/Henrique0498/raw/main/img/TypeScript.svg'
-    },
-    link: 'https://www.typescriptlang.org/pt/'
-  },
-  {
-    id: '2',
-    title: 'React',
-    image: {
-      source:
-        'https://github.com/Henrique0498/Henrique0498/raw/main/img/React.svg'
-    },
-    link: 'https://pt-br.reactjs.org/'
-  },
-  {
-    id: '3',
-    title: 'Next.js',
-    image: {
-      source:
-        'https://github.com/Henrique0498/Henrique0498/raw/main/img/Next.svg'
-    },
-    link: 'https://nextjs.org/'
-  },
-  {
-    id: '4',
-    title: 'Nest.js',
-    image: {
-      source:
-        'https://github.com/Henrique0498/Henrique0498/raw/main/img/Nest.svg'
-    },
-    link: 'https://nestjs.com/'
-  },
-  {
-    id: '5',
-    title: 'GraphQL',
-    image: {
-      source:
-        'https://github.com/Henrique0498/Henrique0498/raw/main/img/GraphQL.svg'
-    },
-    link: 'https://graphql.org/'
-  },
-  {
-    id: '6',
-    title: 'Jest',
-    image: {
-      source:
-        'https://github.com/Henrique0498/Henrique0498/raw/main/img/Jest.svg'
-    },
-    link: 'https://jestjs.io/pt-BR/docs/getting-started'
-  },
-  {
-    id: '7',
-    title: 'Storybook',
-    image: {
-      source:
-        'https://github.com/Henrique0498/Henrique0498/raw/main/img/Storybook.svg'
-    },
-    link: 'https://storybook.js.org/'
-  },
-  {
-    id: '8',
-    title: 'styled-component',
-    image: {
-      source:
-        'https://github.com/Henrique0498/Henrique0498/raw/main/img/Styled-Components.svg'
-    },
-    link: 'https://styled-components.com/'
-  }
-]
+const teste = `
 
-const card: TypeComponentCardProjectLarge = {
-  badgers: [
-    {
-      id: 'teste',
-      children: 'typescript'
-    }
-  ],
-  date: new Date(),
-  image: {
-    background: {
-      src: '/images/card-background.jpg'
-    },
-    icon: {
-      src: 'https://raw.githubusercontent.com/Henrique0498/Henrique0498/89a5040f5b12b8dfe45273491854886507dabf72/img/Logo.svg'
-    }
-  },
-  repository: {
-    src: 'https://github.com/Henrique0498'
-  },
-  title: 'Teste 432 43 432 4324324 4322'
-}
+O TypeScript é uma linguagem de programação que foi criada para ajudar os desenvolvedores a escreverem código de forma mais confiável e organizada. Em vez de escrever simplesmente código JavaScript, o TypeScript permite que você adicione tipos aos seus dados, o que ajuda a prevenir erros antes mesmo de executar o programa.
+
+Imagine o TypeScript como um assistente que ajuda a identificar e corrigir erros em seu código antes que você o execute, tornando-o mais seguro e menos propenso a bugs. Ele também torna mais fácil para os programadores entenderem e colaborarem em projetos de software, tornando o código mais legível e documentado.
+
+Em resumo, o TypeScript é uma ferramenta que torna a programação mais segura e compreensível, especialmente para desenvolvedores, tornando a criação de software mais eficiente e menos sujeita a erros.
+
+`

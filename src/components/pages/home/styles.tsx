@@ -13,6 +13,7 @@ export const _Container = styled.main`
   display: flex;
   margin: 0 auto;
   flex-direction: column;
+  overflow: hidden;
 
   .head_title {
     display: block;
@@ -21,7 +22,7 @@ export const _Container = styled.main`
 
     ::before {
       content: '';
-      background-color: ${({ theme }) => theme.colors.blue[500]};
+      background-color: ${({ theme }) => theme.colors.gray[500]};
       bottom: -0.25rem;
       border-radius: 0.25rem;
       display: block;
@@ -116,65 +117,23 @@ export const _Description = styled.section`
   }
 `
 
-/*
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-*/
-
 export const _Technologies = styled.section`
   position: relative;
-  padding: 5rem 1rem;
+  padding: 5rem 1rem 8rem;
   width: 100%;
 
   ::before {
     content: '';
     width: 100%;
-    height: calc(100% + 17.5rem);
-    background: ${({ theme }) => theme.colors.blue[500]};
+    height: calc(100% + 20rem);
+    background: ${({ theme }) => theme.colors.gray[500]};
     transform: skewY(-4deg);
     position: absolute;
     top: -7.5rem;
     background-image: ${({ theme }) =>
-      getBackground('tecnologias', theme.colors.blue[600])};
+      getBackground('tecnologias', theme.colors.gray[600])};
     left: 0;
   }
-
-  /* background-color: ${({ theme }) => theme.colors.white};
-  background-image: url(/api/v1/image/text?text=tecnologias%20dominadas); */
 
   .technologies_decorators {
     color: ${({ theme }) => theme.colors.gray[300]};
@@ -195,93 +154,9 @@ export const _Technologies = styled.section`
     max-width: 1536px;
     position: relative;
     z-index: 2;
-
-    .main_carousel {
-      padding-top: 1rem;
-    }
   }
 
   .head_title::before {
-    background-color: ${({ theme }) => theme.colors.gray[500]};
-  }
-`
-
-/*
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-*/
-
-export const _Contacts = styled.div`
-  background-color: ${({ theme }) => theme.colors.gray[925]};
-  color: ${({ theme }) => theme.colors.gray[200]};
-  padding: 2rem 1rem;
-  display: none;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-
-  .contacts_container {
-    width: 100%;
-    max-width: 1536px;
-  }
-
-  .contacts_title {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    ${({ theme }) => theme.text.heading.subtitle}
-  }
-
-  .contacts_links {
-    ul {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-
-      a {
-        display: flex;
-        align-items: center;
-
-        .link_icon {
-          width: 1.5rem;
-          height: 1.5rem;
-          margin-right: 0.25rem;
-        }
-      }
-    }
+    background-color: ${({ theme }) => theme.colors.blue[400]};
   }
 `
