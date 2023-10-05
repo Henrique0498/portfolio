@@ -12,6 +12,7 @@ import { storeGithubUserByUsername } from 'storage/github/user'
 import { highlight } from 'lib/shiki'
 
 import { TypeResponseGitHubErrorUserByUsername } from 'services/axios/urls/github/user/types'
+import { Footer } from 'components/organisms/Footer'
 
 export default function Home({ userData, highlightedHtml }) {
   const setCounter = useSetRecoilState(storeGithubUserByUsername)
@@ -30,6 +31,7 @@ export default function Home({ userData, highlightedHtml }) {
       <Header />
       <Sidebar />
       <PageHome code={highlightedHtml} />
+      <Footer />
     </>
   )
 }

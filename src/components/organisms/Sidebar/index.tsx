@@ -36,12 +36,6 @@ const List = memo(function List() {
       <li>
         <Link href="#tecnologies">Tecnologias</Link>
       </li>
-      <li>
-        <Link href="#projects">Projetos</Link>
-      </li>
-      <li>
-        <Link href="#updates">Atualizações</Link>
-      </li>
     </S._List>
   )
 })

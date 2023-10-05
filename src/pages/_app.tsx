@@ -1,5 +1,6 @@
 import type { AppProps } from 'next/app'
 import { Analytics } from '@vercel/analytics/react'
+import { NextUIProvider } from '@nextui-org/react'
 import { ThemeProvider } from 'styled-components'
 import { RecoilRoot } from 'recoil'
 
@@ -12,8 +13,10 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       <RecoilRoot>
         <ThemeProvider theme={theme}>
-          <GlobalStyle />
-          <Component {...pageProps} />
+          <NextUIProvider>
+            <GlobalStyle />
+            <Component {...pageProps} />
+          </NextUIProvider>
         </ThemeProvider>
       </RecoilRoot>
       <Analytics />

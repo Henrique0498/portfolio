@@ -1,10 +1,19 @@
+import { transparentize } from 'polished'
 import styled from 'styled-components'
+
+function getBackground(text: string, color: string) {
+  const modifiedColor = color.replace('#', '')
+  const newText = text.replace(/ /g, '%20')
+
+  return `url(/api/v1/image/text?text=${newText}&opacity=0.3&color=${modifiedColor})`
+}
 
 export const _Container = styled.main`
   align-items: center;
   display: flex;
   margin: 0 auto;
   flex-direction: column;
+  overflow: hidden;
 
   .head_title {
     display: block;
@@ -13,7 +22,7 @@ export const _Container = styled.main`
 
     ::before {
       content: '';
-      background-color: ${({ theme }) => theme.colors.blue[500]};
+      background-color: ${({ theme }) => theme.colors.gray[500]};
       bottom: -0.25rem;
       border-radius: 0.25rem;
       display: block;
@@ -33,102 +42,98 @@ export const _Container = styled.main`
 `
 
 export const _Description = styled.section`
-  background: ${({ theme }) => theme.colors.gray[925]};
   display: flex;
-  padding: 13rem 1rem;
+  padding: 4rem 1rem;
   position: relative;
-  overflow: hidden;
-  transform: skewY(-4deg);
   width: 100%;
   justify-content: center;
 
-  & > * {
-    transform: skewY(4deg);
-  }
-
-  .description_background {
-    display: flex;
-    height: 100%;
-    justify-content: center;
+  ::before {
+    content: '';
+    width: 100%;
+    height: calc(100% + 17.5rem);
+    background: ${({ theme }) => theme.colors.violet[500]};
+    transform: skewY(-4deg);
+    position: absolute;
+    top: -8rem;
+    background-image: ${({ theme }) =>
+      getBackground('Henrique Lopes', theme.colors.violet[600])};
     left: 0;
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    width: 100vw;
-    z-index: 1;
-
-    svg {
-      height: 100%;
-      min-width: 100vw;
-      position: absolute;
-      width: fit-content;
-    }
   }
 
-  .description_decorators {
-    height: 100%;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    padding: 5rem 0.25rem;
-    display: flex;
-    max-width: 1536px;
-    flex-direction: column;
-    justify-content: space-between;
+  .header {
     z-index: 2;
-
-    span {
-      display: block;
-      font-size: 3rem;
-      line-height: 3.75rem;
-      color: ${({ theme }) => theme.colors.gray[500]};
-      background: ${({ theme }) => theme.colors.gray[1000]};
-      font-weight: 500;
-
-      :first-child {
-        align-self: flex-end;
-      }
-
-      :last-child {
-        align-self: flex-start;
-      }
-    }
+    position: relative;
+    margin-bottom: 2rem;
   }
 
-  .description_container {
-    z-index: 3;
+  .body {
+    border-radius: 1rem;
+    background: ${({ theme }) => theme.colors.violet[50]};
+    padding: 1.5rem;
     position: relative;
-    width: 100%;
-    max-width: 1536px;
+    z-index: 4;
 
-    .container_quotationMarks {
-      left: -0.25rem;
+    ::before,
+    ::after {
+      background: transparent;
+      content: '';
+      height: 40%;
       position: absolute;
-      top: -0.5rem;
+      width: 30%;
       z-index: 1;
-      color: ${({ theme }) => theme.colors.gray[700]};
+      border-radius: 1rem;
+
+      box-shadow: 0px 0px 0 0.75rem
+        ${({ theme }) => transparentize(0.7, theme.colors.violet[50])};
+    }
+
+    ::before {
+      left: -0rem;
+      top: -0rem;
+    }
+
+    ::after {
+      bottom: 0rem;
+      right: 0rem;
     }
 
     p {
-      color: #fff;
-      z-index: 2;
       position: relative;
+      z-index: 2;
 
       b {
-        color: ${({ theme }) => theme.colors.violet[400]};
+        color: ${({ theme }) => theme.colors.violet[600]};
       }
       a {
-        color: ${({ theme }) => theme.colors.blue[400]};
+        color: ${({ theme }) => theme.colors.blue[700]};
       }
     }
+  }
+
+  .head_title::before {
+    background-color: ${({ theme }) =>
+      transparentize(0.5, theme.colors.violet[300])};
   }
 `
 
 export const _Technologies = styled.section`
   position: relative;
-  padding: 5rem 1rem;
+  padding: 5rem 1rem 8rem;
   width: 100%;
-  max-width: 1536px;
+
+  ::before {
+    content: '';
+    width: 100%;
+    height: calc(100% + 20rem);
+    background: ${({ theme }) => theme.colors.gray[500]};
+    transform: skewY(-4deg);
+    position: absolute;
+    top: -7.5rem;
+    background-image: ${({ theme }) =>
+      getBackground('tecnologias', theme.colors.gray[600])};
+    left: 0;
+  }
 
   .technologies_decorators {
     color: ${({ theme }) => theme.colors.gray[300]};
@@ -144,128 +149,14 @@ export const _Technologies = styled.section`
   }
 
   .technologies_main {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1536px;
     position: relative;
     z-index: 2;
-
-    .main_carousel {
-      padding-top: 1rem;
-    }
-  }
-`
-
-export const _Projects = styled.section`
-  background-color: ${({ theme }) => theme.colors.gray[600]};
-  width: 100%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-
-  .main_head,
-  .secondary_head {
-    color: ${({ theme }) => theme.colors.gray[200]};
   }
 
-  .projects_main {
-    padding: 2rem 1rem;
-    position: relative;
-    width: 100%;
-    max-width: 1536px;
-
-    .main_decorator_tape {
-      color: ${({ theme }) => theme.colors.pink[500]};
-      height: 1.5rem;
-      left: 3rem;
-      position: absolute;
-      top: -0.75rem;
-      width: 1.5rem;
-    }
-
-    .main_decorator {
-      position: absolute;
-      color: ${({ theme }) => theme.colors.gray[700]};
-      height: 4rem;
-      top: 2rem;
-      right: 1rem;
-      z-index: 1;
-    }
-
-    .main_head,
-    .main_cards {
-      position: relative;
-      z-index: 2;
-    }
-
-    .main_cards {
-      padding-top: 2.25rem;
-    }
-  }
-
-  .projects_secondary {
-    position: relative;
-    padding: 0 1rem 5rem;
-    width: 100%;
-    max-width: 1536px;
-
-    .secondary_decorator {
-      position: absolute;
-      top: -2rem;
-      right: 1rem;
-      z-index: 1;
-
-      svg {
-        width: 7.75rem;
-        height: 7.75rem;
-        color: ${({ theme }) => theme.colors.gray[700]};
-      }
-    }
-
-    & > * {
-      position: relative;
-      z-index: 2;
-    }
-
-    .secondary_head {
-      padding-bottom: 1rem;
-    }
-  }
-`
-
-export const _Contacts = styled.div`
-  background-color: ${({ theme }) => theme.colors.gray[925]};
-  color: ${({ theme }) => theme.colors.gray[200]};
-  padding: 2rem 1rem;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-
-  .contacts_container {
-    width: 100%;
-    max-width: 1536px;
-  }
-
-  .contacts_title {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    ${({ theme }) => theme.text.heading.subtitle}
-  }
-
-  .contacts_links {
-    ul {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-
-      a {
-        display: flex;
-        align-items: center;
-
-        .link_icon {
-          width: 1.5rem;
-          height: 1.5rem;
-          margin-right: 0.25rem;
-        }
-      }
-    }
+  .head_title::before {
+    background-color: ${({ theme }) => theme.colors.blue[400]};
   }
 `
