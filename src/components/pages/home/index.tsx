@@ -29,9 +29,10 @@ import { TypeReturnApiTechnologies } from 'pages/api/v1/technologies'
 export function PageHome({ code }: TypePageHomepage) {
   const databaseGithub = useRecoilValue(storeGithubUserByUsername)
   const timeExperience = new Date().getFullYear() - 2021
-  const [technology] = useState<TypeReturnApiTechnologies | null>(null)
+  const [technology, setTechnology] =
+    useState<TypeReturnApiTechnologies | null>(null)
 
-  const { isOpen, onOpenChange } = useDisclosure()
+  const { isOpen, onOpenChange, onOpen } = useDisclosure()
 
   const { data, isLoading } = useSWR(
     SYSTEM_GET_TECHNOLOGIES,
@@ -42,13 +43,13 @@ export function PageHome({ code }: TypePageHomepage) {
     return null
   }
 
-  // function handleClickTechnology(value: TypeReturnApiTechnologies) {
-  //   return () => {
-  //     setTechnology(value)
-  //     console.log('teste')
-  //     onOpen()
-  //   }
-  // }
+  function handleClickTechnology(value: TypeReturnApiTechnologies) {
+    return () => {
+      setTechnology(value)
+      console.log('teste')
+      onOpen()
+    }
+  }
 
   return (
     <S._Container className="grid gap-x-4 grid-cols-4 lg:grid-cols-12">
@@ -103,7 +104,7 @@ export function PageHome({ code }: TypePageHomepage) {
                   key={item.id}
                   subtitle="Clique para saber mais"
                   isPressable
-                  // onPress={handleClickTechnology(item)}
+                  onPress={handleClickTechnology(item)}
                 />
               ))}
             </div>
