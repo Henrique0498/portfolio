@@ -1,0 +1,9 @@
+$primary-color: #64ff00;
+
+.teste {
+  padding: 1rem;
+}
+
+:export {
+  primaryColor: $primary-color;
+}

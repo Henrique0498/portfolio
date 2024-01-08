@@ -3,8 +3,6 @@ import { useRecoilValue } from 'recoil'
 import { Welcome } from '../../molecules/Welcome'
 import { storeGithubUserByUsername } from 'storage/github/user'
 
-// import { Card, CardBody, CardFooter, Image } from '@nextui-org/react'
-
 import { Card } from 'components/organisms/Card'
 
 import { TypePageHomepage } from './types'
@@ -31,9 +29,7 @@ export function PageHome({ code }: TypePageHomepage) {
   const timeExperience = new Date().getFullYear() - 2021
   const [technology, setTechnology] =
     useState<TypeReturnApiTechnologies | null>(null)
-
   const { isOpen, onOpenChange, onOpen } = useDisclosure()
-
   const { data, isLoading } = useSWR(
     SYSTEM_GET_TECHNOLOGIES,
     getSystemTechnologies
@@ -46,7 +42,6 @@ export function PageHome({ code }: TypePageHomepage) {
   function handleClickTechnology(value: TypeReturnApiTechnologies) {
     return () => {
       setTechnology(value)
-      console.log('teste')
       onOpen()
     }
   }
