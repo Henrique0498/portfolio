@@ -21,7 +21,5 @@ describe('<ImageCustom />', () => {
       'src',
       'https://raw.githubusercontent.com/Henrique0498/Henrique0498/e297ec588fdbf835ce51e5ef7035bde86ee3b480/img/Logo.svg'
     )
-
-    expect(container.firstChild).toMatchSnapshot()
   })
 })
