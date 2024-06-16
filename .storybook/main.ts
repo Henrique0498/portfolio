@@ -10,17 +10,16 @@ const config: StorybookConfig = {
     '@storybook/addon-interactions'
   ],
 
-  framework: {
-    name: '@storybook/nextjs',
-    options: {}
-  },
+  framework: '@storybook/nextjs',
 
   docs: {},
 
   staticDirs: ['..\\public'],
 
   webpackFinal: (config) => {
-    config.resolve?.modules?.push(`${process.cwd()}/src`)
+    if (config.resolve) {
+      config.resolve.modules?.push(`${process.cwd()}/src`)
+    }
     return config
   },
 
