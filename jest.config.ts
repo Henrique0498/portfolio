@@ -21,6 +21,7 @@ const config: Config = {
     '!src/lib/registry.tsx',
     '!src/types/**',
     '!src/**/*.stories.tsx',
+    '!src/**/stories.tsx',
     '!src/styles/**'
   ],
   setupFilesAfterEnv: ['<rootDir>/.jest/setup.ts'],

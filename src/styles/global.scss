@@ -6,9 +6,10 @@
   box-sizing: border-box;
 }
 
+html,
 body {
   margin: 0px;
-  color: #6d28d9;
+  color: #333;
 }
 
 h1,
@@ -29,14 +30,18 @@ li {
 .App {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: calc(100vh + 10rem);
+  font-family: $fontFamilyPrimary;
 }
 
 .container {
-  max-width: 88rem;
-  padding: 0 1rem;
   margin: 0 auto;
-  min-height: 100vh;
+  padding: 0 1rem;
+}
+
+.AppBody {
+  flex: 1;
+  padding-top: 5rem;
 }
 
 .title {
@@ -58,4 +63,10 @@ li {
   left: -5px;
   border-radius: 0.2rem;
   z-index: -1;
+}
+
+.textBodyBold {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5rem;
 }

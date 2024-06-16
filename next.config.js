@@ -2,9 +2,17 @@
 const path = require('path')
 
 const nextConfig = {
-  reactStrictMode: true,
   sassOptions: {
-    includePaths: [path.join(__dirname, 'styles')]
+    includePaths: [path.join(__dirname, 'styles')],
+    prependData: `@import "./src/styles/_variables.scss";`
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'raw.githubusercontent.com/Henrique0498/Henrique0498'
+      }
+    ]
   }
 }
 
