@@ -1,0 +1,33 @@
+.container {
+  background: $colorWhite;
+  backdrop-filter: blur(0.5rem);
+  -webkit-backdrop-filter: blur(0.5rem);
+  -moz-backdrop-filter: blur(0.5rem);
+  position: fixed;
+  transition: 200ms ease-in-out;
+  width: 100%;
+  z-index: 50;
+  top: 0;
+
+  &[scroll='true'] {
+    background: $colorGray-950-85;
+    color: $colorWhite;
+  }
+}
+
+.headerBody {
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: 200ms ease-in-out;
+}
+
+.container[scroll='true'] > .headerBody {
+  height: 4rem;
+}
+
+.nav ul {
+  display: flex;
+  gap: 1.5rem;
+}
