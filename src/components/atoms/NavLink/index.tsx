@@ -1,11 +1,12 @@
-import Link, { LinkProps } from 'next/link'
+import Link from 'next/link'
 
-import { ReactNode } from 'react'
+import { ComponentPropsWithRef, ReactNode } from 'react'
 
 import styles from './styles.module.scss'
 
-interface InNavLink extends LinkProps {
+interface InNavLink extends ComponentPropsWithRef<'a'> {
   children: ReactNode
+  href: string
 }
 
 export default function NavLink({ ...props }: InNavLink) {
