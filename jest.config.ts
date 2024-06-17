@@ -24,6 +24,9 @@ const config: Config = {
     '!src/**/stories.tsx',
     '!src/styles/**'
   ],
+  transform: {
+    '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }]
+  },
   setupFilesAfterEnv: ['<rootDir>/.jest/setup.ts'],
   transformIgnorePatterns: ['/node_modules/', '^.+\\.module\\.(css|sass|scss)$']
 }
