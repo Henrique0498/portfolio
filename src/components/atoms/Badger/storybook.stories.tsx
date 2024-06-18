@@ -6,4 +6,9 @@ export default {
   component: Badger
 } as Meta
 
-export const Default: StoryObj = {}
+export const Default: StoryObj = {
+  args: {
+    children: 'badger',
+    color: 'violet'
+  }
+}
