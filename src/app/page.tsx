@@ -1,9 +1,5 @@
-import Title from '@/components/atoms/Title'
+import HomePage from '@/components/templates/HomePage'
 
-export default function Home() {
-  return (
-    <section className="container flex justify-center items-center">
-      <Title className="title">Boilerplate de Nextjs</Title>
-    </section>
-  )
+export default async function Home() {
+  return <HomePage />
 }
