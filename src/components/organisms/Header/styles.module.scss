@@ -1,30 +1,50 @@
 .container {
-  background: $colorWhite;
-  backdrop-filter: blur(0.5rem);
-  -webkit-backdrop-filter: blur(0.5rem);
-  -moz-backdrop-filter: blur(0.5rem);
-  position: fixed;
   transition: 200ms ease-in-out;
   width: 100%;
   z-index: 50;
   height: 5rem;
   top: 0;
 
-  &[scroll='true'] {
-    background: $colorGray-950-85;
-    color: $colorWhite;
-    height: 4rem;
+  & > header {
+    max-width: 100%;
   }
 }
 
 .headerBody {
+  max-width: 1536px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 100%;
+  padding: 0 !important;
+  margin: 0 auto;
 }
 
 .nav ul {
   display: flex;
   gap: 1.5rem;
+}
+
+nav.headerDark {
+  background: $colorGray-950-85;
+  color: $colorWhite;
+  height: 4rem;
+}
+
+ul.sideDark {
+  background: $colorGray-950-85;
+  color: $colorWhite;
+}
+ul.sidelight {
+  height: calc(100vh - 5rem);
+  top: 5rem;
+  gap: 0.5rem;
+}
+
+li.sideList {
+  a {
+    padding: 1rem;
+    justify-content: start;
+  }
 }

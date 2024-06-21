@@ -1,7 +1,12 @@
 'use client'
 
-import { ComponentPropsWithRef, useEffect, useRef } from 'react'
-import { MutableRefObject } from 'react'
+import { ComponentPropsWithRef, useEffect, useState } from 'react'
+import {
+  Navbar,
+  NavbarMenuToggle,
+  NavbarMenu,
+  NavbarMenuItem
+} from '@nextui-org/react'
 
 import Logo from '@/components/molecules/Logo'
 import NavLink from '@/components/atoms/NavLink'
@@ -10,60 +15,80 @@ import styles from './styles.module.scss'
 
 interface InHeader extends ComponentPropsWithRef<'header'> {}
 
+const menuItems = [
+  {
+    id: 'project',
+    children: 'Projetos',
+    disabled: true,
+    href: '/project'
+  },
+  {
+    id: 'linkedIn',
+    children: 'Linkedin',
+    href: 'https://www.linkedin.com/in/henrique-ls/',
+    target: '_blank'
+  },
+  {
+    id: 'vue',
+    children: 'Versão em Vue',
+    disabled: true,
+    href: 'vue.henriquelopes.dev.br',
+    target: '_blank'
+  }
+]
+
 export default function Header({ className = '', ...props }: InHeader) {
-  const refHeader = useRef<HTMLHeadElement>(null)
+  const [isScroll, setIsScroll] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll(refHeader))
+    function handleScroll() {
+      const scrollHeight = window.scrollY
 
-    if (refHeader.current) {
-      refHeader.current?.setAttribute('scroll', 'true')
+      setIsScroll(scrollHeight > 0)
     }
 
+    handleScroll()
+
+    window.addEventListener('scroll', handleScroll)
+
     return () => {
-      window.removeEventListener('scroll', handleScroll(refHeader))
+      window.removeEventListener('scroll', handleScroll)
     }
   }, [])
 
   return (
-    <header
+    <Navbar
       {...props}
-      className={`${styles.container} ${className}`}
-      ref={refHeader}
+      onMenuOpenChange={setIsMenuOpen}
+      className={`${styles.container} ${isScroll ? styles.headerDark : ''} h-20 ${className}`}
     >
-      <div className={`${styles.headerBody} container mainContainer`}>
+      <div className={styles.headerBody}>
         <Logo />
-        <nav className={styles.nav}>
+
+        <NavbarMenuToggle
+          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+          className="md:hidden"
+        />
+
+        <nav className={`${styles.nav} hidden md:flex `}>
           <ul>
-            <li>
-              <NavLink
-                href={'https://www.linkedin.com/in/henrique-ls/'}
-                target="_blank"
-              >
-                LinkedIn
-              </NavLink>
-            </li>
-            <li>
-              <NavLink href={'/'}>Projetos</NavLink>
-            </li>
+            {menuItems.map((item) => (
+              <li key={item.id}>
+                <NavLink {...item} />
+              </li>
+            ))}
           </ul>
         </nav>
       </div>
-    </header>
+
+      <NavbarMenu className={isScroll ? styles.sideDark : styles.sidelight}>
+        {menuItems.map(({ ...props }) => (
+          <NavbarMenuItem key={props.id} className={styles.sideList}>
+            <NavLink className="w-full" {...props} />
+          </NavbarMenuItem>
+        ))}
+      </NavbarMenu>
+    </Navbar>
   )
-}
-
-export function handleScroll(
-  element: MutableRefObject<HTMLHeadElement | null>
-) {
-  return () => {
-    const scrollHeight = window.scrollY
-    const isSmall = element.current?.getAttribute('scroll') === 'true'
-
-    if (scrollHeight > 0 && !isSmall) {
-      element.current?.setAttribute('scroll', 'true')
-    } else if (isSmall && scrollHeight === 0) {
-      element.current?.setAttribute('scroll', 'false')
-    }
-  }
 }
