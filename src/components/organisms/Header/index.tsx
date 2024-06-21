@@ -16,7 +16,7 @@ export default function Header({ className = '', ...props }: InHeader) {
   useEffect(() => {
     window.addEventListener('scroll', handleScroll(refHeader))
 
-    if (refHeader.current) {
+    if (refHeader.current && window.scrollY) {
       refHeader.current?.setAttribute('scroll', 'true')
     }
 
