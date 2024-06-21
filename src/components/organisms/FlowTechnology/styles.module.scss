@@ -1,0 +1,30 @@
+.container {
+  border-radius: 0.5rem;
+  background-color: $colorGray-600-50;
+}
+
+.map {
+  svg {
+    background-color: $colorGray-300;
+
+    rect {
+      fill: $colorGray-50;
+    }
+
+    path {
+      fill: $colorGray-600;
+    }
+  }
+}
+
+.control {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  button {
+    background-color: $colorGray-700;
+    border: none;
+    border-radius: 0.25rem;
+  }
+}
