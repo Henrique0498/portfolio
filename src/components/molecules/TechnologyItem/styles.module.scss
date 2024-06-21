@@ -1,0 +1,71 @@
+.background {
+  padding: 0.125rem;
+  border-radius: 1.5rem;
+}
+
+.container {
+  height: 2.75rem;
+  display: flex;
+  padding: 0 1rem;
+  border-radius: 1.375rem;
+  align-items: center;
+  background-color: #fff;
+}
+
+.icon {
+  background-color: white;
+  border-radius: 50%;
+  border-width: 0.125rem;
+  border-style: solid;
+  width: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4rem;
+}
+
+.description {
+  padding: 0 0.5rem;
+
+  h6 {
+    color: $colorGray-700;
+  }
+}
+
+.handle {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: currentColor !important;
+
+  &.left {
+    left: -1rem !important;
+    &::after {
+      content: '-';
+    }
+  }
+
+  &.right {
+    right: -1rem !important;
+
+    &::after {
+      content: '+';
+    }
+  }
+
+  &::before {
+    content: '';
+    width: 1.75rem;
+    height: 1.75rem;
+    background: #fff;
+    border-radius: 50%;
+  }
+
+  &::after {
+    color: currentColor;
+    position: absolute;
+  }
+}
