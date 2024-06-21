@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { PropsWithChildren } from 'react'
+import { Analytics } from '@vercel/analytics/react'
 
 import Header from '@/components/organisms/Header'
 import Footer from '@/components/organisms/Footer'
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
           <div className="AppBody">{children}</div>
           <Footer />
         </div>
+        <Analytics />
       </body>
     </html>
   )
