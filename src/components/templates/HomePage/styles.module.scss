@@ -1,0 +1,138 @@
+.container {
+  align-items: center;
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.container_text {
+  @include textH6;
+  margin: 0;
+}
+
+.description {
+  display: flex;
+  padding: 4rem 1rem;
+  position: relative;
+  width: 100%;
+  justify-content: center;
+
+  &::before {
+    content: '';
+    width: 100%;
+    height: calc(100% + 17.5rem);
+    background: $colorViolet-500;
+    transform: skewY(-4deg);
+    position: absolute;
+    top: -8rem;
+    background-image: url(/api/v1/image/text?text=Henrique%20Lopes&opacity=0.3&color=7c3aed);
+    left: 0;
+    border-image-slice: 100%;
+  }
+
+  .description_header {
+    z-index: 2;
+    position: relative;
+    margin-bottom: 2rem;
+  }
+
+  h2::after {
+    background-color: $colorViolet-300-50;
+  }
+
+  .description_body {
+    position: relative;
+
+    &::before,
+    &::after {
+      background: transparent;
+      content: '';
+      height: 40%;
+      position: absolute;
+      width: 30%;
+      z-index: 1;
+      border-radius: 1rem;
+      box-shadow: 0px 0px 0 0.75rem $colorViolet-50-50;
+    }
+
+    &::before {
+      left: -0rem;
+      top: -0rem;
+    }
+
+    &::after {
+      bottom: 0rem;
+      right: 0rem;
+    }
+
+    p {
+      position: relative;
+      border-radius: 1rem;
+      background: #fff;
+      padding: 1.5rem;
+      z-index: 2;
+
+      b {
+        color: $colorViolet-500;
+      }
+      a {
+        color: $colorBlue-500;
+      }
+    }
+  }
+}
+
+.technologies {
+  position: relative;
+  padding: 5rem 1rem 8rem;
+  width: 100%;
+
+  &::before {
+    content: '';
+    width: 100%;
+    height: calc(100% + 20rem);
+    background: $colorGray-500;
+    transform: skewY(-4deg);
+    position: absolute;
+    top: -7.5rem;
+    background-image: url(/api/v1/image/text?text=tecnologias&opacity=0.3&color=4b5563);
+    left: 0;
+    border-image-slice: 100%;
+  }
+
+  h2::after {
+    background-color: $colorBlue-400;
+  }
+
+  // .technologies_decorators {
+  //   color: $colorGray-300;
+  //   display: flex;
+  //   height: 100%;
+  //   justify-content: flex-end;
+  //   left: 0;
+  //   position: absolute;
+  //   padding: 1.5rem 0;
+  //   top: 0;
+  //   width: 100%;
+  //   z-index: 1;
+  // }
+
+  .technologies_main {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1536px;
+    position: relative;
+    z-index: 2;
+  }
+
+  // .head_title::before {
+  //   background-color: ${({ theme }) => theme.colors.blue[400]};
+  // }
+}
+
+.test {
+  height: 40rem;
+  z-index: 40;
+  position: relative;
+}
