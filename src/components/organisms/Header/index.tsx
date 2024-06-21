@@ -1,18 +1,24 @@
-import { useRef, useEffect } from 'react'
+'use client'
 
-import { MenuBurger } from '../../atoms/MenuBurger/Index'
-import { LogoHeader } from '../../molecules/LogoHeader'
-import { NavBar } from '../../molecules/Navbar'
+import { ComponentPropsWithRef, useEffect, useRef } from 'react'
+import { MutableRefObject } from 'react'
 
-import { handleScroll } from '../../../utils/handleScroll'
+import Logo from '@/components/molecules/Logo'
+import NavLink from '@/components/atoms/NavLink'
 
-import * as S from './styles'
+import styles from './styles.module.scss'
 
-export function Header() {
-  const refHeader = useRef<HTMLHeadElement | null>(null)
+interface InHeader extends ComponentPropsWithRef<'header'> {}
+
+export default function Header({ className = '', ...props }: InHeader) {
+  const refHeader = useRef<HTMLHeadElement>(null)
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll(refHeader))
+
+    if (refHeader.current) {
+      refHeader.current?.setAttribute('scroll', 'true')
+    }
 
     return () => {
       window.removeEventListener('scroll', handleScroll(refHeader))
@@ -20,14 +26,44 @@ export function Header() {
   }, [])
 
   return (
-    <S._Container ref={refHeader}>
-      <div className="container_nav max-w-screen-2xl mx-auto">
-        <MenuBurger aria-label="Meno do cabeçalho" className="hidden" />
-
-        <LogoHeader />
-
-        <NavBar />
+    <header
+      {...props}
+      className={`${styles.container} ${className}`}
+      ref={refHeader}
+    >
+      <div className={`${styles.headerBody} container mainContainer`}>
+        <Logo />
+        <nav className={styles.nav}>
+          <ul>
+            <li>
+              <NavLink
+                href={'https://www.linkedin.com/in/henrique-ls/'}
+                target="_blank"
+              >
+                LinkedIn
+              </NavLink>
+            </li>
+            <li>
+              <NavLink href={'/'}>Projetos</NavLink>
+            </li>
+          </ul>
+        </nav>
       </div>
-    </S._Container>
+    </header>
   )
+}
+
+export function handleScroll(
+  element: MutableRefObject<HTMLHeadElement | null>
+) {
+  return () => {
+    const scrollHeight = window.scrollY
+    const isSmall = element.current?.getAttribute('scroll') === 'true'
+
+    if (scrollHeight > 0 && !isSmall) {
+      element.current?.setAttribute('scroll', 'true')
+    } else if (isSmall && scrollHeight === 0) {
+      element.current?.setAttribute('scroll', 'false')
+    }
+  }
 }

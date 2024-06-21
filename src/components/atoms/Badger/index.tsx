@@ -1,7 +1,23 @@
-import { TypeComponentBadger } from './types'
+import { ComponentPropsWithRef } from 'react'
+import styles from './styles.module.scss'
 
-import * as S from './styles'
+interface InBadger extends ComponentPropsWithRef<'div'> {
+  color?: 'blue' | 'red' | 'green' | 'yellow' | 'gray' | 'violet'
+}
 
-export function Badger({ children, color = 'blue' }: TypeComponentBadger) {
-  return <S._Container color={color}>{children}</S._Container>
+export default function Badger({
+  className = '',
+  color = 'violet',
+  children,
+  ...props
+}: InBadger) {
+  return (
+    <div
+      {...props}
+      className={`${styles.container} textBodySm ${className}`}
+      color={color}
+    >
+      {children}
+    </div>
+  )
 }

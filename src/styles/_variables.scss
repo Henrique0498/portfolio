@@ -1,0 +1,68 @@
+$fontFamilyPrimary:
+  Roboto,
+  Ubuntu,
+  -apple-system,
+  BlinkMacSystemFont,
+  Segoe UI,
+  Oxygen,
+  Cantarell,
+  Fira Sans,
+  Droid Sans,
+  Helvetica Neue,
+  sans-serif;
+$fontFamilySecondary: 'Poppins', sans-serif;
+$fontFamilyCoding: var(--font-type-coding);
+
+//colors
+//  text
+$textColor: #111213;
+//  vue
+$colorVueGreen: #3fb984;
+$colorVueBlue: #31475e;
+//  white
+$colorWhite: #fff;
+//  black
+$colorBlack: #000;
+//  pink
+$colorPink-500: #ec4899;
+//  violet
+$colorViolet-50-50: rgba(195, 180, 253, 0.5);
+$colorViolet-300: #c4b5fd;
+$colorViolet-300-50: rgb(196, 181, 253, 0.5);
+$colorViolet-500: #8b5cf6;
+$colorViolet-900: #4c1d95;
+//  yellow
+$colorYellow-300: #fde047;
+$colorYellow-500: #eab308;
+$colorYellow-900: #713f12;
+//  green
+$colorGreen-300: #86efac;
+$colorGreen-500: #22c55e;
+$colorGreen-900: #14532d;
+//  red
+$colorRed-300: #fca5a5;
+$colorRed-500: #ef4444;
+$colorRed-900: #7f1d1d;
+//  gray
+$colorGray-50: #f9fafb;
+$colorGray-300: #d1d5db;
+$colorGray-500: #6b7280;
+$colorGray-600: #4b5563;
+$colorGray-600-50: rgb(75, 85, 99, 0.5);
+$colorGray-700: #374151;
+$colorGray-800: #1f2937;
+$colorGray-900: #111827;
+$colorGray-950: #030712;
+$colorGray-950-85: #030712d9;
+//  blue
+$colorBlue-300: #93c5fd;
+$colorBlue-400: #60a5fa;
+$colorBlue-500: #3b82f6;
+$colorBlue-900: #1e3a8a;
+//  cyan
+$colorCyan-500: #06b6d4;
+//  orange
+$colorOrange-300: #fdba74;
+$colorOrange-400: #fb923c;
+$colorOrange-500: #f97316;
+$colorOrange-600: #ea580c;

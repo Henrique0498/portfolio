@@ -1,15 +1,36 @@
-import { TypeComponentCoding } from './types'
+import { ComponentPropsWithRef } from 'react'
+import { Prism } from 'react-syntax-highlighter'
+import * as Themes from 'react-syntax-highlighter/dist/cjs/styles/prism'
 
-import * as S from './styles'
+import styles from './styles.module.scss'
 
-export function Coding({ code, ...props }: TypeComponentCoding) {
+type TyTheme = keyof typeof Themes
+
+export interface InCoding extends ComponentPropsWithRef<'div'> {
+  code: string
+  lang?: 'javascript' | 'jsx' | 'typescript' | 'tsx'
+  theme?: TyTheme
+}
+
+export default function Coding({
+  code,
+  className = '',
+  lang = 'javascript',
+  theme = 'oneDark',
+  ...props
+}: InCoding) {
+  const themeStyles = Themes[theme]
+
   return (
-    <S._Container {...props}>
-      <S._Header />
-      <S._Body
-        dangerouslySetInnerHTML={{ __html: code }}
-        className="inset-0 leading-relaxed"
-      />
-    </S._Container>
+    <div {...props} className={`${styles.container} ${className}`}>
+      <div className={styles.header} />
+      <Prism
+        language={lang}
+        style={themeStyles}
+        className={`${styles.body} inset-0 leading-relaxed`}
+      >
+        {code}
+      </Prism>
+    </div>
   )
 }

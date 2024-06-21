@@ -1,0 +1,23 @@
+.container {
+  color: currentColor;
+  font-weight: 500;
+  position: relative;
+  color: currentColor;
+  display: flex;
+  justify-content: center;
+  width: fit-content;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 0px;
+    height: 1px;
+    bottom: 0px;
+    background-color: currentColor;
+    transition: 200ms ease-in-out;
+  }
+
+  &:hover::before {
+    width: calc(100% + 0.5rem);
+  }
+}

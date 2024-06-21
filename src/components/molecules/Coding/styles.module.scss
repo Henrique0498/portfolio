@@ -1,0 +1,61 @@
+.container {
+  background-color: $colorGray-900;
+  border-radius: 0.5rem 0.5rem 0.25rem 0.25rem;
+  overflow: hidden;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.header {
+  background-color: $colorGray-800;
+  padding: 1rem;
+
+  &::before {
+    background: $colorRed-500;
+    box-shadow:
+      $colorYellow-500 1.5rem 0,
+      $colorGreen-500 3rem 0;
+    border-radius: 0.75rem;
+    content: '';
+    display: flex;
+    height: 0.75rem;
+    width: 0.75rem;
+  }
+}
+
+.body {
+  background-color: $colorGray-900;
+  background-color: transparent !important;
+  font-family: $fontFamilyCoding;
+
+  code {
+    background-color: transparent !important;
+  }
+
+  span {
+    font-style: normal !important;
+  }
+
+  & > pre span {
+    font-style: normal !important;
+  }
+
+  ::-webkit-scrollbar {
+    height: 0.5rem;
+    width: 0.5rem;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: $colorGray-950;
+    border-radius: 0.5rem;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: $colorGray-600;
+    border-radius: 0.5rem;
+
+    :hover {
+      background-color: $colorGray-700;
+    }
+  }
+}

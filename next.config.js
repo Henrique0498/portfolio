@@ -1,24 +1,18 @@
 /** @type {import('next').NextConfig} */
+const path = require('path')
 
 const nextConfig = {
-  reactStrictMode: true,
-  compiler: {
-    styledComponents: true
+  sassOptions: {
+    includePaths: [path.join(__dirname, 'styles')],
+    prependData: `@import "./src/styles/_text.scss";`
   },
   images: {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: '**.unsplash.com'
-      },
-      {
-        protocol: 'https',
-        hostname: 'avatars.githubusercontent.com'
+        hostname: 'raw.githubusercontent.com/Henrique0498/Henrique0498'
       }
     ]
-  },
-  experimental: {
-    serverComponentsExternalPackages: ['shiki', 'vscode-oniguruma']
   }
 }
 
