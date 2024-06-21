@@ -7,24 +7,21 @@
   transition: 200ms ease-in-out;
   width: 100%;
   z-index: 50;
+  height: 5rem;
   top: 0;
 
   &[scroll='true'] {
     background: $colorGray-950-85;
     color: $colorWhite;
+    height: 4rem;
   }
 }
 
 .headerBody {
-  height: 5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  transition: 200ms ease-in-out;
-}
-
-.container[scroll='true'] > .headerBody {
-  height: 4rem;
+  height: 100%;
 }
 
 .nav ul {
