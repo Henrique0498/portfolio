@@ -37,7 +37,7 @@ function TechnologyItemMain({ data }: InTechnologyItemMain) {
         <div className={styles.header}>{result.icon}</div>
 
         <div className={styles.description}>
-          <h6>{result.title}</h6>
+          <span>{result.title}</span>
           <p>{result.desc}</p>
         </div>
       </div>

@@ -20,7 +20,7 @@ const menuItems = [
     id: 'project',
     children: 'Projetos',
     disabled: true,
-    href: '/project'
+    href: '/'
   },
   {
     id: 'linkedIn',
@@ -31,8 +31,7 @@ const menuItems = [
   {
     id: 'vue',
     children: 'Versão em Vue',
-    disabled: true,
-    href: 'vue.henriquelopes.dev.br',
+    href: 'https://vue.henriquelopes.dev.br',
     target: '_blank'
   }
 ]

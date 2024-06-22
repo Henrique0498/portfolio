@@ -28,7 +28,7 @@ function TechnologyItem({ data, xPos }: InTechnologyItem) {
           {data.icon}
         </div>
         <div className={styles.description}>
-          <h6>{data.title}</h6>
+          <span>{data.title}</span>
         </div>
       </div>
       <Handle

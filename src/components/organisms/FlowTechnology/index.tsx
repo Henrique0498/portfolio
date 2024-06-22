@@ -74,7 +74,7 @@ export default function FlowTechnology({ edges, nodes }: InFlowTechnology) {
         className={`${styles.lock} flex transition-all ${unlock ? 'z-10' : 'opacity-0 z-0'}`}
       >
         <div className="relative">
-          <h6 className="text-2xl m-2">Mapa mental</h6>
+          <h3 className="text-2xl m-2">Mapa mental</h3>
           <p className="mb-8 text-center">
             Exemplo de como as tecnologias funcionam.
           </p>
