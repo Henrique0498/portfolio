@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { PropsWithChildren } from 'react'
 import { Analytics } from '@vercel/analytics/react'
 import { NextUIProvider } from '@nextui-org/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 import Header from '@/components/organisms/Header'
 import Footer from '@/components/organisms/Footer'
@@ -32,6 +33,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
           </div>
         </NextUIProvider>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
