@@ -20,4 +20,15 @@
   &:hover::before {
     width: calc(100% + 0.5rem);
   }
+
+  &[disabled],
+  &[disabled='true'] {
+    opacity: 0.8;
+    text-decoration: line-through;
+    cursor: not-allowed;
+
+    &:hover::before {
+      width: 0px;
+    }
+  }
 }
