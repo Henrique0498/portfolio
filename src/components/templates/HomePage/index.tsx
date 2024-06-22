@@ -24,18 +24,19 @@ export default function HomePage(props: InHomePage) {
 
           <div className={`${styles.description_body} body shadow-xl`}>
             <p>
-              Sou desenvolvedor há um pouco mais de <b>{timeExperience} anos</b>
-              , trabalhei em uma empresa, em São Paulo no <b>Front-End </b>
-              com <b>React</b> utilizando <b> Typescript</b> como linguagem.
+              Sou desenvolvedor <b>Front-end</b> há pouco mais de
+              <b> {timeExperience} anos</b>, trabalhei em uma empresa de São
+              Paulo utilizando <b>React</b> e <b>Typescript</b> como linguagens
+              principais e também sou formado em Gestão da Tecnologia da
+              Informação.
               <br />
-              Eu sou graduado em Gestão da tecnologia da informação, e
-              atualmente faço graduação de ADS na FIAP, e nos meus tempos livre
-              eu investido parte do meu tempo estudando tecnologias voltadas ao
-              <b> Front-End</b>, além de reforçar minhas <b>soft-skills</b>.
+              Invisto meu tempo livre estudando tecnologias voltadas para
+              Front-end além de sempre tentar melhorar minhas <b>soft skills</b>
+              . E por que isso?
               <br />
-              <br />E o por quê disso? Porquê simplesmente acho incrível o
-              desenvolvimento web, onde cada dia sempre tem uma tecnologia nova,
-              ou então uma nova maneira de fazer algo já existente.
+              Porque acho incrível o ecossistema de desenvolvimento web, onde
+              tecnologias novas surgem o tempo todo. Então, sempre existe uma
+              maneira nova e melhor de fazer algo já existente.
             </p>
           </div>
         </div>
@@ -45,9 +46,9 @@ export default function HomePage(props: InHomePage) {
         <div className={styles.technologies_main}>
           <div className="main_head pb-4">
             <h2 className={`title ${styles.container_text}`}>Tecnologias</h2>
-            <p>Stacks que mais domino nesse momento.</p>
+            <p>Estas são as stacks que mais domino nesse momento.</p>
           </div>
-          <div className={styles.test}>
+          <div className={styles.body}>
             <FlowTechnology edges={edgesTechnology} nodes={nodesTechnology} />
           </div>
         </div>
