@@ -355,11 +355,6 @@ export const edgesTechnology: Edge[] = [
     target: 'react'
   },
   {
-    id: 'tsToReact',
-    source: 'ts',
-    target: 'react'
-  },
-  {
     id: 'sassToReact',
     source: 'sass',
     target: 'react'
@@ -540,9 +535,9 @@ export const edgesTechnology: Edge[] = [
     target: 'js'
   },
   {
-    id: 'tsToVue',
-    source: 'vue',
-    target: 'ts'
+    id: 'jsToTs',
+    source: 'ts',
+    target: 'js'
   },
   {
     id: 'nuxtToVue',
