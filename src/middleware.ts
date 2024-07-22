@@ -1,7 +1,7 @@
 'use server'
 
 import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
+import type { MiddlewareConfig, NextRequest } from 'next/server'
 
 import { verifyToken } from './services/auth/verifyToken'
 import { post_AuthenticatePublic } from './services/api/actions/authenticate'
@@ -9,30 +9,51 @@ import { post_AuthenticatePublic } from './services/api/actions/authenticate'
 export async function middleware(request: NextRequest) {
   const response = NextResponse.next()
   const tokenIsValid = await verifyToken(request.cookies.get('token')?.value)
-  let token = ''
-  const ip =
-    request.headers.get('x-forwarded-for') ||
-    request.ip ||
-    (request.headers.get('x-real-ip') as string)
 
-  if (!tokenIsValid) {
-    const publicKey = process.env.PUBLIC_KEY as string
-    token = await post_AuthenticatePublic({
-      publicKey,
-      ip
-    }).then((res) => res.data.access_token)
+  if (request.nextUrl.pathname.includes('/noAuthorized')) {
+    if (tokenIsValid) {
+      return NextResponse.redirect(new URL('/', request.url))
+    }
+
+    return response
   }
 
-  response.cookies.set('token', token, {
-    httpOnly: true,
-    secure: true,
-    sameSite: 'lax',
-    maxAge: 60 * 60 * 1
-  })
+  if (!tokenIsValid) {
+    const ip = getIp(request)
+    const publicKey = process.env.PUBLIC_KEY!
+    const body = {
+      publicKey,
+      ip
+    }
+
+    const { token } = await post_AuthenticatePublic(body)
+      .then((res) => ({
+        token: res.data.access_token
+      }))
+      .catch(() => ({ token: null }))
+
+    if (!token) {
+      return NextResponse.redirect(new URL('/noAuthorized', request.url))
+    }
+
+    response.cookies.set('token', token, {
+      httpOnly: true,
+      secure: true,
+      sameSite: 'lax',
+      maxAge: 60 * 60 * 1
+    })
+  }
 
   return response
 }
 
-export const config = {
-  matcher: '/'
+function getIp({ headers, ip }: NextRequest) {
+  const ipHeader = headers.get('x-forwarded-for')
+  const ipClient = headers.get('x-real-ip')!
+
+  return ipHeader || ip || ipClient
+}
+
+export const config: MiddlewareConfig = {
+  matcher: ['/', '/noAuthorized']
 }
