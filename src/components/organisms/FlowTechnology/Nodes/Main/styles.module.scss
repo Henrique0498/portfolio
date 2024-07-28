@@ -1,0 +1,65 @@
+.background {
+  padding: 2px;
+  border-radius: 0.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    transition: all 300ms ease-in-out;
+    z-index: -1;
+    filter: blur(0.5rem);
+  }
+
+  &:hover::before {
+    width: calc(100% + 1rem);
+    height: calc(100% + 1rem);
+  }
+}
+
+.node {
+  background-color: $colorBlack;
+  padding: 1rem;
+  border-radius: 0.125rem;
+}
+
+.header {
+  padding-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.description {
+  span {
+    color: $colorGray-300;
+  }
+
+  p {
+    font-size: 12px;
+    color: $colorGray-600;
+  }
+}
+
+.handle {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: $colorBlack;
+  border: 2px solid currentColor;
+
+  &.left {
+    left: -1rem;
+  }
+
+  &.right {
+    right: -1rem;
+  }
+}

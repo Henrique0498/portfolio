@@ -39,33 +39,14 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background-color: currentColor !important;
+  background-color: $colorWhite;
+  border: 2px solid currentColor;
 
   &.left {
-    left: -1rem !important;
-    &::after {
-      content: '-';
-    }
+    left: -1rem;
   }
 
   &.right {
-    right: -1rem !important;
-
-    &::after {
-      content: '+';
-    }
-  }
-
-  &::before {
-    content: '';
-    width: 1.75rem;
-    height: 1.75rem;
-    background: #fff;
-    border-radius: 50%;
-  }
-
-  &::after {
-    color: currentColor;
-    position: absolute;
+    right: -1rem;
   }
 }
