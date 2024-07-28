@@ -50,4 +50,10 @@
   &.right {
     right: -1rem;
   }
+
+  &.revert {
+    .handleIcon {
+      transform: rotateY(3.142rad);
+    }
+  }
 }

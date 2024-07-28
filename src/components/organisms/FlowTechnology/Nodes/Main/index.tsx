@@ -17,7 +17,7 @@ function TechnologyNodeMain({ data, xPos }: InNodeTechnologiesProps) {
     if (value) {
       return `${styles.right} ${colors.buttonRight}`
     } else {
-      return `${styles.left} ${colors.buttonLeft}`
+      return `${styles.left} ${colors.buttonLeft} ${styles.revert}`
     }
   }
 
@@ -47,7 +47,10 @@ function TechnologyNodeMain({ data, xPos }: InNodeTechnologiesProps) {
         position={positionSource}
         className={`${styles.handle} ${positionSourceStyle}`}
       >
-        <Icon icon="ph:flow-arrow-bold" className="text-xl" />
+        <Icon
+          icon="ph:flow-arrow-bold"
+          className={`text-xl ${styles.handleIcon}`}
+        />
       </Handle>
     </div>
   )
