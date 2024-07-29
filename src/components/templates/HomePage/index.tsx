@@ -1,7 +1,6 @@
 import styles from './styles.module.scss'
-import Welcome from '@/components/organisms/Welcome'
+import Welcome from '@/components/templates/HomePage/Welcome'
 import FlowTechnology from '@/components/organisms/FlowTechnology'
-import { edgesTechnology, nodesTechnology } from './moks/techonology'
 
 interface InHomePage {}
 
@@ -49,7 +48,7 @@ export default function HomePage(props: InHomePage) {
             <p>Estas são as stacks que mais domino nesse momento.</p>
           </div>
           <div className={styles.body}>
-            <FlowTechnology edges={edgesTechnology} nodes={nodesTechnology} />
+            <FlowTechnology />
           </div>
         </div>
       </section>

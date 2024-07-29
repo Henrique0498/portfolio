@@ -1,0 +1,62 @@
+.lock {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: $colorBlack-75;
+  border-radius: 0.5rem;
+  top: 0;
+  left: 0;
+  color: $colorGray-300;
+
+  & > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+.loading {
+  position: absolute;
+  bottom: -6rem;
+}
+
+.flow {
+  background-color: transparent;
+  border-radius: 0.5rem;
+  z-index: 1;
+}
+
+.map {
+  svg {
+    background-color: $colorGray-300;
+
+    rect {
+      fill: $colorGray-50;
+    }
+
+    path {
+      fill: $colorGray-600;
+    }
+  }
+}
+
+.control {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  button {
+    background-color: $colorBlue-600;
+    fill: $colorBlue-50 !important;
+    border: none;
+    border-radius: 0.25rem;
+
+    &:hover {
+      background-color: $colorBlue-600;
+      opacity: 0.9;
+    }
+  }
+}

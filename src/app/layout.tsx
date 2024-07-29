@@ -13,6 +13,7 @@ import {
 } from '@/functions/fonts'
 
 import '@/styles/global.scss'
+import { ClientProviders } from './providers'
 
 export const metadata: Metadata = {
   title: 'Henrique Lopes',
@@ -26,11 +27,13 @@ export default function RootLayout({ children }: PropsWithChildren) {
         className={`${font_type_primary.variable} ${font_type_secondary.variable} ${font_type_coding.variable}`}
       >
         <NextUIProvider>
-          <div className="App">
-            <Header />
-            <div className="AppBody">{children}</div>
-            <Footer />
-          </div>
+          <ClientProviders>
+            <div className="App">
+              <Header />
+              <div className="AppBody">{children}</div>
+              <Footer />
+            </div>
+          </ClientProviders>
         </NextUIProvider>
         <Analytics />
         <SpeedInsights />
