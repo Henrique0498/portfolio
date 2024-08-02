@@ -40,8 +40,6 @@ export function FlowTechnologyDisplay({
   const [nodesState, setNodes, onNodesChange] = useNodesState(nodes)
   const [edgesState, setEdges, onEdgesChange] = useEdgesState(edges)
 
-  console.log(edgesState)
-
   const [unlock, setUnlock] = useState(true)
   const [loading, setLoading] = useState(true)
 

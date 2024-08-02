@@ -1,36 +1,13 @@
 'use client'
 
-import {
-  isServer,
-  QueryClient,
-  QueryClientProvider
-} from '@tanstack/react-query'
+import { ReactQueryProviders } from '@/libs/ReactQuery'
+import { NextUIProvider } from '@nextui-org/react'
+import { PropsWithChildren } from 'react'
 
-function makeQueryClient() {
-  return new QueryClient({
-    defaultOptions: {
-      queries: {
-        staleTime: 60 * 1000
-      }
-    }
-  })
-}
-
-let browserQueryClient: QueryClient | undefined = undefined
-
-function getQueryClient() {
-  if (isServer) {
-    return makeQueryClient()
-  } else {
-    if (!browserQueryClient) browserQueryClient = makeQueryClient()
-    return browserQueryClient
-  }
-}
-
-export function ClientProviders({ children }: { children: React.ReactNode }) {
-  const queryClient = getQueryClient()
-
+export function ClientProviders({ children }: PropsWithChildren) {
   return (
-    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    <NextUIProvider>
+      <ReactQueryProviders>{children}</ReactQueryProviders>
+    </NextUIProvider>
   )
 }
