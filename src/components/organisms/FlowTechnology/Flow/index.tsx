@@ -40,11 +40,15 @@ export function FlowTechnologyDisplay({
   const [nodesState, setNodes, onNodesChange] = useNodesState(nodes)
   const [edgesState, setEdges, onEdgesChange] = useEdgesState(edges)
 
+  console.log(edgesState)
+
   const [unlock, setUnlock] = useState(true)
   const [loading, setLoading] = useState(true)
 
   const onConnect = useCallback<OnConnect>(
-    (params) => setEdges((eds) => addEdge(params, eds)),
+    async (params) => {
+      return setEdges((eds) => addEdge(params, eds))
+    },
     [setEdges]
   )
 

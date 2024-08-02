@@ -68,4 +68,13 @@
       transform: rotateY(3.142rad);
     }
   }
+
+  &::after {
+    content: '';
+    width: 2rem;
+    height: 2rem;
+    background-color: transparent;
+    border-radius: 50%;
+    position: absolute;
+  }
 }

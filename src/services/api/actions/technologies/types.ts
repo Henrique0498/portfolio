@@ -27,3 +27,11 @@ export interface InNodeTechnologiesData {
   icon: string
   colors: InResponseColors
 }
+
+export interface InPostDataTechnology {
+  name: string
+  type: string
+  icon: string
+  positionY: number
+  positionX: number
+}
