@@ -1,13 +1,5 @@
 .container {
-  height: 5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: $colorBlack;
   color: $colorWhite;
-
-  ul {
-    display: flex;
-    gap: 1.5rem;
-  }
+  padding: 3rem 0;
 }
