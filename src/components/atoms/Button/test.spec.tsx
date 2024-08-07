@@ -4,7 +4,7 @@ import Button from '.'
 
 describe('<Button />', () => {
   it('should render', () => {
-    const { container } = render(<Button />)
+    const { container } = render(<Button>botão</Button>)
 
     expect(container.firstChild).toBeInTheDocument()
   })
