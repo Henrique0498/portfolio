@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  border: none;
+  box-shadow: none;
+}
+
+.lock {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: $colorBlack-75;
+  border-radius: 0.5rem;
+  top: 0;
+  left: 0;
+  color: $colorGray-300;
+
+  & > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
