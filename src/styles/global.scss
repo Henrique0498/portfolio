@@ -53,6 +53,10 @@ li {
   display: none;
 }
 
+div.react-flow__node.react-flow__node-default.nopan.selectable {
+  border: none;
+}
+
 .title {
   line-height: 1;
   font-size: 3rem;

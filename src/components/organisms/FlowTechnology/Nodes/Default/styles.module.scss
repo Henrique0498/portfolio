@@ -18,6 +18,7 @@
   border-width: 0.125rem;
   border-style: solid;
   width: 4rem;
+  font-size: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,33 +40,29 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background-color: currentColor !important;
+  background-color: $colorWhite !important;
+  border: 2px solid currentColor;
 
   &.left {
-    left: -1rem !important;
-    &::after {
-      content: '-';
-    }
+    left: -1rem;
   }
 
   &.right {
-    right: -1rem !important;
+    right: -1rem;
+  }
 
-    &::after {
-      content: '+';
+  &.revert {
+    .handleIcon {
+      transform: rotateY(3.142rad);
     }
   }
 
-  &::before {
-    content: '';
-    width: 1.75rem;
-    height: 1.75rem;
-    background: #fff;
-    border-radius: 50%;
-  }
-
   &::after {
-    color: currentColor;
+    content: '';
+    width: 2rem;
+    height: 2rem;
+    background-color: transparent;
+    border-radius: 50%;
     position: absolute;
   }
 }

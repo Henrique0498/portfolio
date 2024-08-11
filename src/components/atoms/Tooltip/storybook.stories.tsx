@@ -1,9 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react'
-import Welcome from '.'
+import Tooltip from '.'
 
 export default {
-  title: 'organisms/Welcome',
-  component: Welcome
+  title: 'atoms/Tooltip',
+  component: Tooltip
 } as Meta
 
 export const Default: StoryObj = {}

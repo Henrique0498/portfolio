@@ -1,0 +1,19 @@
+.flow {
+  background-color: transparent;
+  border-radius: 0.5rem;
+  z-index: 1;
+}
+
+.map {
+  svg {
+    background-color: $colorGray-300;
+
+    rect {
+      fill: $colorGray-50;
+    }
+
+    path {
+      fill: $colorGray-600;
+    }
+  }
+}
