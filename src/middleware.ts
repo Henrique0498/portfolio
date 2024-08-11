@@ -26,21 +26,20 @@ export async function middleware(request: NextRequest) {
       ip
     }
 
-    const { token } = await post_AuthenticatePublic(body)
-      .then((res) => ({
-        token: res.data.access_token
-      }))
-      .catch(() => ({ token: null }))
+    const { access_token, expires } = await post_AuthenticatePublic(body)
+      .then((res) => res.data)
+      .catch(() => ({ access_token: null, expires: '' }))
 
-    if (!token) {
+    if (!access_token) {
       return NextResponse.redirect(new URL('/noAuthorized', request.url))
     }
 
-    response.cookies.set('token', token, {
+    response.cookies.set('token', access_token, {
       httpOnly: true,
       secure: true,
       sameSite: 'lax',
-      maxAge: 60 * 60 * 1
+      maxAge: 60 * 60 * 1,
+      expires: new Date(expires)
     })
   }
 

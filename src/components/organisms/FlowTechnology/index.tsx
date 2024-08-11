@@ -10,6 +10,7 @@ import { InNodeTechnologies } from '@/services/api/actions/technologies/types'
 import { ErrorFullScreen } from '@/components/atoms/Error'
 import { Skeleton } from '@nextui-org/react'
 import { FlowTechnologyDisplay } from './Flow'
+import { useCallback } from 'react'
 
 interface InControRender {
   edges?: Edge[]
@@ -43,10 +44,10 @@ export default function FlowTechnology() {
   const loading = isFetchingNodes || isFetchingEdges
   const error = errorNodes || errorEdges
 
-  function handleReloading() {
+  const handleReloading = useCallback(() => {
     refetchNodes()
     refetchEdges()
-  }
+  }, [refetchNodes, refetchEdges])
 
   return (
     <div className={styles.container}>
