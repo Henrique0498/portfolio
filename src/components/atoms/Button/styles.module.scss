@@ -1,0 +1,95 @@
+.content {
+  padding: 0 1rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  column-gap: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.875rem;
+  position: relative;
+  overflow: hidden;
+
+  * {
+    position: relative;
+    z-index: 1;
+  }
+
+  &::after {
+    content: '';
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+  }
+
+  &.primary {
+    color: $colorBlue-50;
+    background-color: $colorBlue-600;
+
+    &.animationCircle {
+      &::before {
+        background-color: $colorBlue-700;
+      }
+    }
+  }
+
+  &.light {
+    color: $colorGray-800;
+    background-color: $colorGray-200;
+
+    &.animationCircle {
+      &::before {
+        background-color: $colorGray-300;
+      }
+    }
+  }
+
+  &.disabled {
+    opacity: 0.75;
+    cursor: not-allowed;
+  }
+
+  &.icon {
+    padding: 0.625rem;
+  }
+
+  &.animationCircle {
+    animation: buttonAnimateScale 200ms ease-in-out alternate;
+
+    &::before {
+      content: '';
+      width: 1px;
+      height: 1px;
+      top: var(--click-y);
+      left: var(--click-x);
+      border-radius: 50%;
+      position: absolute;
+      animation: buttonAnimateCircle 300ms ease-in-out 100ms alternate;
+      z-index: 0;
+    }
+  }
+
+  .labelIcon {
+    opacity: 0;
+    position: absolute;
+  }
+}
+
+@keyframes buttonAnimateScale {
+  50% {
+    transform: scale(0.9);
+  }
+}
+
+@keyframes buttonAnimateCircle {
+  0% {
+    transform: scale(40);
+  }
+
+  100% {
+    transform: scale(300);
+  }
+}

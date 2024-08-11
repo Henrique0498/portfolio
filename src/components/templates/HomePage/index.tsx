@@ -1,16 +1,13 @@
-import styles from './styles.module.scss'
-import Welcome from '@/components/organisms/Welcome'
+import Welcome from '@/components/templates/HomePage/Welcome'
 import FlowTechnology from '@/components/organisms/FlowTechnology'
-import { edgesTechnology, nodesTechnology } from './moks/techonology'
 
-interface InHomePage {}
+import styles from './styles.module.scss'
 
-export default function HomePage(props: InHomePage) {
+export default function HomePage() {
   const timeExperience = new Date().getFullYear() - 2021
 
   return (
     <main
-      {...props}
       className={`${styles.container} grid gap-x-4 grid-cols-4 lg:grid-cols-12`}
     >
       <Welcome className="col-span-4 lg:col-span-12" />
@@ -49,7 +46,7 @@ export default function HomePage(props: InHomePage) {
             <p>Estas são as stacks que mais domino nesse momento.</p>
           </div>
           <div className={styles.body}>
-            <FlowTechnology edges={edgesTechnology} nodes={nodesTechnology} />
+            <FlowTechnology />
           </div>
         </div>
       </section>
