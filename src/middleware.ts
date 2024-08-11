@@ -20,15 +20,21 @@ export async function middleware(request: NextRequest) {
 
   if (!tokenIsValid) {
     const ip = getIp(request)
-    const publicKey = process.env.PUBLIC_KEY!
+    const publicKey = process.env.PUBLIC_KEY!.replaceAll('$', '\\$')
     const body = {
       publicKey,
       ip
     }
 
+    console.log('publicKey', publicKey)
+
     const { access_token, expires } = await post_AuthenticatePublic(body)
       .then((res) => res.data)
-      .catch(() => ({ access_token: null, expires: '' }))
+      .catch((e) => {
+        console.log('teste', e)
+
+        return { access_token: null, expires: '' }
+      })
 
     if (!access_token) {
       return NextResponse.redirect(new URL('/noAuthorized', request.url))
