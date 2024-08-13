@@ -8,6 +8,11 @@ const api = axios.create({
   withCredentials: true
 })
 
+export const apiService = axios.create({
+  baseURL: process.env.NEXT_PUBLIC_API_URL,
+  withCredentials: true
+})
+
 api.interceptors.request.use(requestSuccess)
 api.interceptors.response.use(responseSuccess, responseError)
 

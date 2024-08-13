@@ -1,7 +1,7 @@
 'use service'
 import axios from 'axios'
 
-import api from '../..'
+import api, { apiService } from '../..'
 import { TyResponsePostAuth } from '../../types'
 import { TyRequestPostAuthPublic } from './types'
 
@@ -10,7 +10,7 @@ const POST_AUTHENTICATION_REFRESH = 'v1/auth/refresh'
 const POST_AUTHENTICATION_REFRESH_LOCAL = 'api/v1/auth/refresh'
 
 export async function post_AuthenticatePublic(data: TyRequestPostAuthPublic) {
-  return api.post<TyResponsePostAuth>(POST_AUTHENTICATION_PUBLIC, data)
+  return apiService.post<TyResponsePostAuth>(POST_AUTHENTICATION_PUBLIC, data)
 }
 
 export async function refreshToken(token: string) {
