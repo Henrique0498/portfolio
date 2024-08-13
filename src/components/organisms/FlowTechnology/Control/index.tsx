@@ -10,7 +10,7 @@ export interface InFlowTechnologyControl {
 
 export function FlowTechnologyControl({ reset }: InFlowTechnologyControl) {
   const reactFlow = useReactFlow()
-  const [unlock, setUnlock] = useState(false)
+  const [unlock, setUnlock] = useState(true)
 
   function handleLock() {
     setUnlock((before) => !before)
