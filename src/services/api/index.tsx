@@ -43,7 +43,9 @@ async function responseError(error: TyGenericErroResponseAxios) {
         }
       })
       .catch(() => {
-        window.location.href = '/noAuthorized'
+        if (typeof window !== 'undefined') {
+          window.location.href = '/noAuthorized'
+        }
       })
   }
 
