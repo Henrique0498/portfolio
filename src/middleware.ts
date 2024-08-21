@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server'
 import type { MiddlewareConfig, NextRequest } from 'next/server'
 
 import { verifyToken } from './services/auth/verifyToken'
-import { post_AuthenticatePublic } from './services/api/actions/authenticate'
+import generateToken from './helpers/generateToken'
 
 export async function middleware(request: NextRequest) {
   const response = NextResponse.next()
@@ -18,44 +18,24 @@ export async function middleware(request: NextRequest) {
     return response
   }
 
-  if (!tokenIsValid) {
-    const ip = getIp(request)
-    const publicKey = process.env.PUBLIC_KEY!
+  const { access_token, error, expires } = await generateToken(
+    request,
+    !tokenIsValid
+  )
 
-    const body = {
-      publicKey,
-      ip
-    }
-
-    const { access_token, expires } = await post_AuthenticatePublic(body)
-      .then((res) => {
-        return res.data
-      })
-      .catch(() => {
-        return { access_token: null, expires: '' }
-      })
-
-    if (!access_token) {
-      return NextResponse.redirect(new URL('/noAuthorized', request.url))
-    }
-
-    response.cookies.set('token', access_token, {
-      httpOnly: true,
-      secure: true,
-      sameSite: 'lax',
-      maxAge: 60 * 60 * 1,
-      expires: new Date(expires)
-    })
+  if (error) {
+    return NextResponse.redirect(new URL('/noAuthorized', request.url))
   }
 
+  response.cookies.set('token', access_token!, {
+    httpOnly: true,
+    secure: true,
+    sameSite: 'lax',
+    maxAge: 60 * 60 * 1,
+    expires: new Date(expires!)
+  })
+
   return response
-}
-
-function getIp({ headers, ip }: NextRequest) {
-  const ipHeader = headers.get('x-forwarded-for')
-  const ipClient = headers.get('x-real-ip')!
-
-  return ipHeader || ip || ipClient
 }
 
 export const config: MiddlewareConfig = {

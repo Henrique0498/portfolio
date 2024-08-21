@@ -2,8 +2,8 @@
   background-color: $colorGray-50;
   border-radius: 0.5rem 0.5rem 0.25rem 0.25rem;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
   max-width: 100%;
 }
 
