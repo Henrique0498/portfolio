@@ -23,7 +23,15 @@ export default function Welcome({ className = '', ...props }: InWelcome) {
         </div>
       </div>
 
-      <Coding code={code} lang="tsx" className="ml-auto shadow-xl" />
+      <Coding
+        code={code}
+        lang="tsx"
+        breadcrumbs="Site > Homepage"
+        title="Pagina inicial"
+        theme="one-light"
+        className="ml-auto shadow-xl"
+        style={{ width: '516px', minHeight: '393px' }}
+      />
     </div>
   )
 }
