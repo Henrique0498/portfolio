@@ -4,7 +4,7 @@ import styles from './styles.module.scss'
 
 export default function NoAuthorized() {
   return (
-    <div className={`${styles.container} container`}>
+    <main className={`${styles.container} container`}>
       <h2 className="text-8xl text-red-500 font-bold">403</h2>
 
       <p className="text-center">
@@ -17,6 +17,6 @@ export default function NoAuthorized() {
         src="/images/robot-space.svg"
         width={320}
       />
-    </div>
+    </main>
   )
 }
