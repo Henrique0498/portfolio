@@ -14,8 +14,7 @@ export default async function generateToken(
   const tokenRequest = request.cookies.get('token')?.value ?? ''
   const tokenIsValid = await verifyToken(tokenRequest)
 
-  if (!tokenRequest) {
-    console.log('deu o caralho')
+  if (!tokenRequest && !generateNewToken) {
     const data = {
       error: {
         message: 'Não bateu no refresh',
@@ -41,7 +40,6 @@ export default async function generateToken(
       publicKey,
       ip
     }
-    console.log('create')
 
     return await post_AuthenticatePublic(body)
       .then(({ data }) => {
@@ -63,8 +61,6 @@ export default async function generateToken(
         return { error: true, access_token: null, expires: null }
       })
   }
-
-  console.log('refresh')
 
   return await refreshToken(tokenRequest)
     .then((response) => {
