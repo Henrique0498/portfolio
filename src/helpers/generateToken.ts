@@ -29,7 +29,6 @@ export default async function generateToken(
   }
 
   if (tokenIsValid) {
-    console.log('não fez nada')
     return { error: false, access_token: tokenRequest, expires: '' }
   }
 
