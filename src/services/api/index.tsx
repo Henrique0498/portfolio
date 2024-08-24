@@ -8,8 +8,8 @@ const api = axios.create({
   withCredentials: true
 })
 
-export const apiService = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL,
+export const apiLocal = axios.create({
+  baseURL: process.env.NEXT_PUBLIC_API_LOCAL_URL,
   withCredentials: true
 })
 
@@ -31,7 +31,7 @@ async function responseError(error: TyGenericErroResponseAxios) {
     return await localRefreshToken()
       .then((response) => {
         if (response.status !== 200) {
-          return response
+          return Promise.reject(response)
         } else {
           const { access_token } = response.data
 
@@ -42,10 +42,12 @@ async function responseError(error: TyGenericErroResponseAxios) {
           return api(originalRequest)
         }
       })
-      .catch(() => {
+      .catch((error) => {
         if (typeof window !== 'undefined') {
           window.location.href = '/noAuthorized'
         }
+
+        return Promise.reject(error)
       })
   }
 
