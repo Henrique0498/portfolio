@@ -1,0 +1,24 @@
+.container {
+  color: currentColor;
+  font-weight: 500;
+  position: relative;
+  color: $colorBlue-500;
+  display: flex;
+  justify-content: center;
+  width: fit-content;
+
+  &:hover {
+    color: $colorBlue-600;
+  }
+
+  &[disabled],
+  &[disabled='true'] {
+    opacity: 0.8;
+    text-decoration: line-through;
+    cursor: not-allowed;
+
+    &:hover::before {
+      width: 0px;
+    }
+  }
+}

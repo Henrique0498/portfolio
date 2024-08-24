@@ -14,33 +14,34 @@ export default async function generateToken(
   const tokenRequest = request.cookies.get('token')?.value ?? ''
   const tokenIsValid = await verifyToken(tokenRequest)
 
-  if (tokenRequest && !tokenIsValid) {
-    return await refreshToken(tokenRequest)
-      .then((response) => {
-        const { access_token, expires } = response.data
+  if (!tokenRequest) {
+    console.log('deu o caralho')
+    const data = {
+      error: {
+        message: 'Não bateu no refresh',
+        stack: `token: ${tokenRequest} \n tokenIsValid: ${tokenIsValid}`
+      },
+      route: 'token/default'
+    }
 
-        return { error: false, access_token, expires }
-      })
-      .catch(async (e) => {
-        const data = {
-          error: {
-            message: e.message,
-            stack: e.stack
-          },
-          route: 'token/refresh'
-        }
+    await generateLog(data)
 
-        await generateLog(data)
+    return { error: true, access_token: null, expires: null }
+  }
 
-        return { error: true, access_token: null, expires: null }
-      })
-  } else if (generateNewToken) {
+  if (tokenIsValid) {
+    console.log('não fez nada')
+    return { error: false, access_token: tokenRequest, expires: '' }
+  }
+
+  if (generateNewToken) {
     const ip = getIp(request)
     const publicKey = process.env.PUBLIC_KEY!
     const body = {
       publicKey,
       ip
     }
+    console.log('create')
 
     return await post_AuthenticatePublic(body)
       .then(({ data }) => {
@@ -63,15 +64,25 @@ export default async function generateToken(
       })
   }
 
-  const data = {
-    error: {
-      message: 'Não bateu no refresh',
-      stack: ''
-    },
-    route: 'token/default'
-  }
+  console.log('refresh')
 
-  await generateLog(data)
+  return await refreshToken(tokenRequest)
+    .then((response) => {
+      const { access_token, expires } = response.data
 
-  return { error: true, access_token: null, expires: null }
+      return { error: false, access_token, expires }
+    })
+    .catch(async (e) => {
+      const data = {
+        error: {
+          message: e.message,
+          stack: e.stack
+        },
+        route: 'token/refresh'
+      }
+
+      await generateLog(data)
+
+      return { error: true, access_token: null, expires: null }
+    })
 }

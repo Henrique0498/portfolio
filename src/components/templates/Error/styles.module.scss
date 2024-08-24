@@ -8,3 +8,13 @@
   text-align: center;
   flex-direction: column;
 }
+
+.stack {
+  padding: 1rem;
+  background-color: $colorGray-200;
+  border-radius: 0.5rem;
+  max-width: calc(100vw - 2rem);
+  text-wrap: wrap;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}

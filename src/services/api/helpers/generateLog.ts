@@ -1,5 +1,5 @@
-import axios from 'axios'
 import { TyResponsePostAuth } from '../types'
+import { apiLocal } from '..'
 
 interface InPostGenerateLog {
   error: {
@@ -10,8 +10,5 @@ interface InPostGenerateLog {
 }
 
 export default async function generateLog(data: InPostGenerateLog) {
-  return await axios.post<TyResponsePostAuth>(
-    'http://localhost:3000/api/v1/error/log',
-    data
-  )
+  return await apiLocal.post<TyResponsePostAuth>('/api/v1/error/log', data)
 }
