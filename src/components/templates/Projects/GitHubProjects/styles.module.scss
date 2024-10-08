@@ -1,0 +1,33 @@
+.section {
+  background-image: url('/images/background-react.svg');
+  background-size: auto calc(100% - 2rem);
+  background-position: top 2rem left;
+  background-repeat: no-repeat;
+  padding-bottom: 1rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 0.75rem;
+}
+
+.projects {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@include sm {
+  .projects {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@include lg {
+  .projects {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
