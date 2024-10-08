@@ -10,10 +10,10 @@ export default function Welcome({ className = '', ...props }: InWelcome) {
     <div {...props} className={`${styles.container} ${className}`}>
       <div>
         <div className={styles.badgers}>
-          <Badger color="gray">NextJS</Badger>
-          <Badger>NextJS</Badger>
-          <Badger color="blue">NextJS</Badger>
-          <Badger color="yellow">NextJS</Badger>
+          <Badger color="green">Vue</Badger>
+          <Badger color="violet">React</Badger>
+          <Badger color="blue">Typescript</Badger>
+          <Badger color="yellow">Javascript</Badger>
         </div>
 
         <div className={`${styles.containerText} textTitle3`}>

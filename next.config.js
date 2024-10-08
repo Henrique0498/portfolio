@@ -4,7 +4,7 @@ const path = require('path')
 const nextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
-    prependData: `@import "./src/styles/_text.scss";`
+    prependData: `@import "./src/styles/_text.scss"; @import "./src/styles/_breakpoints.scss";`
   },
   images: {
     remotePatterns: [
