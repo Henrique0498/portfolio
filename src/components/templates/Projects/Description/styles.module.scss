@@ -1,0 +1,23 @@
+.container {
+  border-radius: 0.5rem;
+  padding: 1rem;
+  gap: 2rem;
+  background-color: $colorGray-900;
+  color: white;
+  box-shadow: 0px 1rem 0px 0.5rem $colorGray-950;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  padding: 2rem 0 4rem;
+}
+
+@include md {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}

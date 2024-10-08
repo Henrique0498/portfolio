@@ -12,15 +12,20 @@ import Logo from '@/components/molecules/Logo'
 import NavLink from '@/components/atoms/NavLink'
 
 import styles from './styles.module.scss'
+import Link from 'next/link'
 
 interface InHeader extends ComponentPropsWithRef<'header'> {}
 
 const menuItems = [
   {
+    id: 'homepage',
+    children: 'Pagina inicial',
+    href: '/'
+  },
+  {
     id: 'project',
     children: 'Projetos',
-    disabled: true,
-    href: '/'
+    href: '/projects'
   },
   {
     id: 'linkedIn',
@@ -63,7 +68,9 @@ export default function Header({ className = '', ...props }: InHeader) {
       className={`${styles.container} ${isScroll ? styles.headerDark : ''} h-20 ${className}`}
     >
       <div className={styles.headerBody}>
-        <Logo />
+        <Link href="/">
+          <Logo />
+        </Link>
 
         <NavbarMenuToggle
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}

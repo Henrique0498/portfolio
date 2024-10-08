@@ -28,4 +28,8 @@
     background: $colorYellow-300;
     color: $colorYellow-900;
   }
+  &[color='pink'] {
+    background: $colorPink-300;
+    color: $colorPink-900;
+  }
 }

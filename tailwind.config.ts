@@ -17,7 +17,13 @@ const config: Config = {
     { pattern: /^to-/ },
     { pattern: /^text-/ }
   ],
-  theme: {},
+  theme: {
+    extend: {
+      animation: {
+        'spin-slow': 'spin 3s linear infinite'
+      }
+    }
+  },
   plugins: [nextui()]
 }
 export default config

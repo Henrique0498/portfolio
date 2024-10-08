@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  padding: 1rem;
+  width: 100%;
+  overflow-x: auto;
+  gap: 1rem;
+  margin-top: -10rem;
+
+  &::-webkit-scrollbar {
+    overflow: hidden;
+  }
+}
