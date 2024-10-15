@@ -30,7 +30,7 @@ export async function middleware(request: NextRequest) {
   response.cookies.set('token', access_token!, {
     httpOnly: true,
     secure: true,
-    sameSite: 'none',
+    sameSite: 'strict',
     maxAge: 60 * 60 * 1,
     expires: new Date(expires!)
   })

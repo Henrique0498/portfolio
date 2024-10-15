@@ -12,7 +12,7 @@ export async function POST(request: NextRequest) {
   cookies().set('token', access_token!, {
     httpOnly: true,
     secure: true,
-    sameSite: 'none',
+    sameSite: 'strict',
     maxAge: 60 * 60 * 1,
     expires: new Date(expires!)
   })
