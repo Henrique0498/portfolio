@@ -19,7 +19,10 @@ export const apiLocal = axios.create({
 api.interceptors.response.use(responseSuccess, responseError)
 
 function responseSuccess(response: AxiosResponse) {
-  const urls = [`${baseURL}/v1/auth/public`, `${baseURL}/v1/auth/refresh`]
+  const urls = [
+    `${baseURL}/v1/auth/public`,
+    `${baseURLLocal}/api/v1/auth/refresh`
+  ]
 
   if (urls.includes(response.request.url)) {
     const { access_token } = response.data
