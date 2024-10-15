@@ -14,7 +14,7 @@ export default function Footer() {
           <ul className="flex gap-4 flex-col sm:flex-row  text-gray-400">
             <NavLink href="/projects">Projetos</NavLink>
             <li>
-              <NavLink href="/docs/curriculo.pdf" download>
+              <NavLink href="/docs/curriculo.pdf" download target="_blank">
                 Currículo
               </NavLink>
             </li>
