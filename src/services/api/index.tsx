@@ -17,18 +17,20 @@ export const apiLocal = axios.create({
 })
 
 api.interceptors.response.use(responseSuccess, responseError)
+apiLocal.interceptors.response.use(responseSuccess)
 
 function responseSuccess(response: AxiosResponse) {
+  const responseUrl = response.request.url ?? response.request.responseURL
   const urls = [
     `${baseURL}/v1/auth/public`,
     `${baseURLLocal}/api/v1/auth/refresh`
   ]
 
-  if (urls.includes(response.request.url)) {
+  if (urls.includes(responseUrl)) {
     const { access_token } = response.data
 
-    response.config.headers!.Authorization = `Bearer ${access_token}`
     api.defaults.headers.Authorization = `Bearer ${access_token}`
+    response.config.headers!.Authorization = `Bearer ${access_token}`
   }
 
   return response
