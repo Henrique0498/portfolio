@@ -5,24 +5,20 @@ import { ComponentProps } from 'react'
 import IconLink from '@/components/atoms/IconLink'
 import { InGetGitHubRepository } from '@/services/api/actions/github/types'
 
-const baseUrl = process.env.NEXT_PUBLIC_API_URL
-
 interface InItemProject
   extends Omit<InGetGitHubRepository, 'id'>,
     ComponentProps<'div'> {}
 
 export default function ItemProject({
   description,
+  className = '',
   html_url,
   language,
   name
 }: InItemProject) {
   return (
     <div
-      className={`${styles.card} shadow-md bg-white border border-gray-200`}
-      style={{
-        backgroundImage: `url(${baseUrl}/v1/image/texts?text=${language}&opacity=0.3&color=e2e8f0)`
-      }}
+      className={`${styles.card} ${className} shadow-md bg-white border border-gray-200`}
     >
       <div className={styles.badgers}>
         <IconLink
@@ -34,10 +30,19 @@ export default function ItemProject({
         />
       </div>
 
-      <div className={`${styles.header} bg-white after:shadow-white`}>
-        <h4 className="text-gray-900 truncate">{name.replaceAll('-', ' ')}</h4>
+      <div className={styles.header}>
+        <span className="px-4 py-2 rounded-lg bg-white">
+          <h4 className="text-gray-900 truncate decoration-square text-title-lg">
+            {name.replace(/[-_]/gm, ' ')}
+          </h4>
+        </span>
       </div>
-      <div className={`${styles.body} bg-white truncate text-gray-800`}>
+
+      <div className={`${styles.body} bg-white after:shadow-white`}>
+        {language}
+      </div>
+
+      <div className={`${styles.footer} bg-white truncate text-gray-800`}>
         {description}
       </div>
     </div>
