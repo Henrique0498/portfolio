@@ -30,7 +30,7 @@ export async function middleware(request: NextRequest) {
   response.cookies.set('token', access_token!, {
     httpOnly: true,
     secure: true,
-    sameSite: 'lax',
+    sameSite: 'strict',
     maxAge: 60 * 60 * 1,
     expires: new Date(expires!)
   })
@@ -39,5 +39,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config: MiddlewareConfig = {
-  matcher: ['/', '/noAuthorized']
+  matcher: ['/', '/projects', '/noAuthorized']
 }

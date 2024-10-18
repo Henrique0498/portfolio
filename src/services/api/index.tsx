@@ -1,26 +1,42 @@
-import axios, { AxiosResponse, InternalAxiosRequestConfig } from 'axios'
+import axios, { AxiosResponse } from 'axios'
 import { localRefreshToken } from './actions/authenticate'
-import { TyGenericErroResponseAxios } from './actions/types'
-import getAuth from './helpers/getAuth'
+import generateLog from './helpers/generateLog'
+import { InGenericErroResponseAxios } from './types'
+
+const baseURL = process.env.NEXT_PUBLIC_API_URL
+const baseURLLocal = process.env.NEXT_PUBLIC_API_LOCAL_URL
 
 const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL,
+  baseURL,
   withCredentials: true
 })
 
 export const apiLocal = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_LOCAL_URL,
+  baseURL: baseURLLocal,
   withCredentials: true
 })
 
-api.interceptors.request.use(requestSuccess)
 api.interceptors.response.use(responseSuccess, responseError)
+apiLocal.interceptors.response.use(responseSuccess)
 
 function responseSuccess(response: AxiosResponse) {
+  const responseUrl = response.request.url ?? response.request.responseURL
+  const urls = [
+    `${baseURL}/v1/auth/public`,
+    `${baseURLLocal}/api/v1/auth/refresh`
+  ]
+
+  if (urls.includes(responseUrl)) {
+    const { access_token } = response.data
+
+    api.defaults.headers.Authorization = `Bearer ${access_token}`
+    response.config.headers!.Authorization = `Bearer ${access_token}`
+  }
+
   return response
 }
 
-async function responseError(error: TyGenericErroResponseAxios) {
+async function responseError(error: InGenericErroResponseAxios) {
   const originalRequest = error.config
 
   if (
@@ -28,55 +44,58 @@ async function responseError(error: TyGenericErroResponseAxios) {
     error.response.status === 401 &&
     !originalRequest._retry
   ) {
-    return await localRefreshToken()
-      .then((response) => {
-        if (response.status !== 200) {
-          return Promise.reject(response)
-        } else {
-          const { access_token } = response.data
+    originalRequest._retry = true
 
-          originalRequest.headers!.Authorization = `Bearer ${access_token}`
-          api.defaults.headers.Authorization = `Bearer ${access_token}`
+    try {
+      const responseRefresh = await localRefreshToken()
 
-          originalRequest._retry = true
-          return api(originalRequest)
-        }
-      })
-      .catch((error) => {
-        if (typeof window !== 'undefined') {
-          window.location.href = '/noAuthorized'
-        }
+      if (responseRefresh.status !== 200) {
+        return Promise.reject(responseRefresh)
+      }
 
-        return Promise.reject(error)
-      })
+      return api(originalRequest)
+    } catch (refreshError) {
+      errorManager(error, 'refresh/local/token')
+      if (typeof window !== 'undefined') {
+        window.location.href = '/noAuthorized'
+      }
+
+      return Promise.reject(refreshError)
+    }
   }
+
+  errorManager(error, originalRequest.url)
 
   return Promise.reject(error)
 }
 
-async function requestSuccess(request: InternalAxiosRequestConfig) {
-  const headerAuthorization = request.headers.Authorization as
-    | string
-    | undefined
+async function errorManager(
+  error: InGenericErroResponseAxios | Error,
+  url = 'No route information'
+) {
+  try {
+    let message = 'Request failed'
+    let stack = 'No stack trace available'
 
-  if (
-    headerAuthorization?.includes('Bearer') ||
-    request.url === 'v1/auth/public'
-  ) {
-    return request
+    if ('stack' in error) {
+      message = error?.message ?? 'Request failed'
+      stack = error?.stack ?? 'No stack trace available'
+    } else if ('response' in error) {
+      message = error.response?.data?.message ?? 'Request failed'
+      stack = error.response?.data?.error ?? 'No stack trace available'
+    }
+
+    const data = {
+      error: {
+        message,
+        stack
+      },
+      route: url
+    }
+    await generateLog(data)
+  } catch (e) {
+    console.log(e)
   }
-  return await getAuth()
-    .then(({ data }) => {
-      const { access_token } = data
-
-      request.headers.Authorization = `Bearer ${access_token}`
-      api.defaults.headers.Authorization = `Bearer ${access_token}`
-
-      return request
-    })
-    .catch(() => {
-      return Promise.reject(new Error('not authorized'))
-    })
 }
 
 export default api

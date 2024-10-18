@@ -1,3 +1,4 @@
+import NavLink from '@/components/atoms/NavLink'
 import styles from './styles.module.scss'
 import IconLink from '@/components/atoms/IconLink'
 
@@ -6,16 +7,16 @@ export default function Footer() {
 
   return (
     <footer className={styles.container}>
-      <div className="container flex flex-col md:flex-row justify-between items-center gap-6">
+      <div className="container flex flex-col md:flex-row justify-between items-center gap-6 px-4">
         <span className="order-3 md:order-1">{year} © Copyright</span>
 
         <nav className="order-2 md:order-2">
           <ul className="flex gap-4 flex-col sm:flex-row  text-gray-400">
+            <NavLink href="/projects">Projetos</NavLink>
             <li>
-              <span className="line-through cursor-not-allowed">Projetos</span>
-            </li>
-            <li>
-              <span className="line-through cursor-not-allowed">Currículo</span>
+              <NavLink href="/docs/curriculo.pdf" download target="_blank">
+                Currículo
+              </NavLink>
             </li>
           </ul>
         </nav>
