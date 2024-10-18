@@ -20,14 +20,71 @@
   grid-template-columns: 1fr;
 }
 
+.card {
+  background-image: url('/images/background-project-center.svg');
+
+  h4:after {
+    color: $colorBlue-500;
+  }
+}
+
 @include sm {
   .projects {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card {
+    /* Primeiro card de cada fileira */
+    &:nth-child(2n-1) {
+      background-image: url('/images/background-project-left.svg');
+
+      h4:after {
+        color: $colorViolet-500;
+      }
+    }
+
+    /* Segundo card de cada fileira */
+    &:nth-child(2n) {
+      background-image: url('/images/background-project-right.svg');
+
+      h4:after {
+        color: $colorPink-500;
+      }
+    }
   }
 }
 
 @include lg {
   .projects {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .card {
+    /* Primeiro card de cada fileira */
+    &:nth-child(3n + 1) {
+      background-image: url('/images/background-project-left.svg');
+
+      h4:after {
+        color: $colorViolet-500;
+      }
+    }
+
+    /* Segundo card de cada fileira */
+    &:nth-child(3n + 2) {
+      background-image: url('/images/background-project-center.svg');
+
+      h4:after {
+        color: $colorBlue-500;
+      }
+    }
+
+    /* Terceiro card de cada fileira */
+    &:nth-child(3n) {
+      background-image: url('/images/background-project-right.svg');
+
+      h4:after {
+        color: $colorPink-500;
+      }
+    }
   }
 }

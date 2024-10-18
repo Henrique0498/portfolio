@@ -8,6 +8,7 @@ import Loading from '@/components/atoms/Loading'
 import { getGithubRepos } from '@/services/api/actions/github'
 
 import styles from './styles.module.scss'
+import { InGetGitHubRepository } from '@/services/api/actions/github/types'
 
 interface InMainProjects extends ComponentProps<'section'> {}
 
@@ -31,30 +32,43 @@ export default function GitHubProjects(props: InMainProjects) {
         </div>
 
         <div className={`${styles.projects} ${loading ? styles.loading : ''}`}>
-          {loading &&
-            Array.from({ length: 12 }, (_, index) => (
-              <Loading
-                label="Carregando projetos..."
-                className="h-48 shadow-md bg-white border border-gray-200 rounded-md"
-                key={index}
-              />
-            ))}
-          {error &&
-            Array.from({ length: 12 }, (_, index) => (
-              <Error
-                label="Erro ao carregar tecnologia"
-                className="h-48 shadow-md bg-white border border-gray-200 rounded-md"
-                key={index}
-              />
-            ))}
-          {data?.map((project, i) => (
-            <ItemProject
-              key={`${i}-${project.name}-${project.id}`}
-              {...project}
-            />
-          ))}
+          {controlRender(loading, error, data)}
         </div>
       </div>
     </section>
   )
+}
+
+function controlRender(
+  loading: boolean,
+  error: Error | null,
+  data: InGetGitHubRepository[] = Array.from({ length: 12 })
+) {
+  if (loading) {
+    return data.map((_, i) => (
+      <Loading
+        label="Carregando projetos..."
+        className="h-48 shadow-md bg-white border border-gray-200 rounded-md"
+        key={i}
+      />
+    ))
+  }
+
+  if (error) {
+    return data.map((_, i) => (
+      <Error
+        label="Erro ao carregar tecnologia"
+        className="h-48 shadow-md bg-white border border-gray-200 rounded-md flex items-center"
+        key={i}
+      />
+    ))
+  }
+
+  return data.map((project, i) => (
+    <ItemProject
+      key={`${i}-${project.name}-${project.id}`}
+      className={styles.card}
+      {...project}
+    />
+  ))
 }
