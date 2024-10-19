@@ -18,22 +18,21 @@ export async function middleware(request: NextRequest) {
     return response
   }
 
-  const { access_token, error, expires } = await generateToken(
-    request,
-    !tokenIsValid
-  )
+  if (!tokenIsValid) {
+    const { access_token, error, expires } = await generateToken(request, true)
 
-  if (error) {
-    return NextResponse.redirect(new URL('/noAuthorized', request.url))
+    if (error) {
+      return NextResponse.redirect(new URL('/noAuthorized', request.url))
+    }
+
+    response.cookies.set('token', access_token!, {
+      httpOnly: true,
+      secure: true,
+      sameSite: 'strict',
+      maxAge: 60 * 60 * 1,
+      expires: new Date(expires!)
+    })
   }
-
-  response.cookies.set('token', access_token!, {
-    httpOnly: true,
-    secure: true,
-    sameSite: 'strict',
-    maxAge: 60 * 60 * 1,
-    expires: new Date(expires!)
-  })
 
   return response
 }

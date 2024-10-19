@@ -3,7 +3,8 @@ import { cookies } from 'next/headers'
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function POST(request: NextRequest) {
-  const { error, access_token, expires } = await generateToken(request)
+  const token = cookies().get('token')?.value
+  const { error, access_token, expires } = await generateToken(request, !token)
 
   if (error) {
     return NextResponse.redirect(new URL('/noAuthorized', request.url))
