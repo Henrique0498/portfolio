@@ -23,6 +23,7 @@ function responseSuccess(response: AxiosResponse) {
   const responseUrl = response.request.url ?? response.request.responseURL
   const urls = [
     `${baseURL}/v1/auth/public`,
+    `${baseURL}/v1/auth/refresh`,
     `${baseURLLocal}/api/v1/auth/refresh`
   ]
 
