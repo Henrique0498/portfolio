@@ -1,14 +1,17 @@
-import { ComponentPropsWithoutRef } from 'react'
+import { ComponentProps } from 'react'
 import styles from './styles.module.scss'
 import Coding from '@/components/molecules/Coding'
 import Badger from '@/components/atoms/Badger'
 
-interface InWelcome extends Omit<ComponentPropsWithoutRef<'div'>, 'children'> {}
+interface InWelcome extends ComponentProps<'section'> {}
 
-export default function Welcome({ className = '', ...props }: InWelcome) {
+export default function Welcome(props: InWelcome) {
   return (
-    <div {...props} className={`${styles.container} ${className}`}>
-      <div>
+    <section
+      {...props}
+      className={`${styles.container} container col-span-4 lg:col-span-12`}
+    >
+      <div className="p-4">
         <div className={styles.badgers}>
           <Badger color="green">Vue</Badger>
           <Badger color="violet">React</Badger>
@@ -16,7 +19,7 @@ export default function Welcome({ className = '', ...props }: InWelcome) {
           <Badger color="yellow">Javascript</Badger>
         </div>
 
-        <div className={`${styles.containerText} textTitle3`}>
+        <div className={`${styles.containerText} text-title-7xl`}>
           <span>Opa!</span>
           <span>Eu sou um</span>
           <span>Front-End Developer.</span>
@@ -32,9 +35,10 @@ export default function Welcome({ className = '', ...props }: InWelcome) {
         className="ml-auto shadow-xl"
         style={{ width: '516px', minHeight: '393px' }}
       />
-    </div>
+    </section>
   )
 }
+
 const code = `function HomePage(){
   return (
     <>
