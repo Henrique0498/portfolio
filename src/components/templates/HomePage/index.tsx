@@ -7,15 +7,13 @@ export default function HomePage() {
   const timeExperience = new Date().getFullYear() - 2021
 
   return (
-    <main
-      className={`${styles.container} grid gap-x-4 grid-cols-4 lg:grid-cols-12`}
-    >
-      <Welcome className="col-span-4 lg:col-span-12" />
+    <main className={`${styles.container} `}>
+      <Welcome />
 
       <section className={`${styles.description} col-span-4 lg:col-span-12`}>
-        <div className="max-w-screen-2xl lg:grid lg:grid-cols-2 py-20">
+        <div className="container lg:grid lg:grid-cols-2 py-20">
           <div className={styles.description_header}>
-            <h2 className={`title ${styles.container_text}`}>Apresentação</h2>
+            <h2 className="decoration-square text-title-xl">Apresentação</h2>
             <p>Uma breve descrição sobre mim.</p>
           </div>
 
@@ -40,9 +38,9 @@ export default function HomePage() {
       </section>
 
       <section className={`${styles.technologies} col-span-4 lg:col-span-12`}>
-        <div className={styles.technologies_main}>
+        <div className={`${styles.technologies_main} container`}>
           <div className="main_head pb-4">
-            <h2 className={`title ${styles.container_text}`}>Tecnologias</h2>
+            <h2 className="decoration-square text-title-xl">Tecnologias</h2>
             <p>Estas são as stacks que mais domino nesse momento.</p>
           </div>
           <div className={styles.body}>
